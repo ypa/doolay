@@ -1,8 +1,2 @@
-Curated Tour guides and Tour destinations
-
-
-To Do
-=====
-- Wagtail CMS
-- Email forwarding (like craigslist)
-
+- Created doolay repo
+- Installed Wagtial CMS from cookiecutter
