@@ -1,2 +1,3 @@
 - Created doolay repo
 - Installed Wagtial CMS from cookiecutter
+- Update Skills body to Streamfield
