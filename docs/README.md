@@ -37,7 +37,7 @@ This project isn't designed to be deployed to a remote server, but rather for lo
 
 # Apps included
 
-- People
+- Hosts
 - Skills
 - Location
 
