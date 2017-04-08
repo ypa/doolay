@@ -3,3 +3,4 @@
 - Updated Skills body to Streamfield
 - Updated People to Hosts
 - Updated Statuses to Interests
+- Transformed Skills to Experiences
