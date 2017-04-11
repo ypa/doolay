@@ -9,7 +9,7 @@ To Do
 - [x] Vagrant upp working.
 - [x] djrun inside vm is working.
 - [x] Make schema migrations working.
-- [ ] Create Skeleton page structure.
+- [ ] Create Skeleton page structure. Or attempt to make the fixtures going.
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
 - [ ] Research for Email forwarding (like craigslist)
