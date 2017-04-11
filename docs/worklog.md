@@ -6,4 +6,5 @@
 - Transformed Skills to Experiences
 - Fix some relationships between experiences and hosts.
 - Get vagrant up to working.
+- Got schemamigrations working.
 

@@ -8,7 +8,8 @@ To Do
 - [x] Connect Hosts and Experiences for one to many relations. Make sure the relationship is right.
 - [x] Vagrant upp working.
 - [x] djrun inside vm is working.
-- [ ] Make schema migrations working.
+- [x] Make schema migrations working.
+- [ ] Create Skeleton page structure.
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
 - [ ] Research for Email forwarding (like craigslist)
