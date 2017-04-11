@@ -5,3 +5,5 @@ settings_prod.py
 media/
 static/*
 .DS_Store
+/venv/
+/.vagrant/
