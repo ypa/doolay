@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
+
+{% block content %}
+<content>
+        <div class="image">
+        {% image page.image fill-200x200-c100 as photo %}
+              <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="host-image" />
+        </div>
+        <h1>{{ page.title }}</h1>
+        <aside>
+            <div class="experiences">
+                <h3>Experiences</h3>
+                <ul class="experiences">
+                {% for experience in page.experiences  %}
+                    <li><a href="{{ experience.parent_url }}#{{ experience.slug }}">{{ experience.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="interest-location">
+                <div class="interest">
+                    <h4>Interest</h4>
+                    {% for interest in page.interest %}
+                        {{ interest.title }}
+                    {% endfor %}
+                </div>
+                
+                <div class="location">
+                    <h4>Location</h4>
+                    {% for place in page.location %}
+                        <a href="{{place.url}}">{{ place.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </aside>
+
+        <main role="main">
+            <h4 class="biography-title">Biography</h4>
+            {{ page.body }}
+        </main>
+</content>
+{% endblock %}
