@@ -123,8 +123,8 @@ class ExperienceIndexPage(Page):
 # More info
 # Docs http://docs.wagtail.io/en/v1.8/topics/pages.html#template-context
     def get_context(self, request):
-        context = super(ExperiencesIndexPage, self).get_context(request)
-        context['experiences'] = ExperiencesPage.objects.descendant_of(
+        context = super(ExperienceIndexPage, self).get_context(request)
+        context['experiences'] = ExperiencePage.objects.descendant_of(
             self).live().order_by(
             '-first_published_at')
         return context

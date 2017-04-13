@@ -159,7 +159,7 @@ class HostPage(Page):
     # and location so they can be accessible to the template
     def experiences(self):
         experiences = [
-            n.experiences for n in self.host_experiences_relationship.all()
+            n.experiences for n in self.host_experience_relationship.all()
         ]
         return experiences
 
