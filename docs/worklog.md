@@ -8,4 +8,5 @@
 - Get vagrant up to working.
 - Got schemamigrations working.
 - Updated fixtures.
+- Fix bugs with navigation and typo in navigation menu.
 

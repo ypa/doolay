@@ -10,8 +10,9 @@ To Do
 - [x] djrun inside vm is working.
 - [x] Make schema migrations working.
 - [x] Create Skeleton page structure. Or attempt to make the fixtures going.
-- [ ] Fix ExperiencesRelationship.
+- [x] Fix ExperiencesRelationship.
 - [ ] Do sanity testing (now the fixtures are loaded).
+- [ ] Find out how to create django fixtures from existing postgres db.
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
 - [ ] Research for Email forwarding (like craigslist)
