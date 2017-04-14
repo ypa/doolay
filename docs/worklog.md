@@ -9,4 +9,4 @@
 - Got schemamigrations working.
 - Updated fixtures.
 - Fix bugs with navigation and typo in navigation menu.
-
+- Tested repo with vagrant up on Mac mini.
