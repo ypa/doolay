@@ -11,8 +11,9 @@ To Do
 - [x] Make schema migrations working.
 - [x] Create Skeleton page structure. Or attempt to make the fixtures going.
 - [x] Fix ExperiencesRelationship.
-- [ ] Update the Locations model to Places.
+- [x] Update the Locations model to Places.
 - [ ] Make Experience index page to be more like person index page.
+- [ ] Add "language speak" field as snippet like HostInterest in hosts app.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Find out how to create django fixtures from existing postgres db.
 - [ ] Scout tour guides on the web and populate them as hosts.
