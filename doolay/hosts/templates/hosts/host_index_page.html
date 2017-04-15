@@ -26,8 +26,8 @@
         </ul>
         </div>
         <div class="list-item-footer">
-            <p class="location"><img src="/static/images/map-marker.png">
-            {% for place in host.location  %}
+            <p class="place"><img src="/static/images/map-marker.png">
+            {% for place in host.place  %}
                 <a href="{{ place.url }}">{{ place.title }}</a>
                 {% if not forloop.last %}, {% endif %}
             {% endfor %}</p>

@@ -98,7 +98,7 @@ footer.site-footer {
 }
 
 /* DETAIL VIEWS */
-.template-location-page {
+.template-place-page {
     content {
         h1 {
             margin-top: -55px;
@@ -116,7 +116,7 @@ footer.site-footer {
         @include row;
         clear: both;
         display: flex;
-        .interest-location {
+        .interest-place {
             display: flex;
             flex-direction: column;
             margin-left: 80px;
@@ -127,7 +127,7 @@ footer.site-footer {
     }
 }
 
-.template-location-page {
+.template-place-page {
     aside {
         @include row;
         clear: both;
@@ -296,7 +296,7 @@ footer.site-footer {
     }
 }
 
-.hosts, .locations {
+.hosts, .places {
     .list-item {
         display: flex;
         flex-direction: column;
@@ -337,7 +337,7 @@ footer.site-footer {
         }
         .list-item-footer {
             padding: 0 20px;
-            .location {
+            .place {
                 display: flex;
                 font-size: 1.3em;
                 padding-bottom: 10px;

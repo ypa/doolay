@@ -13,9 +13,9 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from doolay.blocks import GlobalStreamBlock
 
 
-class LocationPage(Page):
+class PlacePage(Page):
     """
-    The LocationPage allows details to be added about different locations
+    The PlacePage allows details to be added about different places
     """
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -23,11 +23,11 @@ class LocationPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Location image'
+        help_text='Place image'
     )
 
     body = StreamField(
-        GlobalStreamBlock(), verbose_name="Location's details", blank=True
+        GlobalStreamBlock(), verbose_name="Place's details", blank=True
         )
     # We've defined the StreamBlock() within blocks.py that we've imported on
     # line 12. Defining it in a different file gives us consistency across the
@@ -40,29 +40,29 @@ class LocationPage(Page):
     ]
 
     parent_page_types = [
-        'LocationIndexPage'
+        'PlaceIndexPage'
     ]
 
     # Defining what content type can sit under the parent
     # The empty array means that no children can be placed under the
-    # LocationPage page model
+    # PlacePage page model
     subpage_types = []
 
     def hosts(self):
         # Defined via the related name on the hosts/models.py host model
         # We create a list of the objects here so that we can loop through
-        # them on the LocationPage
+        # them on the PlacePage
         hosts = [
-            n.host_page for n in self.location_host_relationship.all()
+            n.host_page for n in self.place_host_relationship.all()
         ]
         return hosts
 
     api_fields = ['image', 'body']
 
 
-class LocationIndexPage(Page):
+class PlaceIndexPage(Page):
     """
-    This is a page to list all the locations on the site
+    This is a page to list all the places on the site
     """
     search_fields = Page.search_fields + [
         index.SearchField('introduction'),
@@ -74,7 +74,7 @@ class LocationIndexPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Location listing image'
+        help_text='Place listing image'
     )
 
     introduction = models.TextField(
@@ -92,7 +92,7 @@ class LocationIndexPage(Page):
 
     # Defining what content type can sit under the parent
     subpage_types = [
-        'LocationPage'
+        'PlacePage'
     ]
 
     api_fields = ['introduction']
@@ -102,8 +102,8 @@ class LocationIndexPage(Page):
     # them if they're published ('live') and order by their first published date
     # Docs http://docs.wagtail.io/en/v1.6.3/topics/pages.html#template-context
     def get_context(self, request):
-        context = super(LocationIndexPage, self).get_context(request)
-        context['locations'] = LocationPage.objects.descendant_of(
+        context = super(PlaceIndexPage, self).get_context(request)
+        context['places'] = PlacePage.objects.descendant_of(
             self).live().order_by(
             '-first_published_at')
         return context

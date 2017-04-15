@@ -89,7 +89,7 @@ else:
 
 
 # Redis
-# Redis location can either be passed through with REDIS_HOST or REDIS_SOCKET
+# Redis place can either be passed through with REDIS_HOST or REDIS_SOCKET
 
 if 'REDIS_URL' in env:
     REDIS_LOCATION = env['REDIS_URL']

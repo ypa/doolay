@@ -68,23 +68,23 @@ class HostInterestRelationship(models.Model):
     ]
 
 
-class HostLocationRelationship(models.Model):
+class HostPlaceRelationship(models.Model):
     """
-    This defines the relationship between the `LocationPage`, within the
-    `locations` app, and the HostPage below. Again the magic key is
-    the related_name. On the LocationPage model in the locations app you can
+    This defines the relationship between the `PlacePage`, within the
+    `places` app, and the HostPage below. Again the magic key is
+    the related_name. On the PlacePage model in the places app you can
     see the reverse relationship of the related_name being used to populate
-    hosts on the LocationPage
+    hosts on the PlacePage
     """
     host_page = ParentalKey(
-        'HostPage', related_name='host_location_relationship'
+        'HostPage', related_name='host_place_relationship'
     )
-    location = models.ForeignKey(
-        'locations.LocationPage',
-        related_name="location_host_relationship"
+    place = models.ForeignKey(
+        'places.PlacePage',
+        related_name="place_host_relationship"
     )
     panels = [
-        PageChooserPanel('location')
+        PageChooserPanel('place')
     ]
 
 
@@ -137,8 +137,8 @@ class HostPage(Page):
             max_num=1
             ),
         InlinePanel(
-            'host_location_relationship',
-            label='Location',
+            'host_place_relationship',
+            label='Place',
             min_num=None,
             max_num=1
             ),
@@ -156,7 +156,7 @@ class HostPage(Page):
     subpage_types = []
 
     # We iterate within the model over the experiences, interest
-    # and location so they can be accessible to the template
+    # and place so they can be accessible to the template
     def experiences(self):
         experiences = [
             n.experiences for n in self.host_experience_relationship.all()
@@ -169,11 +169,11 @@ class HostPage(Page):
         ]
         return interest
 
-    def location(self):
-        location = [
-            n.location for n in self.host_location_relationship.all()
+    def place(self):
+        place = [
+            n.place for n in self.host_place_relationship.all()
         ]
-        return location
+        return place
 
     # For ForeignKeys that we want to access via the API we need to explictly
     # access a specific field from the related content. I've added unnecessary

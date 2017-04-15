@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 INSTALLED_APPS = [
     'doolay',  # To load the management commands
     'doolay.home',
-    'doolay.locations',
+    'doolay.places',
     'doolay.hosts',
     'doolay.experiences',
 

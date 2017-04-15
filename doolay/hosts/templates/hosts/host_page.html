@@ -19,7 +19,7 @@
                 {% endfor %}
                 </ul>
             </div>
-            <div class="interest-location">
+            <div class="interest-place">
                 <div class="interest">
                     <h4>Interest</h4>
                     {% for interest in page.interest %}
@@ -27,9 +27,9 @@
                     {% endfor %}
                 </div>
                 
-                <div class="location">
-                    <h4>Location</h4>
-                    {% for place in page.location %}
+                <div class="place">
+                    <h4>Place</h4>
+                    {% for place in page.place %}
                         <a href="{{place.url}}">{{ place.title }}</a>
                     {% endfor %}
                 </div>

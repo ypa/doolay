@@ -6,21 +6,21 @@
 {% block content %}
 <content>
 <h1>{{ page.title }}</h1>
-<div class="locations list grid-parent">
-    {% for location in locations %}
+<div class="places list grid-parent">
+    {% for place in places %}
     <div class="list-item list-3">
         <div class="image">
-        {% image location.image fill-400x168-c100 as photo %}
+        {% image place.image fill-400x168-c100 as photo %}
               <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-thumbnail" />
         </div>
         {# end image #}
 
         <div class="text">
-        <h2><a href="{{ location.url }}">{{ location.title }}</a></h2>
+        <h2><a href="{{ place.url }}">{{ place.title }}</a></h2>
         </div>
         <div class="list-item-footer">
             <ul class="hosts">
-                {% for host in location.hosts  %}
+                {% for host in place.hosts  %}
                 {% comment %}@TODO create urls.py to use child reference to link to parent{% endcomment %}
                     <li class="host">
                     {% image host.image fill-75x75-c100 as host_photo %}
