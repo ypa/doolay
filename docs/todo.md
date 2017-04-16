@@ -12,10 +12,12 @@ To Do
 - [x] Create Skeleton page structure. Or attempt to make the fixtures going.
 - [x] Fix ExperiencesRelationship.
 - [x] Update the Locations model to Places.
-- [ ] Make Experience index page to be more like person index page.
+- [x] Make Experience index page to be more like person index page.
+- [ ] Make Experience page like place page.
 - [ ] Add "language speak" field as snippet like HostInterest in hosts app.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Find out how to create django fixtures from existing postgres db.
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
 - [ ] Research for Email forwarding (like craigslist)
+- [ ] Deploy to GCE.

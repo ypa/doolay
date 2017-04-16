@@ -11,3 +11,4 @@
 - Fix bugs with navigation and typo in navigation menu.
 - Tested repo with vagrant up on Mac mini.
 - Renamed locations to places app.
+- Made experience index page more like place index page.
