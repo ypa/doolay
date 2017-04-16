@@ -1,18 +1,36 @@
 {% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
 
 {% block content %}
 <content>
+<h1>{{ page.title }}</h1>
+<div class="places list grid-parent">
     {% for experience in experiences %}
-            <h2><a name="{{ experience.slug }}"></a>{{ experience.title }}</h2>
+    <div class="list-item list-3">
+        <div class="image">
+        {% image experience.image fill-400x168-c100 as photo %}
+              <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-thumbnail" />
+        </div>
+	{# end image #}
 
-    <ul class="hosts">
-    {% for host in experience.hosts %}
-            <li><a href="{{ host.url }}">{{host.title}}</a></li>
+        <div class="text">
+        <h2><a href="{{ experience.url }}">{{ experience.title }}</a></h2>
+        </div>
+        <div class="list-item-footer">
+	    <ul class="hosts">
+	        {% for host in experience.hosts %}
+                {% comment %}@TODO create urls.py to use child reference to link to parent{% endcomment %}
+                    <li class="host">
+                    {% image host.image fill-75x75-c100 as host_photo %}
+                        <a href="{{ host.url }}"><img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
+                    <small><a href="{{ host.url }}">{{ host.title }}</a></small></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     {% endfor %}
-    </ul>
-
-    {% endfor %}
+</div>
 </content>
 {% endblock %}
