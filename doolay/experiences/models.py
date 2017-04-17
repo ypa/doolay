@@ -6,7 +6,7 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailsearch import index
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from doolay.blocks import GlobalStreamBlock
 
 
@@ -40,7 +40,7 @@ class ExperiencePage(Page):
     # the content editor)
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
-        FieldPanel('body'),
+        StreamFieldPanel('body'),
     ]
 
     subpage_types = []
