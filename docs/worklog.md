@@ -12,3 +12,4 @@
 - Tested repo with vagrant up on Mac mini.
 - Renamed locations to places app.
 - Made experience index page more like place index page.
+- Made experience page to look like place page.
