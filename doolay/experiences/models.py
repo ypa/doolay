@@ -80,6 +80,8 @@ class ExperiencePage(Page):
         #       {{ object.url }}
         #   {% endfor %}
 
+    api_fields = ['image', 'body']
+
 
 class ExperienceIndexPage(Page):
     """
