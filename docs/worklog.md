@@ -13,3 +13,4 @@
 - Renamed locations to places app.
 - Made experience index page more like place index page.
 - Made experience page to look like place page.
+- Fixed experience links on host pages.

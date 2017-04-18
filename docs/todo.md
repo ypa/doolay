@@ -13,7 +13,9 @@ To Do
 - [x] Fix ExperiencesRelationship.
 - [x] Update the Locations model to Places.
 - [x] Make Experience index page to be more like person index page.
-- [ ] Fix experience links on home page and individual host pages.
+- [x] Fix experience links on home page and individual host pages.
+- [ ] Refactor duplicate css code between template-place-page and template-experience-page.
+- [ ] Fill data for experience pages.
 - [ ] Make Experience page like place page.
 - [ ] Add "language speak" field as snippet like HostInterest in hosts app.
 - [ ] Do sanity testing (now the fixtures are loaded).
@@ -22,4 +24,3 @@ To Do
 - [ ] Create fixtures out of the test hosts.
 - [ ] Research for Email forwarding (like craigslist)
 - [ ] Deploy to GCE.
-- [ ] Refactor duplicate css code between template-place-page and template-experience-page.
