@@ -19,7 +19,7 @@
         <ul class="experiences">
             {% for experience in host.experiences  %}
                 <li>
-                <a href="{{ experience.parent_url }}#{{ experience.slug }}">{{ experience.title }}</a>
+                <a href="{{ experience.parent_url }}{{ experience.slug }}">{{ experience.title }}</a>
                 {% if not forloop.last %}<span>, </span>{% endif %}</li>
                 
             {% endfor %}
