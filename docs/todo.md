@@ -14,6 +14,7 @@ To Do
 - [x] Update the Locations model to Places.
 - [x] Make Experience index page to be more like person index page.
 - [x] Fix experience links on home page and individual host pages.
+- [ ] Find out how the main.scss is compiled to css inside doolay.
 - [ ] Refactor duplicate css code between template-place-page and template-experience-page.
 - [ ] Fill data for experience pages.
 - [ ] Make Experience page like place page.

@@ -98,21 +98,6 @@ footer.site-footer {
 }
 
 /* DETAIL VIEWS */
-.template-place-page {
-    content {
-        h1 {
-            margin-top: -55px;
-        }
-    }
-}
-
-.template-experience-page {
-    content {
-        h1 {
-            margin-top: -55px;
-        }
-    }
-}
 
 .template-host-page {
     .host-image {
@@ -136,6 +121,12 @@ footer.site-footer {
 }
 
 .template-place-page {
+    content {
+        h1 {
+            margin-top: -55px;
+        }
+    }
+
     aside {
         @include row;
         clear: both;
@@ -160,6 +151,12 @@ footer.site-footer {
 }
 
 .template-experience-page {
+    content {
+        h1 {
+            margin-top: -55px;
+        }
+    }
+
     aside {
         @include row;
         clear: both;
