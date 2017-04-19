@@ -1,5 +1,5 @@
-To Do
-=====
+Site
+====
 - [x] Create Repo
 - [x] Install Wagtail CMS from beginner cookie cutter
 - [x] Transform people app to hosts (strip it down to simpler model)
@@ -23,5 +23,15 @@ To Do
 - [ ] Find out how to create django fixtures from existing postgres db.
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
+
+E-mail
+======
+- [ ] Add e-mail button on Host page.
+- [ ] Add e-mail template form for sending inquiry e-mails.
 - [ ] Research for Email forwarding (like craigslist)
+- [ ] Research using send-grid as e-mail backend.
+
+Release
+=======
+- [ ] Test with gunicorn and nginx in Vagrant
 - [ ] Deploy to GCE.
