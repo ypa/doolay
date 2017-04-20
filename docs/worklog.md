@@ -15,3 +15,4 @@
 - Made experience page to look like place page.
 - Fixed experience links on host pages.
 - Combined templage-experience/place-page scss body class.
+- Added content for experience pages.

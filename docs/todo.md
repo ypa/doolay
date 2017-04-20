@@ -19,6 +19,7 @@ Site
 - [ ] Fill data for experience pages.
 - [ ] Make Experience page like place page.
 - [ ] Add "language speak" field as snippet like HostInterest in hosts app.
+- [ ] Add duration field as snippet in experiences app.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Find out how to create django fixtures from existing postgres db.
 - [ ] Scout tour guides on the web and populate them as hosts.
