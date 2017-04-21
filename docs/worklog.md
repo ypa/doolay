@@ -16,3 +16,4 @@
 - Fixed experience links on host pages.
 - Combined templage-experience/place-page scss body class.
 - Added content for experience pages.
+- Made images to display on experience pages (just a display setting on admin).

@@ -16,8 +16,10 @@ Site
 - [x] Fix experience links on home page and individual host pages.
 - [x] Find out how the main.scss is compiled to css inside doolay.
 - [x] Refactor duplicate css code between template-place-page and template-experience-page.
-- [ ] Fill data for experience pages.
-- [ ] Make Experience page like place page.
+- [x] Make Experience page like place page.
+- [x] Fill data for experience pages.
+- [x] Make images to display on experience pages.
+- [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Add "language speak" field as snippet like HostInterest in hosts app.
 - [ ] Add duration field as snippet in experiences app.
 - [ ] Do sanity testing (now the fixtures are loaded).
