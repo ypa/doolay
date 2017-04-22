@@ -127,7 +127,7 @@ class HostPage(Page):
         StreamFieldPanel('body'),
         InlinePanel(
             'host_experience_relationship',
-            label='Providing Experience',
+            label='Providing Experiences',
             min_num=None
             ),
         InlinePanel(
