@@ -19,11 +19,13 @@ Site
 - [x] Make Experience page like place page.
 - [x] Fill data for experience pages.
 - [x] Make images to display on experience pages.
+- [x] Find out how to create django fixtures from existing postgres db.
+- [ ] Remove duplicate image thumbnails and clean up images tables to use the one version.
+- [ ] Re-do the fixtures.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Add "language speak" field as snippet like HostInterest in hosts app.
 - [ ] Add duration field as snippet in experiences app.
 - [ ] Do sanity testing (now the fixtures are loaded).
-- [ ] Find out how to create django fixtures from existing postgres db.
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
 

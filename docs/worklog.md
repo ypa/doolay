@@ -18,3 +18,4 @@
 - Added content for experience pages.
 - Made images to display on experience pages (just a display setting on admin).
 - Updated fixtures data and images.
+- Tested fixtures on Mac.
