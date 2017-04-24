@@ -20,6 +20,7 @@ Site
 - [x] Fill data for experience pages.
 - [x] Make images to display on experience pages.
 - [x] Find out how to create django fixtures from existing postgres db.
+- [ ] Continue testing prune_image_rendtions management command.
 - [ ] Remove duplicate image thumbnails and clean up images tables to use the one version.
 - [ ] Re-do the fixtures.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
