@@ -20,3 +20,4 @@
 - Updated fixtures data and images.
 - Tested fixtures on Mac.
 - Worked on fixing fixtures.
+- Coninued testing fixtures.
