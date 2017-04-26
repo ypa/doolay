@@ -134,7 +134,7 @@ class HostPage(Page):
             'host_interest_relationship',
             label='Interest',
             min_num=None,
-            max_num=1
+            max_num=3
             ),
         InlinePanel(
             'host_place_relationship',
