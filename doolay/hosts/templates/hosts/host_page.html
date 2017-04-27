@@ -19,17 +19,17 @@
                 {% endfor %}
                 </ul>
             </div>
-            <div class="interest-place">
-                <div class="interest">
-                    <h4>Interest</h4>
-                    {% for interest in page.interest %}
-                        {{ interest.title }}
+            <div class="language-place">
+                <div class="language">
+                    <h4>Languages Speak</h4>
+                    {% for language in page.languages %}
+                        {{ language.title }}
                     {% endfor %}
                 </div>
                 
                 <div class="place">
-                    <h4>Place</h4>
-                    {% for place in page.place %}
+                    <h4>Serving In Places</h4>
+                    {% for place in page.places %}
                         <a href="{{place.url}}">{{ place.title }}</a>
                     {% endfor %}
                 </div>

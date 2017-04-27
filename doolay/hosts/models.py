@@ -21,9 +21,9 @@ from doolay.blocks import GlobalStreamBlock
 
 
 @register_snippet
-class HostInterest(ClusterableModel):
+class HostLanguage(ClusterableModel):
     """
-    This snippet allows an editor to define what possible employment interests
+    This snippet allows an editor to define what possible employment languages
     a staff member may have. Or whether they're a wizard...
     """
 
@@ -31,7 +31,7 @@ class HostInterest(ClusterableModel):
         index.SearchField('title'),
     ]
 
-    title = models.CharField("Interest", max_length=254)
+    title = models.CharField("Language", max_length=254)
 
     panels = [
         FieldPanel('title'),
@@ -44,27 +44,27 @@ class HostInterest(ClusterableModel):
 
     class Meta:
         ordering = ['title']
-        verbose_name = "Interest"
-        verbose_name_plural = "Interests"
+        verbose_name = "Language"
+        verbose_name_plural = "Languages"
 
 
-class HostInterestRelationship(models.Model):
+class HostLanguageRelationship(models.Model):
     """
-    This defines the relationship between the `HostEmploymentInterest` snippet
+    This defines the relationship between the `HostEmploymentLanguage` snippet
     above and the HostPage below. It does so by defining a ForeignKey
     relationship between the two, which can be accessed by the respective
     'related_name'. The magic key is the 'related_name'
     Docs: http://www.tivix.com/blog/working-wagtail-i-want-my-m2ms/
     """
     host_page = ParentalKey(
-        'HostPage', related_name='host_interest_relationship'
+        'HostPage', related_name='host_language_relationship'
     )
-    host_interests = models.ForeignKey(
-        'HostInterest',
-        related_name="interest_host_relationship"
+    host_languages = models.ForeignKey(
+        'HostLanguage',
+        related_name="language_host_relationship"
     )
     panels = [
-        SnippetChooserPanel('host_interests')
+        SnippetChooserPanel('host_languages')
     ]
 
 
@@ -131,8 +131,8 @@ class HostPage(Page):
             min_num=None
             ),
         InlinePanel(
-            'host_interest_relationship',
-            label='Interest',
+            'host_language_relationship',
+            label='Language',
             min_num=None,
             max_num=3
             ),
@@ -155,7 +155,7 @@ class HostPage(Page):
     # The empty array will mean no children can be added
     subpage_types = []
 
-    # We iterate within the model over the experiences, interest
+    # We iterate within the model over the experiences, language
     # and place so they can be accessible to the template
     def experiences(self):
         experiences = [
@@ -163,17 +163,17 @@ class HostPage(Page):
         ]
         return experiences
 
-    def interest(self):
-        interest = [
-            n.host_interests for n in self.host_interest_relationship.all()
+    def languages(self):
+        languages = [
+            n.host_languages for n in self.host_language_relationship.all()
         ]
-        return interest
+        return languages
 
-    def place(self):
-        place = [
+    def places(self):
+        places = [
             n.place for n in self.host_place_relationship.all()
         ]
-        return place
+        return places
 
     # For ForeignKeys that we want to access via the API we need to explictly
     # access a specific field from the related content. I've added unnecessary
