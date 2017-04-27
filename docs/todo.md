@@ -21,8 +21,9 @@ Site
 - [x] Make images to display on experience pages.
 - [x] Find out how to create django fixtures from existing postgres db.
 - [x] Make host page able to add multiple interests. 
-- [ ] Add "language speak" field as snippet like HostInterest in hosts app.
-- [ ] Add duration field as snippet in experiences app.
+- [x] Add "language speak" field as snippet like HostInterest in hosts app.
+- [ ] Add interests like a tag to host page model like in Tutorials.
+- [ ] Add duration field.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.

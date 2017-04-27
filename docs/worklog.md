@@ -21,3 +21,5 @@
 - Tested fixtures on Mac.
 - Worked on fixing fixtures.
 - Coninued testing fixtures.
+- Turn Interests into languages speak (model) for the host page.
+- Started working on interests as a taggit model. (WIP).
