@@ -22,7 +22,9 @@ Site
 - [x] Find out how to create django fixtures from existing postgres db.
 - [x] Make host page able to add multiple interests. 
 - [x] Add "language speak" field as snippet like HostInterest in hosts app.
-- [ ] Add interests like a tag to host page model like in Tutorials.
+- [x] Add interests like a tag to host page model like in Tutorials.
+- [ ] Make iterests tags to label or display as "Interests" instead of "Tags" on HostPage Admin.
+- [ ] Make iterests tags to display on Host Page. (Need to update the templates).
 - [ ] Add duration field.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Do sanity testing (now the fixtures are loaded).
