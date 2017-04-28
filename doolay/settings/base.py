@@ -195,3 +195,7 @@ WAGTAILSEARCH_BACKENDS = {
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "doolay"
+
+
+TAGGIT_TAGS_FROM_STRING = 'doolay.utils.comma_splitter'
+TAGGIT_STRING_FROM_TAGS = 'doolay.utils.comma_joiner'
