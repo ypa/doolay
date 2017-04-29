@@ -122,7 +122,9 @@ class HostPage(Page):
         help_text='Host image'
     )
 
-    interests = ClusterTaggableManager(through=HostInterest, blank=True)
+    interests = ClusterTaggableManager(verbose_name='Interests/Hobby',
+                                       help_text='Eg., "Korean Dramas"',
+                                       through=HostInterest, blank=True)
 
     body = StreamField(
         GlobalStreamBlock(), verbose_name="Host's biography", blank=True
