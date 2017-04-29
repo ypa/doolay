@@ -24,3 +24,5 @@
 - Turn Interests into languages speak (model) for the host page.
 - Started working on interests as a taggit model. (WIP).
 - Added interests as taggit item.
+- Made iterests tags to label or display as "Interests" instead of "Tags" on HostPage Admin.
+
