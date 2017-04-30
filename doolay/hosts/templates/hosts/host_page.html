@@ -25,13 +25,6 @@
 		    <code>{{page.languages|join:"/"}}</code>
                 </div>
                 
-                <div class="interest">
-                    <h4>Hobbies</h4>
-                    {% for interest in page.interests.all %}
-                        {{ interest }}
-                    {% endfor %}
-                </div>
-
                 <div class="place">
                     <h4>Serving In Places</h4>
                     {% for place in page.places %}
