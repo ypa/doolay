@@ -4,8 +4,6 @@ from django.db import models
 
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
-from modelcluster.tags import ClusterTaggableManager
-from taggit.models import TaggedItemBase
 
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailsearch import index
@@ -15,16 +13,11 @@ from wagtail.wagtailadmin.edit_handlers import (
         FieldPanel,
         InlinePanel,
         StreamFieldPanel,
-        PageChooserPanel,
-        MultiFieldPanel
+        PageChooserPanel
         )
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from doolay.blocks import GlobalStreamBlock
-
-
-class HostInterest(TaggedItemBase):
-    content_object = ParentalKey('HostPage', related_name='host_interests')
 
 
 @register_snippet
@@ -122,8 +115,6 @@ class HostPage(Page):
         help_text='Host image'
     )
 
-    interests = ClusterTaggableManager(through=HostInterest, blank=True)
-
     body = StreamField(
         GlobalStreamBlock(), verbose_name="Host's biography", blank=True
         )
@@ -138,20 +129,19 @@ class HostPage(Page):
             'host_experience_relationship',
             label='Providing Experiences',
             min_num=None
-        ),
+            ),
         InlinePanel(
             'host_language_relationship',
             label='Language',
             min_num=None,
             max_num=3
-        ),
-        FieldPanel('interests'),
+            ),
         InlinePanel(
             'host_place_relationship',
             label='Place',
             min_num=None,
             max_num=1
-        ),
+            ),
     ]
 
     # Defining the parent. This means the editor will only be able to add the
