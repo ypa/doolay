@@ -22,9 +22,7 @@
             <div class="language-place">
                 <div class="language">
                     <h4>Languages Speak</h4>
-                    {% for language in page.languages %}
-                        {{ language.title }}
-                    {% endfor %}
+		    <code>{{page.languages|join:"/"}}</code>
                 </div>
                 
                 <div class="interest">
