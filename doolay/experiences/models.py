@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from datetime import timedelta
 from django.db import models
 
 from wagtail.wagtailcore.models import Page
@@ -28,6 +29,8 @@ class ExperiencePage(Page):
         help_text='Experiences image'
     )
 
+    duration = models.DurationField(default=timedelta)
+
     # Defining fields that should be within this page model
     body = StreamField(
         GlobalStreamBlock(),
@@ -40,6 +43,7 @@ class ExperiencePage(Page):
     # the content editor)
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
+        FieldPanel('duration'),
         StreamFieldPanel('body'),
     ]
 
