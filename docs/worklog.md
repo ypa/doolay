@@ -26,4 +26,5 @@
 - Added interests as taggit item.
 - Made iterests tags to label or display as "Interests" instead of "Tags" on HostPage Admin.
 - Removed interests from hosts app - backed out/did 'git revert' on every commit related to interests field.
+- Added DurationField to experiences model and migrations.
 
