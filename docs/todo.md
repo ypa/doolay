@@ -25,7 +25,8 @@ Site
 - [x] Add interests like a tag to host page model like in Tutorials.
 - [x] Make iterests tags to label or display as "Interests" instead of "Tags" on HostPage Admin.
 - [x] Add duration field.
-- [ ] Add duration field on the experience page template.
+- [x] Add duration field on the experience page template.
+- [ ] Style duration field on the experience page - make the layout right.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
