@@ -26,7 +26,8 @@ Site
 - [x] Make iterests tags to label or display as "Interests" instead of "Tags" on HostPage Admin.
 - [x] Add duration field.
 - [x] Add duration field on the experience page template.
-- [ ] Style duration field on the experience page - make the layout right.
+- [x] Style duration field on the experience page - make the layout right.
+- [ ] Fix duration to only show day (if any), hour and minutes only.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
