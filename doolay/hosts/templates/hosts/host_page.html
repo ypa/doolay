@@ -21,12 +21,12 @@
             </div>
             <div class="language-place">
                 <div class="language">
-                    <h4>Languages Speak</h4>
+                    <h3>Languages Speak</h3>
 		    <span class="languages-speak">{{page.languages|join:"/"}}</span>
                 </div>
                 
                 <div class="place">
-                    <h4>Serving In Places</h4>
+                    <h3>Serving In Places</h3>
                     {% for place in page.places %}
                         <a href="{{place.url}}">{{ place.title }}</a>
                     {% endfor %}
@@ -35,7 +35,7 @@
         </aside>
 
         <main role="main">
-            <h4 class="biography-title">Biography</h4>
+            <h3 class="biography-title">Biography</h3>
             {{ page.body }}
         </main>
 </content>
