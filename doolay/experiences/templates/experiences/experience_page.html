@@ -12,13 +12,14 @@
     </div>
 
     <h1>{{ page.title }}</h1>
+    <div class="duration">Duration: {{page.duration}}</div>
 
     <main role="main">
     	{{ page.body }}
     </main>
 
     <aside>
-    <h2>Hosts in {{ page.title }}</h2>
+        <h2>Hosts in {{ page.title }}</h2>
     	<ul class="hosts">
             {% for host in page.hosts  %}
             {% comment %}@TODO create urls.py to use child reference to link to parent{% endcomment %}
@@ -28,10 +29,6 @@
                 <small><a href="{{ host.url }}">{{ host.title }}</a></small></li>
             {% endfor %}
         </ul>
-        <div class="duration">
-            <h4>Duration</h4>
-            {{page.duration}}
-        </div>
      </aside>
 </content>
 {% endblock %}
