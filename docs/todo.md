@@ -27,7 +27,7 @@ Site
 - [x] Add duration field.
 - [x] Add duration field on the experience page template.
 - [x] Style duration field on the experience page - make the layout right.
-- [ ] Fix duration to only show day (if any), hour and minutes only.
+- [x] Fix duration hour only.
 - [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
