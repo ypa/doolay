@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags experience_tags %}
 
 {% block body_class %}template-page{% endblock %}
 
@@ -12,7 +12,9 @@
     </div>
 
     <h1>{{ page.title }}</h1>
-    <div class="duration">Duration: {{page.duration}}</div>
+    {% if page.duration %}
+        <div class="duration">Duration: {{page.duration|duration}}</div>
+    {% endif %}
 
     <main role="main">
     	{{ page.body }}
