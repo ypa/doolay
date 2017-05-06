@@ -28,4 +28,5 @@
 - Removed interests from hosts app - backed out/did 'git revert' on every commit related to interests field.
 - Added DurationField to experiences model and migrations.
 - Added Duration field on experience_page template.
+- Downloaded images for places.
 
