@@ -29,4 +29,5 @@
 - Added DurationField to experiences model and migrations.
 - Added Duration field on experience_page template.
 - Downloaded images for places.
+- First pass at making host experience relationships into one to many.
 
