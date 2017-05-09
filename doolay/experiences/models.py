@@ -55,14 +55,9 @@ class ExperiencePage(Page):
     ]
     # Setting a parent means that it can only be added under that parent
 
-    def hosts(self):
-        hosts = [
-            n.host_page for n in self.experience_host_relationship.all()
-        ]
-        return hosts
-    # We get this relationship from the hosts app using the related
-    # name 'experience_host_relationship' that connects to the parent page
-    # 'host_page'
+    host = models.ForeignKey('hosts.HostPage', null=True,
+                             on_delete=models.SET_NULL,
+                             related_name='providing_experiences')
 
     def parent_url(self):
         parent_set = Page.objects.parent_of(

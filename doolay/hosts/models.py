@@ -88,23 +88,6 @@ class HostPlaceRelationship(models.Model):
     ]
 
 
-class HostExperienceRelationship(Orderable, models.Model):
-    """
-    This defines the relationship between the `ExperiencePage` within the `experiences`
-    app and the HostPage below allowing us to add experiences to a host. As above
-    the magic key is the related_name
-    """
-    host_page = ParentalKey(
-        'HostPage', related_name='host_experience_relationship'
-    )
-    experiences = models.ForeignKey(
-        'experiences.ExperiencePage', related_name='experience_host_relationship'
-    )
-    panels = [
-        PageChooserPanel('experiences')
-    ]
-
-
 class HostPage(Page):
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -126,7 +109,7 @@ class HostPage(Page):
         ImageChooserPanel('image'),
         StreamFieldPanel('body'),
         InlinePanel(
-            'host_experience_relationship',
+            'providing_experiences',
             label='Providing Experiences',
             min_num=None
             ),
@@ -155,14 +138,6 @@ class HostPage(Page):
     # The empty array will mean no children can be added
     subpage_types = []
 
-    # We iterate within the model over the experiences, language
-    # and place so they can be accessible to the template
-    def experiences(self):
-        experiences = [
-            n.experiences for n in self.host_experience_relationship.all()
-        ]
-        return experiences
-
     def languages(self):
         languages = [
             n.host_languages for n in self.host_language_relationship.all()
@@ -174,20 +149,6 @@ class HostPage(Page):
             n.place for n in self.host_place_relationship.all()
         ]
         return places
-
-    # For ForeignKeys that we want to access via the API we need to explictly
-    # access a specific field from the related content. I've added unnecessary
-    # verbosity here because we could use the `experiences(self)` method above to
-    # give us the objects in a list within the for loop.
-    # This isn't terribly useful since I'm only returning the title but hopefully
-    # enough to be extendable/ understandable
-    def experience(obj):
-        experience_set = obj.host_experience_relationship.all()
-        experiences = [
-            n.experience for n in experience_set
-        ]
-        for experience in experiences:
-            return experience.title
 
     api_fields = [
         'image',
