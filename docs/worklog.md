@@ -30,4 +30,6 @@
 - Added Duration field on experience_page template.
 - Downloaded images for places.
 - First pass at making host experience relationships into one to many.
+- Updated field panels for host experience model relations.
+- Fixed experience page template for displaying the "one" host. 
 
