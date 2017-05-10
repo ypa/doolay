@@ -29,6 +29,10 @@ class ExperiencePage(Page):
         help_text='Experiences image'
     )
 
+    host = models.ForeignKey('hosts.HostPage', null=True,
+                             on_delete=models.SET_NULL,
+                             related_name='providing_experiences')
+
     duration = models.DurationField(default=timedelta)
 
     # Defining fields that should be within this page model
@@ -43,6 +47,7 @@ class ExperiencePage(Page):
     # the content editor)
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
+        FieldPanel('host'),
         FieldPanel('duration'),
         StreamFieldPanel('body'),
     ]
@@ -54,10 +59,6 @@ class ExperiencePage(Page):
         'ExperienceIndexPage'
     ]
     # Setting a parent means that it can only be added under that parent
-
-    host = models.ForeignKey('hosts.HostPage', null=True,
-                             on_delete=models.SET_NULL,
-                             related_name='providing_experiences')
 
     def parent_url(self):
         parent_set = Page.objects.parent_of(

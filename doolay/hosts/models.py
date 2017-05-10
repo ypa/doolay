@@ -109,11 +109,6 @@ class HostPage(Page):
         ImageChooserPanel('image'),
         StreamFieldPanel('body'),
         InlinePanel(
-            'providing_experiences',
-            label='Providing Experiences',
-            min_num=None
-            ),
-        InlinePanel(
             'host_language_relationship',
             label='Language',
             min_num=None,
