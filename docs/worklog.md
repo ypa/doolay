@@ -32,4 +32,5 @@
 - First pass at making host experience relationships into one to many.
 - Updated field panels for host experience model relations.
 - Fixed experience page template for displaying the "one" host. 
+- Made place to experience one to many relationship.
 
