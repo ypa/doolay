@@ -68,26 +68,6 @@ class HostLanguageRelationship(models.Model):
     ]
 
 
-class HostPlaceRelationship(models.Model):
-    """
-    This defines the relationship between the `PlacePage`, within the
-    `places` app, and the HostPage below. Again the magic key is
-    the related_name. On the PlacePage model in the places app you can
-    see the reverse relationship of the related_name being used to populate
-    hosts on the PlacePage
-    """
-    host_page = ParentalKey(
-        'HostPage', related_name='host_place_relationship'
-    )
-    place = models.ForeignKey(
-        'places.PlacePage',
-        related_name="place_host_relationship"
-    )
-    panels = [
-        PageChooserPanel('place')
-    ]
-
-
 class HostPage(Page):
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -113,13 +93,7 @@ class HostPage(Page):
             label='Language',
             min_num=None,
             max_num=3
-            ),
-        InlinePanel(
-            'host_place_relationship',
-            label='Place',
-            min_num=None,
-            max_num=1
-            ),
+        )
     ]
 
     # Defining the parent. This means the editor will only be able to add the
@@ -138,12 +112,6 @@ class HostPage(Page):
             n.host_languages for n in self.host_language_relationship.all()
         ]
         return languages
-
-    def places(self):
-        places = [
-            n.place for n in self.host_place_relationship.all()
-        ]
-        return places
 
     api_fields = [
         'image',
