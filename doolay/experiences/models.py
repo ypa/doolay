@@ -33,6 +33,10 @@ class ExperiencePage(Page):
                              on_delete=models.SET_NULL,
                              related_name='providing_experiences')
 
+    place = models.ForeignKey('places.PlacePage',
+                              on_delete=models.PROTECT,
+                              related_name='experiences')
+
     duration = models.DurationField(default=timedelta)
 
     # Defining fields that should be within this page model
@@ -48,6 +52,7 @@ class ExperiencePage(Page):
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
         FieldPanel('host'),
+        FieldPanel('place'),
         FieldPanel('duration'),
         StreamFieldPanel('body'),
     ]
