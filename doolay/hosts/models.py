@@ -87,7 +87,6 @@ class HostPage(Page):
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
-        InlinePanel('providing_experiences', label="Providing Experiences"),
         StreamFieldPanel('body'),
         InlinePanel(
             'host_language_relationship',
