@@ -33,4 +33,5 @@
 - Updated field panels for host experience model relations.
 - Fixed experience page template for displaying the "one" host. 
 - Made place to experience one to many relationship.
+- Tried makeing host filed a parental key on expeirence page and have 'providing experiences' as inline field on host page. It doesn't look right, so reverted back.
 

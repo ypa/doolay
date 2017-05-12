@@ -33,7 +33,6 @@ Site
    - [x] Make a backup of the postgres db on laptop.
    - [x] Host to Experience == One to many.
    - [x] Experience to Place == Many to one.
-   - [ ] Fix Host experience to use parental key. (so that selection panel is on Host page).
    - [ ] Fix styles on place index page with experiences.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
