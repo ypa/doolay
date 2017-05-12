@@ -14,7 +14,7 @@
             <div class="experiences">
                 <h3>Experiences</h3>
                 <ul class="experiences">
-                {% for experience in page.experiences  %}
+                {% for experience in page.providing_experiences.all  %}
                     <li><a href="{{ experience.parent_url }}{{ experience.slug }}">{{ experience.title }}</a></li>
                 {% endfor %}
                 </ul>
