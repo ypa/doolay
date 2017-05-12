@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from datetime import timedelta
 from django.db import models
 
+from modelcluster.fields import ParentalKey
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailsearch import index
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
@@ -29,9 +30,9 @@ class ExperiencePage(Page):
         help_text='Experiences image'
     )
 
-    host = models.ForeignKey('hosts.HostPage', null=True,
-                             on_delete=models.SET_NULL,
-                             related_name='providing_experiences')
+    host = ParentalKey('hosts.HostPage', null=True,
+                       on_delete=models.SET_NULL,
+                       related_name='providing_experiences')
 
     place = models.ForeignKey('places.PlacePage',
                               on_delete=models.PROTECT,
@@ -51,7 +52,6 @@ class ExperiencePage(Page):
     # the content editor)
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
-        FieldPanel('host'),
         FieldPanel('place'),
         FieldPanel('duration'),
         StreamFieldPanel('body'),
