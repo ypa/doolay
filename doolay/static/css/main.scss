@@ -352,11 +352,11 @@ footer.site-footer {
                     height: 18px;
                 }
             }
-            .experiences {
+            .experiences, .hosts {
                 display: flex;
                 flex-wrap: wrap;
                 margin: 0;
-                .experience {
+                .experience, .host {
                     display: flex;
                     flex-direction: column;
                     list-style: none;
