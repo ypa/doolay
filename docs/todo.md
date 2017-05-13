@@ -34,6 +34,7 @@ Site
    - [x] Host to Experience == One to many.
    - [x] Experience to Place == Many to one.
    - [ ] Fix styles on place index page with experiences.
+- [ ] Fix Field Panel for host on Experience Page Admin.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
 - [ ] Create fixtures out of the test hosts.
