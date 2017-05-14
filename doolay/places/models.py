@@ -48,15 +48,6 @@ class PlacePage(Page):
     # PlacePage page model
     subpage_types = []
 
-    def hosts(self):
-        # Defined via the related name on the hosts/models.py host model
-        # We create a list of the objects here so that we can loop through
-        # them on the PlacePage
-        hosts = [
-            n.host_page for n in self.place_host_relationship.all()
-        ]
-        return hosts
-
     api_fields = ['image', 'body']
 
 
