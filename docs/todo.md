@@ -29,11 +29,13 @@ Site
 - [x] Style duration field on the experience page - make the layout right.
 - [x] Fix duration hour only.
 - [x] Update place images.
-- [ ] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
+- [x] Make Host and Experience to be one-to-many relationship. not many-to-many as it currently is.
    - [x] Make a backup of the postgres db on laptop.
    - [x] Host to Experience == One to many.
    - [x] Experience to Place == Many to one.
-   - [ ] Fix styles on place index page with experiences.
+   - [x] Fix styles on place index page with experiences. Removed experience thumbnails on place index page.
+- [ ] Add experience list on each place page.
+- [ ] Fix experience links on Host index page.
 - [ ] Fix Field Panel for host on Experience Page Admin.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
