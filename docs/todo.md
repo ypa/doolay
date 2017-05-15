@@ -34,7 +34,8 @@ Site
    - [x] Host to Experience == One to many.
    - [x] Experience to Place == Many to one.
    - [x] Fix styles on place index page with experiences. Removed experience thumbnails on place index page.
-- [ ] Add experience list on each place page.
+- [x] Add experience list on each place page.
+- [ ] Make experience list display work on Place page. Perhaps a grid with brief summary, duration and host.
 - [ ] Fix experience links on Host index page.
 - [ ] Fix Field Panel for host on Experience Page Admin.
 - [ ] Do sanity testing (now the fixtures are loaded).
