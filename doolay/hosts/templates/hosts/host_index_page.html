@@ -16,20 +16,12 @@
 
         <div class="text">
         <h2><a href="{{ host.url }}">{{ host.title }}</a></h2>
-        <ul class="experiences">
-            {% for experience in host.experiences  %}
-                <li>
-                <a href="{{ experience.parent_url }}{{ experience.slug }}">{{ experience.title }}</a>
-                {% if not forloop.last %}<span>, </span>{% endif %}</li>
-                
-            {% endfor %}
-        </ul>
         </div>
         <div class="list-item-footer">
             <p class="place"><img src="/static/images/map-marker.png">
-            {% for experience in host.providing_experiences.all  %}
-                <a href="{{ experience.url }}">{{ experience.title }}</a>
-                {% if not forloop.last %}, {% endif %}
+            {% for place in host.places  %}
+                <a href="{{ place.url }}">{{ place.title }}</a>
+                {% if not forloop.last %}<span>, </span>{% endif %}
             {% endfor %}</p>
         </div>
     </div>

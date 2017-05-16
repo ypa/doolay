@@ -113,6 +113,12 @@ class HostPage(Page):
         ]
         return languages
 
+    def places(self):
+        places = [
+            exp.place for exp in self.providing_experiences.all()
+        ]
+        return places
+
     api_fields = [
         'image',
         'body',
