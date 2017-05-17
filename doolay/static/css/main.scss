@@ -327,8 +327,13 @@ footer.site-footer {
                     color: $header-color;
                 }
             }
-            .experiences {
+            .languages {
                 margin: 0 0 10px 0;
+                img {
+                    margin: 5px 5px 0 -5px;
+                    width: auto;
+                    height: 18px;
+                }
                 li {
                     display: inline-block;
                     list-style: none;
