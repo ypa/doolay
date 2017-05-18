@@ -16,16 +16,12 @@
 
         <div class="text">
             <h2><a href="{{ host.url }}">{{ host.title }}</a></h2>
-            <ul class="languages">
-                <p class="language"><img src="/static/images/language_ico.png">
-           	{% for language in host.languages %}
-                    <li>
-    		    {{ language.title }}
-                    {% if not forloop.last %}<span>, </span>{% endif %}
-    		    </li>
-                {% endfor %}
-    	        </p>
-            <ul>
+            <p class="language"> <img src="/static/images/language_ico.png">
+            {% for language in host.languages %}
+                {{ language.title }}
+                {% if not forloop.last %}<span>, </span>{% endif %}
+            {% endfor %}
+            </p>
         </div>
 
         <div class="list-item-footer">
