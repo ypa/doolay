@@ -24,9 +24,15 @@
     <div class="experiences list grid-parent">
         {% for experience in page.experiences.all  %}
             <div class="list-item list-3">
+                <div class="image">
                 {% image experience.image fill-400x168-c100 as experience_photo %}
     	        <a href="{{ experience.url }}"><img src="{{ experience_photo.url }}" width="{{ experience_photo.width }}" height="{{ experience_photo.height }}" alt="{{ experience_photo.alt }}" title="{{ experience.title }}" /></a>
-                <small><a href="{{ experience.url }}">{{ experience.title }}</a></small>
+	        </div>
+
+		<div class="text">
+	            <h5><a href="{{ experience.url }}">{{ experience.title }}</a></h5>
+	        </div>
+
             </div>
         {% endfor %}
     </div>
