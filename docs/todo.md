@@ -36,15 +36,16 @@ Site
    - [x] Fix styles on place index page with experiences. Removed experience thumbnails on place index page.
 - [x] Add experience list on each place page.
 - [x] Fix experience links on Host index page.
-- [ ] Make experience list display work on Place page. Perhaps a grid with brief summary, duration and host.
+- [x] Make experience list display work on Place page. Perhaps a grid with brief summary, duration and host.
 - [ ] Fix Field Panel for host on Experience Page Admin.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
-- [ ] Create fixtures out of the test hosts.
-- [ ] Create css tags display for multiple interests for live host page.
+- [ ] Test out css with miligram
+
 
 Fixtures
 ========
+- [x] Create fixtures out of the test hosts.
 - [x] Continue testing prune_image_rendtions management command on mac mini.
 - [ ] Find out how image renditions are created in the biginning after load_initial_data command is run.
 - [ ] Re-do the fixtures.
@@ -65,5 +66,6 @@ Release
 
 Blog
 ====
-- [ ] Blog List page
+- [ ] Blog List page (as an archive of previous blog posts)
 - [ ] Blog Page
+- [ ] Have home page display some of the featured/new blog pages. 
