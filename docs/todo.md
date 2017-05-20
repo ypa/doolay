@@ -41,7 +41,7 @@ Site
 - [x] Fix search for host PageChooser field on Experience Page Admin.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
-- [ ] Test out css with miligram
+- [ ] Test out css with miligram/Picnic css
 
 
 Fixtures
