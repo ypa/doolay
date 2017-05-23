@@ -37,4 +37,5 @@
 - Fixed host thumbnails on experience index page.
 - Researched on wagtail ModelAdmin and django ModelAdmin.raw_id_field for getting search work on admin experience page for host field panel.
 - Worked on picnic branch and fixed the header, main nav and breadcrumbs
+- Stripped imports on main.scss leaving only utils
 
