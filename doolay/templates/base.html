@@ -13,13 +13,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% compress css %}
-            <link rel="stylesheet" type="text/x-scss" href="{% static 'css/main.scss' %}">
-        {% endcompress %}
-
         {% block extra_css %}
-
+            < link rel="stylesheet" type="text/x-css" href="{% static 'css/dist/spectre.css' %}" >
         {% endblock %}
+
+        {% compress css %}
+            <!-- link rel="stylesheet" type="text/x-scss" href="{% static 'css/main.scss' %}" -->
+        {% endcompress %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
