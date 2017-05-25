@@ -39,4 +39,5 @@
 - Worked on picnic branch and fixed the header, main nav and breadcrumbs
 - Stripped imports on main.scss leaving only utils
 - Created spectre branch and downloaded and installed spectre css files
+- Spectre - Styled the header nav bar.
 
