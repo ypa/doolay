@@ -40,4 +40,5 @@
 - Stripped imports on main.scss leaving only utils
 - Created spectre branch and downloaded and installed spectre css files
 - Spectre - Styled the header nav bar.
+- Spectre - Updated breadcrumbs and body font weight and margin. (looking good)
 
