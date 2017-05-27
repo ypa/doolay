@@ -41,4 +41,5 @@
 - Created spectre branch and downloaded and installed spectre css files
 - Spectre - Styled the header nav bar.
 - Spectre - Updated breadcrumbs and body font weight and margin. (looking good)
+- Style test footer; Experimented with grid layouts on places page. Next step try Spectre Cards with palces page. Btw, At Yosemite!!!
 
