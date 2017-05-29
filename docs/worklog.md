@@ -43,4 +43,5 @@
 - Spectre - Updated breadcrumbs and body font weight and margin. (looking good)
 - Style test footer; Experimented with grid layouts on places page. Next step try Spectre Cards with palces page. Btw, At Yosemite!!!
 - Fix place index page with spectre layout grids.
+- Update place index page with spectre cards.
 
