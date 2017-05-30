@@ -44,4 +44,5 @@
 - Style test footer; Experimented with grid layouts on places page. Next step try Spectre Cards with palces page. Btw, At Yosemite!!!
 - Fix place index page with spectre layout grids.
 - Update place index page with spectre cards.
+- Place index page work continued, included body inside cards and made images clickable links.
 
