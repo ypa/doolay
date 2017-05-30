@@ -12,16 +12,22 @@
         {% for place in places %}
         <div class="column col-4">
             <div class="card">
+                <div class="card-header">
+			<h4 class="card-title"><a href="{{ place.url }}">{{ place.title }}</a></h4>
+                </div>
 
                 {% image place.image fill-400x168-c100 as photo %}
                 <div class="card-image">
-                    <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+		    <a href="{{ place.url }}">
+                        <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+		    </a>
                 </div>
                 {# end image #}
 
-                <div class="card-footer">
-                    <a href="{{ place.url }}">{{ place.title }}</a>
+                <div class="card-body">
+			{{ place.body |truncatechars_html:10 }}
                 </div>
+
             </div>
 	    {# end card #}
 
