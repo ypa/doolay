@@ -45,4 +45,5 @@
 - Fix place index page with spectre layout grids.
 - Update place index page with spectre cards.
 - Place index page work continued, included body inside cards and made images clickable links.
+- Spectrefy experience index page, work in progress.
 
