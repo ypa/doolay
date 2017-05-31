@@ -6,30 +6,34 @@
 {% block content %}
 <content>
 <h1>{{ page.title }}</h1>
-<div class="places list grid-parent">
-    {% for experience in experiences %}
-    <div class="list-item list-3">
-        <div class="image">
-        {% image experience.image fill-400x168-c100 as photo %}
-              <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-thumbnail" />
-        </div>
-	{# end image #}
+<div class="container">
+    <div class="columns">
 
-        <div class="text">
-        <h2><a href="{{ experience.url }}">{{ experience.title }}</a></h2>
+        {% for experience in experiences %}
+        <div class="column col-4">
+    
+            <div class="card">
+                {% image experience.image fill-400x168-c100 as photo %}
+		    <div class="card-image">
+
+                      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+
+                    </div>
+        	{# end image #}
+
+
+                <div class="card-footer">
+                    <h4 class="card-title"><a href="{{ experience.url }}">{{ experience.title }}</a></h4>
+                </div>
+
+
+            </div>
+	    {# end card #}
+
         </div>
-        <div class="list-item-footer">
-	    <ul class="hosts">
-                {% comment %}@TODO create urls.py to use child reference to link to parent{% endcomment %}
-                    <li class="host">
-                    {% image experience.host.image fill-75x75-c100 as host_photo %}
-                        <a href="{{ experience.host.url }}"><img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
-                        <small><a href="{{ experience.host.url }}">{{ experience.host.title }}</a></small>
-		    </li>
-            </ul>
-        </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
 </div>
 </content>
 {% endblock %}
