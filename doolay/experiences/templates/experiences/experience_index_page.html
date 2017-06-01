@@ -16,8 +16,9 @@
                 {% image experience.image fill-400x168-c100 as photo %}
 		    <div class="card-image">
 
-                      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
-
+		        <a href="{{ experience.url }}">
+                            <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+			</a>
                     </div>
         	{# end image #}
 
