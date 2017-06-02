@@ -25,21 +25,33 @@
                 <div class="card-footer">
                     <h4 class="card-title"><a href="{{ host.url }}">{{ host.title }}</a></h4>
 
-                    {% for language in host.languages %}
-                        <i class="icon icon-check"></i>
-                        {{ language.title }}
-                    {% endfor %}
+		    <div class="divider"></div>
 
-		    <dl>
-                        {% for place in host.places  %}
-                        <dd>
-                            <i class="icon icon-location"></i>
-                            <a href="{{ place.url }}">{{ place.title }}</a>
-                        <dd>
-                        {% endfor %}
-	            </dl>
+                    <div class="container">
+
+                        <div class="columns">
+                            {% for language in host.languages %}
+                            <div class="column col-6">
+                                <i class="icon icon-check"></i>
+                                {{ language.title }}
+                            </div>
+                            {% endfor %}
+    		            </div>
+
+                            <div class="columns">
+                            {% for place in host.places  %}
+    		            <div class="column col-sm-6">
+                                 <i class="icon icon-location"></i>
+                                 <a href="{{ place.url }}">{{ place.title }}</a>
+                            </div>
+                            {% endfor %}
+		        </div>
+
+                    </div>
+		    {# end container #}
+
 	        </div>
-
+		{# end card-footer #}
 
             </div>
             {# end card #}
