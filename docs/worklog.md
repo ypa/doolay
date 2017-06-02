@@ -47,5 +47,6 @@
 - Place index page work continued, included body inside cards and made images clickable links.
 - Spectrefy experience index page, work in progress.
 - Continue spectrefy experience index page, fix the hosts's avatars.
+- Spectrefy host index page.
 
 
