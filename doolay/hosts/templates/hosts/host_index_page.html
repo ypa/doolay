@@ -6,34 +6,48 @@
 {% block content %}
 <content>
 <h1>{{ page.title }}</h1>
-<div class="hosts list grid-parent">
-    {% for host in hosts %}
-    <div class="list-item list-3">
-        <div class="image">
-        {% image host.image fill-400x168-c100 as photo %}
-              <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-thumbnail" />
-        </div>
+<div class="container">
+    <div class="columns">
 
-        <div class="text">
-            <h2><a href="{{ host.url }}">{{ host.title }}</a></h2>
-            <p class="language"> <img src="/static/images/language_ico.png">
-            {% for language in host.languages %}
-                {{ language.title }}
-                {% if not forloop.last %}<span>, </span>{% endif %}
-            {% endfor %}
-            </p>
-        </div>
+        {% for host in hosts %}
+        <div class="column col-4">
 
-        <div class="list-item-footer">
-            <p class="place"><img src="/static/images/map-marker.png">
-            {% for place in host.places  %}
-                <a href="{{ place.url }}">{{ place.title }}</a>
-                {% if not forloop.last %}<span> + </span>{% endif %}
-            {% endfor %}
-	    </p>
+            <div class="card">
+                {% image host.image fill-400x168-c100 as photo %}
+                <a href="{{ host.url }}">
+                     <div class="card-image">
+                      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+                     </div>
+                </a>
+		{# end card-image #}
+
+
+                <div class="card-footer">
+                    <h4 class="card-title"><a href="{{ host.url }}">{{ host.title }}</a></h4>
+
+                    {% for language in host.languages %}
+                        <i class="icon icon-check"></i>
+                        {{ language.title }}
+                    {% endfor %}
+
+		    <dl>
+                        {% for place in host.places  %}
+                        <dd>
+                            <i class="icon icon-location"></i>
+                            <a href="{{ place.url }}">{{ place.title }}</a>
+                        <dd>
+                        {% endfor %}
+	            </dl>
+	        </div>
+
+
+            </div>
+            {# end card #}
+
         </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
 </div>
 </content>
 {% endblock %}
