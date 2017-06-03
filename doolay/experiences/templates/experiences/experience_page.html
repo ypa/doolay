@@ -16,19 +16,30 @@
         <div class="duration">Duration: {{page.duration|duration}}</div>
     {% endif %}
 
+
     <main role="main">
     	{{ page.body }}
     </main>
 
-    <aside>
-        <h3>Your Host</h3>
-    	<ul class="hosts">
-            {% comment %}@TODO create urls.py to use child reference to link to parent{% endcomment %}
-            <li class="host">
-            {% image page.host.image fill-100x100-c100 as host_photo %}
-                <a href="{{ page.host.url }}"><img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
-            <small><a href="{{ page.host.url }}">{{ page.host.title }}</a></small></li>
-        </ul>
-     </aside>
+
+    <h4>Your Host</h4>
+    <div class="tile">
+        <div class="tile-icon">
+            <div class="example-tile-icon">
+                {% image page.host.image fill-100x100-c100 as host_photo %}
+                <a href="{{ page.host.url }}">
+                <figure class="avatar avatar-xl">
+                    <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
+                </figure>
+            </div>
+        </div>
+
+        <div class="tile-content">
+            <a href="{{ page.host.url }}" class="tile-tile">{{ page.host.title }}</a>
+        </div>
+    </div>
+    {# end tile #}
+
+
 </content>
 {% endblock %}
