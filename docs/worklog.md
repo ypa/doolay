@@ -48,5 +48,6 @@
 - Spectrefy experience index page, work in progress.
 - Continue spectrefy experience index page, fix the hosts's avatars.
 - Spectrefy host index page.
+- Spectrefy experience page, work in progress.
 
 
