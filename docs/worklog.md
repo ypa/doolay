@@ -50,5 +50,6 @@
 - Spectrefy host index page.
 - Spectrefy experience page, work in progress.
 - Spectrefy host page.
+- Researched for video embed.
 
 
