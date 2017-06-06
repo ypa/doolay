@@ -49,4 +49,5 @@ class GlobalStreamBlock(StreamBlock):
             blank=True, required=False, label='e.g. Fugazi')),
     ], icon="openquote", template="blocks/blockquote.html")
     embed = EmbedBlock(
-        help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks')
+        help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
+        template="blocks/embed.html")
