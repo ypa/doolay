@@ -27,6 +27,8 @@ content {
         overflow: hidden;
         position: relative;
         margin-bottom: 2rem;
+        width: 100vw;
+        left: calc(-50vw + 50%);
     
         img {
             margin: 0;
