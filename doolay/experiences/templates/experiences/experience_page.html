@@ -6,7 +6,6 @@
 {% block content %}
 <content>
     <div class="lead_image">
-        <div class="gradient"></div>
         {% image page.image width-2000 as photo %}
             <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-fit-cover img-responsive" />
     </div>
