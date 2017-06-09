@@ -54,5 +54,6 @@
 - Make youtube video embed look right.
 - Style/Copied style (from http://duck:8000/...) for lead image page for individual experience page and place page.
 - Make lead_image wide out.
+- Fix top nav in base.html. work in progress.
 
 
