@@ -39,9 +39,11 @@ Site
 - [x] Make experience list display work on Place page. Perhaps a grid with brief summary, duration and host.
 - [x] Fix Field Panel for host on Experience Page Admin.
 - [x] Fix search for host PageChooser field on Experience Page Admin.
+- [x] Test out css with miligram/Picnic css
+- [x] Migrated to Spectre.css
+- [ ] Refactor experinece grid into a django template tag and use it on both experience index page and indiv place page.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
-- [ ] Test out css with miligram/Picnic css
 
 
 Fixtures
