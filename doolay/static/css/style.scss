@@ -28,6 +28,11 @@ header.navbar {
     margin-top: 2rem;
 }
 
+.separator {
+    width: 100vw;
+    left: calc(-50vw + 50%);
+}
+
 content {
     .lead_image {
         max-height: 60vh;
