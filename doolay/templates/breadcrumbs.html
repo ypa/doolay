@@ -5,17 +5,15 @@
   http://docs.wagtail.io/en/v1.8/reference/pages/theory.html
 {% endcomment %}
 {% if ancestors %} 
- <nav aria-label="You are here:" role="navigation">
-      <ul class="breadcrumbs" >
+      <ul class="breadcrumb" >
         {% for ancestor in ancestors %}
           {% if forloop.last %}
-            <li>
+            <li class="breadcrumb-item">
               {{ ancestor }}
             </li>
           {% else %}
-            <li><a href="{% pageurl ancestor %}">{{ ancestor }}</a></li>
+          <li class="breadcrumb-item"><a href="{% pageurl ancestor %}">{{ ancestor }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
-  </nav>
 {% endif %}

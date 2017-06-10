@@ -6,20 +6,34 @@
 {% block content %}
 <content>
 <h1>{{ page.title }}</h1>
-<div class="places list grid-parent">
-    {% for place in places %}
-    <div class="list-item list-3">
-        <div class="image">
-        {% image place.image fill-400x168-c100 as photo %}
-              <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-thumbnail" />
-        </div>
-        {# end image #}
+<div class="container">
+    <div class="columns">
 
-        <div class="text">
-        <h2><a href="{{ place.url }}">{{ place.title }}</a></h2>
+        {% for place in places %}
+        <div class="column col-4">
+
+            <div class="card">
+                {% image place.image fill-400x168-c100 as photo %}
+                <div class="card-image">
+		    <a href="{{ place.url }}">
+                        <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+		    </a>
+                </div>
+                {# end image #}
+
+
+                <div class="card-footer">
+			<h4 class="card-title"><a href="{{ place.url }}">{{ place.title }}</a></h4>
+                </div>
+
+
+            </div>
+	    {# end card #}
+
         </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
 </div>
 </content>
 {% endblock %}

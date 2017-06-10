@@ -5,38 +5,58 @@
 
 {% block content %}
 <content>
-        <div class="image">
-        {% image page.image fill-200x200-c100 as photo %}
+
+	<h1>{{ page.title }}</h1>
+
+        <div class="container">
+
+            {% image page.image fill-200x200-c100 as photo %}
+            <figure class="avatar avatar-xl">
               <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="host-image" />
+            </figure>
+
+	    <div class="columns">
+
+                <div class="column col-4">
+                    <h4>Experiences</h4>
+                    <dl>
+                        {% for experience in page.providing_experiences.all  %}
+                        <dd>
+                            <a href="{{ experience.parent_url }}{{ experience.slug }}">{{ experience.title }}</a>
+                        </dd>
+                        {% endfor %}
+                    </dl>
+                </div>
+    
+                <div class="column col-4">
+                    <h4>Languages Speak</h4>
+                    <span class="languages-speak">{{page.languages|join:"/"}}</span>
+                </div>
+                    
+                <div class="column col-4">
+                    <h4>Serving In Places</h4>
+                    <dl>
+                        {% for place in page.places %}
+                        <dd>
+                            <i class="icon icon-location"></i>
+                            <a href="{{place.url}}">{{ place.title }}</a>
+                        </dd>
+                        {% endfor %}
+                    </dl>
+                </div>
+
+            </div>
+	    {# end columns #}
+
         </div>
-        <h1>{{ page.title }}</h1>
-        <aside>
-            <div class="experiences">
-                <h3>Experiences</h3>
-                <ul class="experiences">
-                {% for experience in page.providing_experiences.all  %}
-                    <li><a href="{{ experience.parent_url }}{{ experience.slug }}">{{ experience.title }}</a></li>
-                {% endfor %}
-                </ul>
-            </div>
-            <div class="language-place">
-                <div class="language">
-                    <h3>Languages Speak</h3>
-		    <span class="languages-speak">{{page.languages|join:"/"}}</span>
-                </div>
-                
-                <div class="place">
-                    <h3>Serving In Places</h3>
-                    {% for place in page.places %}
-                        <a href="{{place.url}}">{{ place.title }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-        </aside>
+        {# end container #}
+
 
         <main role="main">
             <h3 class="biography-title">Biography</h3>
             {{ page.body }}
         </main>
+
+
 </content>
 {% endblock %}
