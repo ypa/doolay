@@ -1,4 +1,5 @@
 from django import template
+from doolay.experiences.models import ExperiencePage
 
 register = template.Library()
 
@@ -13,3 +14,9 @@ def duration(time_delta):
 
     return "{:.1f} hours".format(hours)
 
+@register.inclusion_tag('tags/experiences_grid.html', takes_context=True)
+def experiences_grid(context):
+    return {
+        'experiences': ExperiencePage.objects.all(),
+        'request': context['request'],
+    }
