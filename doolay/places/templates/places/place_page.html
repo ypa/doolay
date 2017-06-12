@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags place_tags %}
 
 {% block body_class %}template-page{% endblock %}
 
@@ -20,42 +20,9 @@
     <h2>Experiences in {{ page.title }}</h2>
     </aside>
 
-<div class="container">
-    <div class="columns">
+    {% block experiences %}
+        {% experiences_grid page %}
+    {% endblock %}
 
-        {% for experience in page.experiences.all %}
-        <div class="column col-4">
-    
-            <div class="card">
-                {% image experience.image fill-400x168-c100 as photo %}
-		    <div class="card-image">
-
-		        <a href="{{ experience.url }}">
-                            <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
-			</a>
-                    </div>
-        	{# end image #}
-
-
-                <div class="card-footer">
-                    <h4 class="card-title"><a href="{{ experience.url }}">{{ experience.title }}</a></h4>
-		{% image experience.host.image fill-75x75-c100 as host_photo %}
-		<a href="{{ experience.host.url }}">
-		    <figure class="avatar avatar-xl">
-                    <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" />
-		    </figure>
-	        </a>by <a href="{{ experience.host.url }}">{{ experience.host.title }}</a>
-                </div>
-
-
-
-            </div>
-	    {# end card #}
-
-        </div>
-        {% endfor %}
-
-    </div>
-</div>
 </content>
 {% endblock %}
