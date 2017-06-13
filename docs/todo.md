@@ -42,6 +42,7 @@ Site
 - [x] Test out css with miligram/Picnic css
 - [x] Migrated to Spectre.css
 - [x] Refactor experinece grid into a django template tag and use it on both experience index page and indiv place page.
+- [x] Fix permalinks on places and experience pages.
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
 

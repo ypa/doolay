@@ -57,6 +57,7 @@
 - Fix top nav in base.html. work in progress.
 - Worked on top nav and footer spacing.
 - Fixed/spectrefy experiences grid to individual place page.
+- Fixed permalinks.
 
 
 
