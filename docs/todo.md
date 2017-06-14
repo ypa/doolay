@@ -43,9 +43,7 @@ Site
 - [x] Migrated to Spectre.css
 - [x] Refactor experinece grid into a django template tag and use it on both experience index page and indiv place page.
 - [x] Fix permalinks on places and experience pages.
-- [ ] Compile Spretre with custom colors and use it.
-   - Primary #103CB5
-   - Secondary #AAB7C7
+- [x] Compile Spretre with custom colors and use it.  - Primary Color is now #103cb5
 - [ ] Do sanity testing (now the fixtures are loaded).
 - [ ] Scout tour guides on the web and populate them as hosts.
 
