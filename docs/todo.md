@@ -72,5 +72,6 @@ Release
 Blog
 ====
 - [ ] Blog List page (as an archive of previous blog posts)
-- [ ] Blog Page
+- [x] Blog Page
+- [ ] Add template for blog page.
 - [ ] Have home page display some of the featured/new blog pages. 
