@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
+
+{% block content %}
+<content>
+<h1>{{ page.title }}</h1>
+
+<div class="container">
+    <div class="columns">
+
+        {% for host in blogs %}
+        <div class="column col-12">
+
+            <div class="card">
+                {% image card.image fill-400x168-c100 as photo %}
+                <a href="{{ host.url }}">
+                     <div class="card-image">
+                      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+                     </div>
+                </a>
+		{# end card-image #}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {# end columns #}
+
+</div>
+
+</content>
+
+{% endblock %}
+
