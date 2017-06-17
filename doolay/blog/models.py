@@ -41,3 +41,30 @@ class BlogPage(Page):
     ]
 
     api_fields = ['image', 'date', 'intro', 'body']
+
+    parent_page_types = [
+        'BlogIndexPage'
+    ]
+
+    # Defining what content type can sit under the parent
+    # The empty array will mean no children can be added
+    subpage_types = []
+
+
+class BlogIndexPage(Page):
+    """
+    This is a page to list all the blog pages on the site
+    """
+    parent_page_types = [
+        'home.HomePage'
+    ]
+
+    subpage_types = [
+        'BlogPage'
+    ]
+
+    def get_context(self, request):
+        context = super(BlogIndexPage, self).get_context(request)
+        live_blogs = BlogPage.objects.descendant_of(self).live()
+        context['blogs'] = live_blogs.order_by('date')
+        return context
