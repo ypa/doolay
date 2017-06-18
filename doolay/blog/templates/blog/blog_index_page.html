@@ -5,22 +5,37 @@
 
 {% block content %}
 <content>
-<h1>{{ page.title }}</h1>
 
 <div class="container">
     <div class="columns">
 
-        {% for host in blogs %}
+        {% for blog in blogs %}
         <div class="column col-12">
 
             <div class="card">
-                {% image card.image fill-400x168-c100 as photo %}
-                <a href="{{ host.url }}">
+
+                <div class="card-header">
+                    <h4 class="card-title"><strong>{{ blog.title }}</strong></h4>
+                </div>
+
+                {% image blog.image fill-1200x400-c100 as photo %}
+                <a href="{{ blog.url }}">
                      <div class="card-image">
                       <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
                      </div>
                 </a>
 		{# end card-image #}
+
+		<div class="card-body">
+                    {{ blog.first_paragraph |striptags}}
+	        </div>
+
+		<div class="card-footer">
+			<a href="{{ blog.url }}" class="btn btn-link">
+                            Read more <i class="icon icon-arrow-right"></i>
+			</a>
+	        </div>
+
             </div>
         </div>
         {% endfor %}

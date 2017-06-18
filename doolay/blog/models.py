@@ -50,6 +50,15 @@ class BlogPage(Page):
     # The empty array will mean no children can be added
     subpage_types = []
 
+    def first_paragraph(self):
+        paragraphs = [p['value'] for p in self.body.stream_data
+                      if p['type'] == 'paragraph']
+        if len(paragraphs) > 0:
+            return paragraphs[0]
+        else:
+            return '<p></p>'
+
+
 
 class BlogIndexPage(Page):
     """
