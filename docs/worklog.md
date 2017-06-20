@@ -58,6 +58,8 @@
 - Worked on top nav and footer spacing.
 - Fixed/spectrefy experiences grid to individual place page.
 - Fixed permalinks.
+- Make "Blog" to appear on top menu. From admin > Blog > Promote Tab > check checkbox "Show in menus".
+
 
 
 
