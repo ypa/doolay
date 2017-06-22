@@ -15,7 +15,9 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h4 class="card-title"><strong>{{ blog.title }}</strong></h4>
+                    <a href="{{ blog.url }}">
+                        <h4 class="card-title"><strong>{{ blog.title }}</strong></h4>
+	            </a>
                 </div>
 
                 {% image blog.image fill-1200x400-c100 as photo %}
