@@ -8,48 +8,48 @@
 <h3>{{ page.strapline}}</h3>
 
 {% if page.featured_page_1 %}
-<div class="container">
-    <div class="columns col-gapless">
-        <div class="column col-6">
-            {% image page.featured_page_1.specific.image width-400 as page_1_photo %}
-                  <img src="{{ page_1_photo.url }}" width="{{ page_1_photo.width }}" height="{{ page_1_photo.height }}" alt="{{ page_1_photo.alt }}" />
-        </div>
-        <div class="column col-6">
+<div class="feature container">
+    <div class="columns">
+        <div class="column col-3">
             <h2><a href="{{ page.featured_page_1.specific.url }}">{{ page.featured_page_1.specific.title }}</a></h2>
             <p>{{ page.featured_page_1.specific.introduction }}</p>
             <footer><a href="{{ page.featured_page_1.specific.url }}">Check out our {{ page.featured_page_1.specific.title|lower }} <i class="icon icon-arrow-right"></i></a></footer>
+        </div>
+        <div class="column col-9">
+            {% image page.featured_page_1.specific.image fill-1200x500-c100 as page_1_photo %}
+                  <img src="{{ page_1_photo.url }}" width="{{ page_1_photo.width }}" height="{{ page_1_photo.height }}" alt="{{ page_1_photo.alt }}" class="img-fit-contain img-responsive" />
         </div>
     </div>
 </div>
 {% endif %}
 
 {% if page.featured_page_2 %}
-<div class="container">
-    <div class="columns col-gapless">
-        <div class="column col-6">
+<div class="feature container">
+    <div class="columns">
+        <div class="column col-9">
+            {% image page.featured_page_2.specific.image fill-1200x500-c100 as page_2_photo %}
+                  <img src="{{ page_2_photo.url }}" width="{{ page_2_photo.width }}" height="{{ page_2_photo.height }}" alt="{{ page_2_photo.alt }}" class="img-fit-contain img-responsive" />
+        </div>
+        <div class="column col-3">
             <h2><a href="{{ page.featured_page_2.specific.url }}">{{ page.featured_page_2.specific.title }}</a></h2>
             <p>{{ page.featured_page_2.specific.introduction }}</p>
             <footer><a href="{{ page.featured_page_2.specific.url }}">Check out our {{ page.featured_page_2.specific.title|lower }} <i class="icon icon-arrow-right"></i></a></footer>
-        </div>
-        <div class="column col-6">
-            {% image page.featured_page_2.specific.image width-400 as page_2_photo %}
-                  <img src="{{ page_2_photo.url }}" width="{{ page_2_photo.width }}" height="{{ page_2_photo.height }}" alt="{{ page_2_photo.alt }}" />
         </div>
     </div>
 </div>
 {% endif %}
 
 {% if page.featured_page_3 %}
-<div class="container">
-    <div class="columns col-gapless">
-        <div class="column col-6">
-            {% image page.featured_page_3.specific.image width-400 as page_3_photo %}
-                  <img src="{{ page_3_photo.url }}" width="{{ page_3_photo.width }}" height="{{ page_3_photo.height }}" alt="{{ page_3_photo.alt }}" />
-        </div>
-        <div class="column col-6">
+<div class="feature container">
+    <div class="columns">
+        <div class="column col-4">
             <h2><a href="{{ page.featured_page_3.specific.url }}">{{ page.featured_page_3.specific.title }}</a></h2>
             <p>{{ page.featured_page_3.specific.introduction }}</p>
             <footer><a href="{{ page.featured_page_3.specific.url }}">Check out our {{ page.featured_page_3.specific.title|lower }} <i class="icon icon-arrow-right"></i></a></footer>
+        </div>
+        <div class="column col-8">
+            {% image page.featured_page_3.specific.image fill-1200x500-c100 as page_3_photo %}
+                  <img src="{{ page_3_photo.url }}" width="{{ page_3_photo.width }}" height="{{ page_3_photo.height }}" alt="{{ page_3_photo.alt }}" class="img-fit-contain img-responsive" />
         </div>
     </div>
 </div>
