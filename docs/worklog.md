@@ -59,6 +59,7 @@
 - Fixed/spectrefy experiences grid to individual place page.
 - Fixed permalinks.
 - Make "Blog" to appear on top menu. From admin > Blog > Promote Tab > check checkbox "Show in menus".
+- Read up on vagrant repackaging from existing base vagrant box.
 
 
 
