@@ -60,6 +60,7 @@
 - Fixed permalinks.
 - Make "Blog" to appear on top menu. From admin > Blog > Promote Tab > check checkbox "Show in menus".
 - Read up on vagrant repackaging from existing base vagrant box.
+- Released a new vagrant box vzmm/doolay with Nginx installed based on torchbox's wagtail vagrant box.    
 
 
 
