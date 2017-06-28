@@ -34,8 +34,9 @@ chmod a+x $PROJECT_DIR/manage.py
 
 # Run syncdb/migrate/update_index
 # Add $PYTHON $PROJECT_DIR/manage.py load_initial_data to load mock data on provision
-su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py makemigrations && \
-				 $PYTHON $PROJECT_DIR/manage.py migrate --noinput && \
+# su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py makemigrations && \
+# 				 $PYTHON $PROJECT_DIR/manage.py migrate --noinput && \
+su - vagrant -c "psql -d $PROJECT_NAME -f $PROJECT_NAME/db/$PROJECT_NAME.sql && \
                  $PYTHON $PROJECT_DIR/manage.py update_index"
 
 # Add a couple of aliases to manage.py into .bashrc
