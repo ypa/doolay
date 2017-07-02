@@ -74,4 +74,16 @@ Vagrant.configure(2) do |config|
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
+
+  # GCE 
+  config.vm.provider :google do |google, override|
+    google.google_project_id = "findingmyanmar"
+    google.google_client_email = "doolay@findingmyanmar.iam.gserviceaccount.com"
+    google.google_json_key_location = "/Users/ypa/work/doolay/private-key.json"
+
+    override.ssh.username = "ypa"
+    override.ssh.private_key_path = "~/.ssh/id_rsa"
+    #override.ssh.private_key_path = "~/.ssh/google_compute_engine"
+  end
+
 end
