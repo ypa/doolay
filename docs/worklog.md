@@ -63,6 +63,7 @@
 - Released a new vagrant box vzmm/doolay with Nginx installed based on torchbox's wagtail vagrant box.    
 - Created a branch gce with Vagrant configs for Google Compute Engine.
 - Created a debian image viag Vagrant gce.
+- Provisioned vagrant gce box.
 
 
 
