@@ -22,6 +22,12 @@ These are the steps for creating GCE VM instances and images.
 Use vagrant google plugin to spin up Google compute engine instance
 
 From thinkpad:
+
+First add gce compatible vagrant box:
+```
+vagrant box add gce https://github.com/mitchellh/vagrant-google/raw/master/google.box
+```
+
 ~/work/vagrant_gce_test/
 
 vagrant up --provider=google
