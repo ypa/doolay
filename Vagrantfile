@@ -77,9 +77,21 @@ Vagrant.configure(2) do |config|
 
   # GCE 
   config.vm.provider :google do |google, override|
+
+    override.vm.box = "gce"
+    config.vm.box_version = nil
+
     google.google_project_id = "findingmyanmar"
     google.google_client_email = "doolay@findingmyanmar.iam.gserviceaccount.com"
     google.google_json_key_location = "/Users/ypa/work/doolay/private-key.json"
+    google.name = "doolay-demo"
+
+    google.zone = "us-west1-b"
+
+
+    google.machine_type = "n1-standard-1"
+
+    google.image = "doolay-dev"
 
     override.ssh.username = "ypa"
     override.ssh.private_key_path = "~/.ssh/id_rsa"
