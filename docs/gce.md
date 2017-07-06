@@ -1,6 +1,21 @@
 Google Compute Engine
 =====================
 
+
+## Install gcloud (the SDK)
+```
+cd Downloads/google-cloud-sdk/
+./install.sh
+gcloud init
+echo -n 'ypa:' > /tmp/id_rsa.pub
+cat ~/.ssh/id_rsa.pub >> /tmp/id_rsa.pub
+less /tmp/id_rsa.pub
+gcloud compute project-info add-metadata --metadata-from-file sshKeys=/tmp/id_rsa.pub
+gcloud compute images list
+```
+
+## Create VM instance and image
+
 These are the steps for creating GCE VM instances and images.
 
 
