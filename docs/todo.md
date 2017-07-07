@@ -1,6 +1,7 @@
 Release
 =======
-- [ ] Sign up Google Cloud compute.
+- [x] Sign up Google Cloud compute.
+- [ ] Create a google image via VM via vagrant as vagrant user (instead of ypa).
 - [ ] Test with gunicorn and nginx in Vagrant
 - [ ] Move media files to S3
 - [ ] Deploy to GCE.
