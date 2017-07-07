@@ -2,6 +2,7 @@ Release
 =======
 - [x] Sign up Google Cloud compute.
 - [ ] Create a google image via VM via vagrant as vagrant user (instead of ypa).
+- [ ] Update Vagrantfile to support both Virtualbox and Google providers.google for (coderwall vagrant and aws an active machine was found with a different provider)  
 - [ ] Test with gunicorn and nginx in Vagrant
 - [ ] Move media files to S3
 - [ ] Deploy to GCE.
