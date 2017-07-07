@@ -64,6 +64,7 @@
 - Created a branch gce with Vagrant configs for Google Compute Engine.
 - Created a debian image viag Vagrant gce.
 - Provisioned vagrant gce box.
+- Provisioned/installed gce box, doolay-demo and successful ran djrun as ypa.
 
 
 
