@@ -21,23 +21,32 @@ These are the steps for creating GCE VM instances and images.
 
 Use vagrant google plugin to spin up Google compute engine instance
 
-From thinkpad:
+From thinkpad as vagrant user:
+```
+sudo su vagrant
+```
 
 First add gce compatible vagrant box:
 ```
 vagrant box add gce https://github.com/mitchellh/vagrant-google/raw/master/google.box
 ```
 
-~/work/vagrant_gce_test/
-
+```
+cd ~/vagrant_boxes/dev/
 vagrant up --provider=google
-if rsync failed
+```
+
+if rsync failed, ssh to the gce VM just created and install rsync:
+```
 vagrant ssh
 sudo apt-get install rsync
 exit
+```
 
-vagrant provistion --use shell
-
+Then back from Thinkpad run the provision:
+```
+vagrant provision --provision-with=shell
+```
 
 Once GCE VM is provisioned create an image from the VM instance.
 https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images
