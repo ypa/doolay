@@ -65,6 +65,7 @@
 - Created a debian image viag Vagrant gce.
 - Provisioned vagrant gce box.
 - Provisioned/installed gce box, doolay-demo and successful ran djrun as ypa.
+- Create a base gce box image named doolay-jessie as vagrant user.
 
 
 
