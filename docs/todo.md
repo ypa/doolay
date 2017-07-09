@@ -1,9 +1,12 @@
 Release
 =======
 - [x] Sign up Google Cloud compute.
-- [ ] Create a google image via VM via vagrant as vagrant user (instead of ypa).
+- [x] Create a google image via VM via vagrant as vagrant user (instead of ypa).
+- [ ] Test with gunicorn and nginx in Vagrant Virtualbox first.
+- [ ] Configure Google VM to run app via gunicorn and nginx and make it publicly accessible.
+- [ ] Update the vagrant/provision.sh (in gce branch) to do the gunicorn/nginx configuration auto.
+- [ ] Convert vagrant/provision.sh shell provisioning into Ansible one.
 - [ ] Update Vagrantfile to support both Virtualbox and Google providers.google for (coderwall vagrant and aws an active machine was found with a different provider)  
-- [ ] Test with gunicorn and nginx in Vagrant
 - [ ] Move media files to S3
 - [ ] Deploy to GCE.
 - [ ] Deploy staging and prod. (See TDD book)
