@@ -67,6 +67,7 @@
 - Provisioned/installed gce box, doolay-demo and successful ran djrun as ypa.
 - Create a base gce box image named doolay-jessie as vagrant user.
 - Fixed (deleted old and created new) doolay-jessie image with ssh user vagrant with added authorized_keys.
+- Worked on configuring nginx and gunicorn on virtualbox. WIP.
 
 
 
