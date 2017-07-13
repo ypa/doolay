@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+DEBUG = True
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -196,3 +198,47 @@ WAGTAILSEARCH_BACKENDS = {
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "doolay"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+        'logfile': {
+            'level':'DEBUG',
+            'class':'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, './doolay.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+        'hosts': {
+            'handlers': ['console'],
+        },
+        'places': {
+            'handlers': ['console'],
+        },
+        'experiences': {
+            'handlers': ['console'],
+        },
+        'blog': {
+            'handlers': ['console'],
+        },
+        'home': {
+            'handlers': ['console'],
+        },
+    },
+    'root': {
+        'level': 'INFO',
+    },
+}
+
+if not DEBUG:
+    for logger in LOGGING['loggers']:
+        logger['handlers'].append('logfile')
+
