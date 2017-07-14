@@ -1,0 +1,15 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=vagrant
+Group=www-data
+WorkingDirectory=/vagrant
+Environment=SECRET_KEY=r$uqde570p)(k8vafsqfnb=bz%r5wdf#(rol-t5(qawho!fs#g
+Environment=LOG_DIR=/vagrant
+ExecStart=/home/vagrant/.virtualenvs/doolay/bin/gunicorn --error-log /vagrant/gunicorn-error.log --bind unix:/tmp/doolay.socket doolay.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
