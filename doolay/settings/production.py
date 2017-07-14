@@ -10,6 +10,8 @@ from .base import *
 DEBUG = False
 TEMPLATES[0]['OPTIONS']['debug'] = False
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 
 # Compress static files offline and minify CSS
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
