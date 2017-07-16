@@ -46,6 +46,8 @@ Start gunicorn and nginx
 [doolay vagrant]$ sudo systemctl start nginx
 ```
 
+Now visit localhost:8080 which wis being forwarded in Vagrantfile. You should see the site.
+
 
 
 
