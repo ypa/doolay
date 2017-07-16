@@ -10,7 +10,7 @@ Group=www-data
 WorkingDirectory=/home/vagrant/sites/SITENAME/source
 Environment=SECRET_KEY=r$uqde570p)(k8vafsqfnb=bz%r5wdf#(rol-t5(qawho!fs#g
 Environment=LOG_DIR=/home/vagrant/sites/SITENAME
-ExecStart=/home/vagrant/.virtualenvs/doolay/bin/gunicorn --error-log ../gunicorn-error.log --bind unix:/tmp/doolay-SITENAME.socket doolay.wsgi:application
+ExecStart=/home/vagrant/.virtualenvs/doolay/bin/gunicorn --error-log ../gunicorn-error.log --bind unix:/tmp/SITENAME.socket doolay.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
