@@ -1,0 +1,17 @@
+# /etc/systemd/system/gunicorn-doolay-[staging/production].service
+# sudo systemctl enable gunicorn-doolay-[staging/production]
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=vagrant
+Group=www-data
+WorkingDirectory=/home/vagrant/sites/SITENAME/source
+Environment=SECRET_KEY=r$uqde570p)(k8vafsqfnb=bz%r5wdf#(rol-t5(qawho!fs#g
+Environment=LOG_DIR=/vagrant
+ExecStart=/home/vagrant/.virtualenvs/doolay/bin/gunicorn --error-log ../gunicorn-error.log --bind unix:/tmp/doolay-SITENAME.socket doolay.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
