@@ -15,7 +15,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Compress static files offline and minify CSS
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-COMPRESS_OFFLINE = True
+# COMPRESS_OFFLINE = True
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.CSSMinFilter',
