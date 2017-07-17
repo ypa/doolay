@@ -48,10 +48,10 @@ Collect static files.
 [doolay source]$ python manage.py collectstatic --settings doolay.settings.production
 ```
 
-Start gunicorn and nginx
+Start gunicorn and restart nginx
 ```
 [doolay vagrant]$ sudo systemctl start gunicorn-doolay-staging
-[doolay vagrant]$ sudo systemctl start nginx
+[doolay vagrant]$ sudo systemctl restart nginx
 ```
 
 Now visit localhost:8080 which wis being forwarded in Vagrantfile. You should see the site.
