@@ -59,6 +59,10 @@ if 'CACHE_PURGE_URL' in env:
         },
     }
 
+# In production and staging put static/media files under one dir above source
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
+
 if 'STATIC_URL' in env:
     STATIC_URL = env['STATIC_URL']
 
