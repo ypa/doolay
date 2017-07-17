@@ -40,6 +40,14 @@ Copy the contents of /vagrant into vagrant user's home sites dir.
 [doolay vagrant]$ mkdir -p /home/vagrant/sites/staging.doolay.com/source
 [doolay vagrant]$ rsync -ap /vagrant/ /home/vagrant/sites/staging.doolay.com/source/
 ```
+
+Collect static files.
+```
+[doolay vagrant]$ cd ~/sites/staging.doolay.com/source
+[doolay source]$ export SECRET_KEY="asdfasdf3234234454" # this can be moved to doolay.settings.local module?
+[doolay source]$ python manage.py collectstatic --settings doolay.settings.production
+```
+
 Start gunicorn and nginx
 ```
 [doolay vagrant]$ sudo systemctl start gunicorn-doolay-staging
