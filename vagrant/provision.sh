@@ -39,6 +39,28 @@ chmod a+x $PROJECT_DIR/manage.py
 su - vagrant -c "psql -d $PROJECT_NAME -f $PROJECT_DIR/db/$PROJECT_NAME.sql && \
                  $PYTHON $PROJECT_DIR/manage.py update_index"
 
+# Configure nginx
+su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
+	$PROJECT_DIR/deploy_tools/nginx.template.conf | sudo tee \
+	/etc/nginx/sites-available/staging.doolay.com && \
+        sudo ln -s /etc/nginx/sites-available/staging.doolay.com \
+        /etc/nginx/sites-enabled/staging.doolay.com"
+
+# Gunicorn systemd script
+su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
+     $PROJECT_DIR/deploy_tools/gunicorn-doolay-SITENAME.service.template  | sudo tee \
+     /etc/systemd/system/gunicorn-doolay-staging.service && \
+     sudo systemctl enable gunicorn-doolay-staging"
+
+# Code deployment
+su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/source && \
+	rsync -ap $PROJECT_DIR/ /home/vagrant/sites/staging.doolay.com/source/"
+
+# Restart gunicorn and nginx
+sudo systemctl start gunicorn-doolay-staging
+sudo systemctl restart nginx
+
+
 # Add a couple of aliases to manage.py into .bashrc
 cat << EOF >> /home/vagrant/.bashrc
 export PYTHONPATH=$PROJECT_DIR
