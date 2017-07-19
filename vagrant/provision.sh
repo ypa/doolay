@@ -56,6 +56,11 @@ su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
 su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/source && \
 	rsync -ap $PROJECT_DIR/ /home/vagrant/sites/staging.doolay.com/source/"
 
+# Collect static files
+su - vagrant -c "cd /home/vagrant/sites/staging.doolay.com/source/ && \
+	export SECRET_KEY='mk2##cx8nq7r%ir_h$d8%(u_!5-nv4py4o6med8y%ux90*+)g2' && \
+	$PYTHON manage.py collectstatic --settings doolay.settings.production --clear --noinput"
+
 # Restart gunicorn and nginx
 sudo systemctl start gunicorn-doolay-staging
 sudo systemctl restart nginx
