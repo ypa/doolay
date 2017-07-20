@@ -15,3 +15,7 @@ Run the following from the VM to get the pgdump
 [doolay vagrant]$ pg_dump doolay > doolay.sql
 ```
 
+## Launching GCE VM
+```
+vagrant up gce --provider=google
+```
