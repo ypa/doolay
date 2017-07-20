@@ -69,6 +69,7 @@
 - Fixed (deleted old and created new) doolay-jessie image with ssh user vagrant with added authorized_keys.
 - Worked on configuring nginx and gunicorn on virtualbox. WIP.
 - Configured nginx successful, gunicorn not responding getting 502 BAD Gateway.
+- Created a seperated vagrant VM for GCE so that you can now launch `vagrant up gce --provider=google` and normal `vagrant up` will launch Virtualbox.
 
 
 
