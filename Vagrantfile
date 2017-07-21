@@ -74,4 +74,35 @@ Vagrant.configure(2) do |config|
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
+
+  # GCE 
+  config.vm.define :gce, autostart: false do |gce_vm|
+
+    gce_vm.vm.provider :google do |google, override|
+  
+      override.vm.box = "gce"
+      config.vm.box_version = nil
+  
+      google.google_project_id = "findingmyanmar"
+      google.google_client_email = "doolay@findingmyanmar.iam.gserviceaccount.com"
+  
+      # Look for the Google private-key.json in the directory above.
+      google.google_json_key_location = File.join(File.expand_path("..", File.dirname(__FILE__)),
+                                                  "private-key.json")
+  
+      google.name = "doolay-staging"
+  
+      google.zone = "us-west1-b"
+  
+  
+      google.machine_type = "n1-standard-1"
+  
+      google.image = "doolay-jessie"
+  
+      override.ssh.username = "vagrant"
+      override.ssh.private_key_path = "~/.ssh/id_rsa"
+      #override.ssh.private_key_path = "~/.ssh/google_compute_engine"
+    end
+  end
+
 end
