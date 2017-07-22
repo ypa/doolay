@@ -6,6 +6,7 @@ media/
 static/*
 .DS_Store
 /venv/
+.venv/
 /.vagrant/
 *.log
 *.lock
