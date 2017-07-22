@@ -1,0 +1,22 @@
+Django==1.9.9
+elasticsearch==1.2.0
+django-redis==4.3.0
+wagtail==1.8
+django-libsass==0.6
+libsass==0.8.3
+Pillow==2.9.0
+
+# Production dependencies
+dj-database-url==0.3.0
+whitenoise==2.0.4
+ConcurrentLogHandler==0.9.1
+
+django-storages==1.6.3
+
+# S3/boto dependencies
+boto3==1.4.4 
+botocore==1.5.86
+docutils==0.13.1
+jmespath==0.9.3
+python-dateutil==2.6.1
+s3transfer==0.1.10
