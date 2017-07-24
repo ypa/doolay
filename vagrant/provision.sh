@@ -32,7 +32,7 @@ su - vagrant -c "$PIP install -r $PROJECT_DIR/requirements.txt"
 chmod a+x $PROJECT_DIR/manage.py
 
 # Untar fixture images
-su -vagrant -c "tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
+su - vagrant -c "tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
 	               -C $PROJECT_DIR/doolay/fixtures/"
 
 # Run syncdb/migrate/update_index
