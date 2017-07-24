@@ -31,6 +31,9 @@ su - vagrant -c "$PIP install -r $PROJECT_DIR/requirements.txt"
 # Set execute permissions on manage.py as they get lost if we build from a zip file
 chmod a+x $PROJECT_DIR/manage.py
 
+# Untar fixture images
+su -vagrant -c "tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
+	               -C $PROJECT_DIR/doolay/fixtures/"
 
 # Run syncdb/migrate/update_index
 # Add $PYTHON $PROJECT_DIR/manage.py load_initial_data to load mock data on provision
