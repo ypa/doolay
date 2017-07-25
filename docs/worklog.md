@@ -71,6 +71,8 @@
 - Configured nginx successful, gunicorn not responding getting 502 BAD Gateway.
 - Created a seperated vagrant VM for GCE so that you can now launch `vagrant up gce --provider=google` and normal `vagrant up` will launch Virtualbox.
 - First attempt at storing 'collectstatic'ed files in amazon s3.    
+- Added provisioning for copying media fixtures to demo branch.
+- Added nginx config for serving media dir.
 
 
 
