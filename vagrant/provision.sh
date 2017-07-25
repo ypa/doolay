@@ -62,6 +62,11 @@ su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
 su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/source && \
 	rsync -ap $PROJECT_DIR/ /home/vagrant/sites/staging.doolay.com/source/"
 
+# Prepare Media files
+su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/media/original_images && \
+        tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
+	    -C /home/vagrant/sites/staging.doolay.com/media/original_images/ --strip-components=1"
+
 # Collect static files
 su - vagrant -c "cd /home/vagrant/sites/staging.doolay.com/source/ && \
 	export SECRET_KEY='mk2##cx8nq7r%ir_h$d8%(u_!5-nv4py4o6med8y%ux90*+)g2' && \
