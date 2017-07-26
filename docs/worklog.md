@@ -73,6 +73,7 @@
 - First attempt at storing 'collectstatic'ed files in amazon s3.    
 - Added provisioning for copying media fixtures to demo branch.
 - Added nginx config for serving media dir.
+- Added cleanup_wagtailimage_renditions command to demo branch.
 
 
 
