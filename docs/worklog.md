@@ -74,6 +74,7 @@
 - Added provisioning for copying media fixtures to demo branch.
 - Added nginx config for serving media dir.
 - Added cleanup_wagtailimage_renditions command to demo branch.
+- Tested demo branch on laptop.
 
 
 
