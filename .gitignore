@@ -10,3 +10,4 @@ static/*
 /.vagrant/
 *.log
 *.lock
+doolay/fixtures/images/*
