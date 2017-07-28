@@ -75,6 +75,7 @@
 - Added nginx config for serving media dir.
 - Added cleanup_wagtailimage_renditions command to demo branch.
 - Tested demo branch on laptop.
+- Provision demo branch on gce.
 
 
 
