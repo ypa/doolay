@@ -76,6 +76,9 @@
 - Added cleanup_wagtailimage_renditions command to demo branch.
 - Tested demo branch on laptop.
 - Provision demo branch on gce.
+- Fixed demo gce instance (needed to install nginx and add ALLOWED_HOSTS in prod settings).
+- Created A record on Gandi and point DNS to the gce insance, staging.doolay.com is live. Yay!
+- Created a new gce image "doolay-jessie2" with nginx already installed updated demo branch to use it.
 
 
 
