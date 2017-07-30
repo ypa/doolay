@@ -30,8 +30,9 @@ vagrant box add gce https://github.com/mitchellh/vagrant-google/raw/master/googl
 
 Create the VM:
 ```
-# cd ~/vagrant_boxes/dev/
-cd /home/ypa/work/vagrant_doolay_gce_base/
+# First sync up dir with repo
+rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/dev/
+cd ~/vagrant_boxes/dev/
 vagrant up --provider=google
 ```
 
