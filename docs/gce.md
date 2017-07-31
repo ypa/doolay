@@ -33,7 +33,7 @@ Create the VM:
 # First sync up dir with repo
 rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/dev/
 cd ~/vagrant_boxes/dev/
-vagrant up --provider=google
+vagrant up --provider=google # This could take a long long time (to establish connection with google)
 ```
 
 The rsync will failed because the base debian (jessie) image doesn't come with rsync installed.
