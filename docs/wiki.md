@@ -17,5 +17,5 @@ Run the following from the VM to get the pgdump
 
 ## Launching GCE VM
 ```
-vagrant up gce --provider=google
+vagrant up gce --provider=google # This could take a long long time (to establish connection with google). It might be better to do it on Mac Mini.
 ```
