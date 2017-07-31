@@ -79,6 +79,4 @@
 - Fixed demo gce instance (needed to install nginx and add ALLOWED_HOSTS in prod settings).
 - Created A record on Gandi and point DNS to the gce insance, staging.doolay.com is live. Yay!
 - Created a new gce image "doolay-jessie2" with nginx already installed updated demo branch to use it.
-
-
-
+- Tested re-creation of the gce doolay-demo VM instance.
