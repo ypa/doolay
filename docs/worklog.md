@@ -80,3 +80,4 @@
 - Created A record on Gandi and point DNS to the gce insance, staging.doolay.com is live. Yay!
 - Created a new gce image "doolay-jessie2" with nginx already installed updated demo branch to use it.
 - Tested re-creation of the gce doolay-demo VM instance.
+- Tested and pointed demo site to the new VM created from demo branch, deleted the old VM.
