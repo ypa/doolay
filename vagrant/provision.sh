@@ -31,13 +31,20 @@ su - vagrant -c "$PIP install -r $PROJECT_DIR/requirements.txt"
 # Set execute permissions on manage.py as they get lost if we build from a zip file
 chmod a+x $PROJECT_DIR/manage.py
 
+# Untar fixture images
+su - vagrant -c "tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
+	               -C $PROJECT_DIR/doolay/fixtures/"
 
 # Run syncdb/migrate/update_index
 # Add $PYTHON $PROJECT_DIR/manage.py load_initial_data to load mock data on provision
-# su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py makemigrations && \
-# 				 $PYTHON $PROJECT_DIR/manage.py migrate --noinput && \
-su - vagrant -c "psql -d $PROJECT_NAME -f $PROJECT_DIR/db/$PROJECT_NAME.sql && \
-                 $PYTHON $PROJECT_DIR/manage.py update_index"
+su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py makemigrations && \
+				 $PYTHON $PROJECT_DIR/manage.py migrate --noinput && \
+				 $PYTHON $PROJECT_DIR/manage.py load_initial_data && \
+				 $PYTHON $PROJECT_DIR/manage.py cleanup_wagtailimage_renditions && \
+				 $PYTHON $PROJECT_DIR/manage.py update_index"
+
+# su - vagrant -c "psql -d $PROJECT_NAME -f $PROJECT_DIR/db/$PROJECT_NAME.sql && \
+#                  $PYTHON $PROJECT_DIR/manage.py update_index"
 
 # Configure nginx
 su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
@@ -55,6 +62,11 @@ su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
 # Code deployment
 su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/source && \
 	rsync -ap $PROJECT_DIR/ /home/vagrant/sites/staging.doolay.com/source/"
+
+# Prepare Media files
+su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/media/original_images && \
+        tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
+	    -C /home/vagrant/sites/staging.doolay.com/media/original_images/ --strip-components=1"
 
 # Collect static files
 su - vagrant -c "cd /home/vagrant/sites/staging.doolay.com/source/ && \
