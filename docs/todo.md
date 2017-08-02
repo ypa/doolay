@@ -16,8 +16,8 @@ Fixtures
 ========
 - [x] Create fixtures out of the test hosts.
 - [x] Continue testing prune_image_rendtions management command on mac mini.
-- [ ] Add a command in "demo" branch to delete wagtailimages Renditions.
-- [ ] Add it to provistion script to run it after load_initial_data command.
+- [x] Add a command in "demo" branch to delete wagtailimages Renditions.
+- [x] Add it to provistion script to run it after load_initial_data command.
 - [ ] Rename doolay/fixtures/db.json to initial_data.json
 
 
