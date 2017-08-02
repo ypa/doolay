@@ -10,9 +10,14 @@ Maybe create a cron to run everyday.
 
 
 ## Backing up
+### Using pg_dump
 Run the following from the VM to get the pgdump
 ```
 [doolay vagrant]$ pg_dump doolay > doolay.sql
+```
+### Using django dumpdata to fixtures
+```
+python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/db.json
 ```
 
 ## Launching GCE VM

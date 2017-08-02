@@ -2,7 +2,8 @@ Release
 =======
 - [x] Sign up Google Cloud compute.
 - [x] Create a google image via VM via vagrant as vagrant user (instead of ypa).
-- [ ] Test with gunicorn and nginx in Vagrant Virtualbox first.
+- [x] Test with gunicorn and nginx in Vagrant Virtualbox first.
+- [ ] Seperate db for dev settings and staging db and prod db.
 - [ ] Configure Google VM to run app via gunicorn and nginx and make it publicly accessible.
 - [ ] Update the vagrant/provision.sh (in gce branch) to do the gunicorn/nginx configuration auto.
 - [ ] Convert vagrant/provision.sh shell provisioning into Ansible one.
@@ -15,9 +16,9 @@ Fixtures
 ========
 - [x] Create fixtures out of the test hosts.
 - [x] Continue testing prune_image_rendtions management command on mac mini.
-- [ ] Find out how image renditions are created in the biginning after load_initial_data command is run.
-- [ ] Re-do the fixtures.
-- [ ] Remove duplicate image thumbnails and clean up images tables to use the one version.
+- [x] Add a command in "demo" branch to delete wagtailimages Renditions.
+- [x] Add it to provistion script to run it after load_initial_data command.
+- [ ] Rename doolay/fixtures/db.json to initial_data.json
 
 
 Production

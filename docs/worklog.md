@@ -71,6 +71,13 @@
 - Configured nginx successful, gunicorn not responding getting 502 BAD Gateway.
 - Created a seperated vagrant VM for GCE so that you can now launch `vagrant up gce --provider=google` and normal `vagrant up` will launch Virtualbox.
 - First attempt at storing 'collectstatic'ed files in amazon s3.    
-
-
-
+- Added provisioning for copying media fixtures to demo branch.
+- Added nginx config for serving media dir.
+- Added cleanup_wagtailimage_renditions command to demo branch.
+- Tested demo branch on laptop.
+- Provision demo branch on gce.
+- Fixed demo gce instance (needed to install nginx and add ALLOWED_HOSTS in prod settings).
+- Created A record on Gandi and point DNS to the gce insance, staging.doolay.com is live. Yay!
+- Created a new gce image "doolay-jessie2" with nginx already installed updated demo branch to use it.
+- Tested re-creation of the gce doolay-demo VM instance.
+- Tested and pointed demo site to the new VM created from demo branch, deleted the old VM.
