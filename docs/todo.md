@@ -3,6 +3,7 @@ Release
 - [x] Sign up Google Cloud compute.
 - [x] Create a google image via VM via vagrant as vagrant user (instead of ypa).
 - [x] Test with gunicorn and nginx in Vagrant Virtualbox first.
+- [ ] Fix Vagrantfile for default Virtualbox local deployments.
 - [ ] Seperate db for dev settings and staging db and prod db.
 - [ ] Configure Google VM to run app via gunicorn and nginx and make it publicly accessible.
 - [ ] Update the vagrant/provision.sh (in gce branch) to do the gunicorn/nginx configuration auto.
