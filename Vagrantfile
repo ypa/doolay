@@ -10,10 +10,6 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "vzmm/doolay"
-  config.vm.box_version = "0.0.1"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -74,6 +70,14 @@ Vagrant.configure(2) do |config|
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
+
+  # Dev VirtualBox
+  config.vm.define :dev, primary: true do |dev|
+    # Every Vagrant development environment requires a box. You can search for
+    # boxes at https://atlas.hashicorp.com/search.
+    config.vm.box = "vzmm/doolay"
+    config.vm.box_version = "0.0.1"
+  end
 
   # GCE 
   config.vm.define :gce, autostart: false do |gce_vm|
