@@ -4,14 +4,14 @@ Release
 - [x] Create a google image via VM via vagrant as vagrant user (instead of ypa).
 - [x] Test with gunicorn and nginx in Vagrant Virtualbox first.
 - [x] Fix Vagrantfile for default Virtualbox local deployments.
-- [ ] Seperate db for dev settings and staging db and prod db.
-- [ ] Configure Google VM to run app via gunicorn and nginx and make it publicly accessible.
-- [ ] Update the vagrant/provision.sh (in gce branch) to do the gunicorn/nginx configuration auto.
+- [x] Configure Google VM to run app via gunicorn and nginx and make it publicly accessible.
+- [x] Update the vagrant/provision.sh (in gce branch) to do the gunicorn/nginx configuration auto.
+- [x] Update Vagrantfile to support both Virtualbox and Google providers.google for (coderwall vagrant and aws an active machine was found with a different provider)  
+- [x] Deploy a demo/staging to GCE 
 - [ ] Convert vagrant/provision.sh shell provisioning into Ansible one.
-- [ ] Update Vagrantfile to support both Virtualbox and Google providers.google for (coderwall vagrant and aws an active machine was found with a different provider)  
+- [ ] Seperate db for dev settings and staging db and prod db.
 - [ ] Move media files to S3
-- [ ] Deploy to GCE.
-- [ ] Deploy staging and prod. (See TDD book)
+- [ ] Deploy prod on GCE. (See TDD book)
 
 Fixtures
 ========
