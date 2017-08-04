@@ -1,3 +1,14 @@
+E-mail
+======
+- [x] Open up sendgrid account.
+- [ ] Add e-mail field to Host pages.
+- [ ] Install/integrate django anymail to the wagtail site.
+- [ ] Add functionality to selectively send e-mails to all the hosts from wagtail admin.
+- [ ] Add e-mail/contact button on Experience page.
+- [ ] Add e-mail template form for sending inquiry e-mails.
+- [ ] Research for Email forwarding (like craigslist)
+- [ ] Research using send-grid as e-mail backend.
+
 Release
 =======
 - [x] Sign up Google Cloud compute.
@@ -29,9 +40,3 @@ Production
 - [ ] Check out Airbnb.com/new
 
 
-E-mail
-======
-- [ ] Add e-mail button on Host page.
-- [ ] Add e-mail template form for sending inquiry e-mails.
-- [ ] Research for Email forwarding (like craigslist)
-- [ ] Research using send-grid as e-mail backend.
