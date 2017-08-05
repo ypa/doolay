@@ -9,6 +9,7 @@ E-mail
 - [ ] Research for Email forwarding (like craigslist)
 - [ ] Research using send-grid as e-mail backend.
 
+
 Release
 =======
 - [x] Sign up Google Cloud compute.
@@ -23,6 +24,7 @@ Release
 - [ ] Seperate db for dev settings and staging db and prod db.
 - [ ] Move media files to S3
 - [ ] Deploy prod on GCE. (See TDD book)
+- [ ] Create a fabric script to deploy new code to demo site.
 
 Fixtures
 ========
