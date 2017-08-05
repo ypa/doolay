@@ -17,7 +17,7 @@ Run the following from the VM to get the pgdump
 ```
 ### Using django dumpdata to fixtures
 ```
-python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/db.json
+python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/initial_data.json
 ```
 
 ## Launching GCE VM
