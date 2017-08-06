@@ -1,7 +1,7 @@
 E-mail
 ======
 - [x] Open up sendgrid account.
-- [ ] Add e-mail field to Host pages.
+- [x] Add e-mail field to Host pages.
 - [ ] Install/integrate django anymail to the wagtail site.
 - [ ] Add functionality to selectively send e-mails to all the hosts from wagtail admin.
 - [ ] Add e-mail/contact button on Experience page.
