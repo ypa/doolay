@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.html import escape
+from django.utils.safestring import mark_safe
 
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
@@ -78,6 +80,14 @@ class HostPage(Page):
         help_text='Host image'
     )
 
+    email_address = models.EmailField()
+
+    @property
+    def friendly_email(self):
+        return mark_safe(u"%s <%s>") % (
+            escape(self.title), escape(self.email_address)
+        )
+
     body = StreamField(
         GlobalStreamBlock(), verbose_name="Host's biography", blank=True
         )
@@ -87,6 +97,7 @@ class HostPage(Page):
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
+        FieldPanel('email_address'),
         StreamFieldPanel('body'),
         InlinePanel(
             'host_language_relationship',
