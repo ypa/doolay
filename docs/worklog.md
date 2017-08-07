@@ -83,3 +83,4 @@
 - Tested and pointed demo site to the new VM created from demo branch, deleted the old VM.
 - Opened up sendgrid account. username:doolay
 - Added e-mail field to Host page.
+- Researched django e-mail apps and Wagtail forms with AbstractEmailForm.
