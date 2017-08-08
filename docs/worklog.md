@@ -84,3 +84,4 @@
 - Opened up sendgrid account. username:doolay
 - Added e-mail field to Host page.
 - Researched django e-mail apps and Wagtail forms with AbstractEmailForm.
+- Started working on email message form.
