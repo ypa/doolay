@@ -85,3 +85,4 @@
 - Added e-mail field to Host page.
 - Researched django e-mail apps and Wagtail forms with AbstractEmailForm.
 - Started working on email message form.
+- Created models and migrations for messaging. And ran migrations.
