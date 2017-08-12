@@ -6,23 +6,14 @@
 {% block content %}
 <content>
 
+	<h1>{{ page.title }}</h1>
+
         <div class="container">
 
-	    <div class="tile host">
-	      <div class="tile-icon">
-	    	    {% image page.image fill-200x200-c100 as photo %}
-	    	    <figure class="avatar avatar-xl">
-	    	      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="host-image" />
-	    	    </figure>
-	      </div>
-	      <div class="tile-content">
-	    	  <h4 class="tile-title">{{ page.title }}</h4>
-	      </div>
-	      <div class="tile-action">
-	        <button class="btn">Contact Me</button>
-	      </div>
-	    </div>
-
+            {% image page.image fill-200x200-c100 as photo %}
+            <figure class="avatar avatar-xl">
+              <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="host-image" />
+            </figure>
 
 	    <div class="columns">
 
