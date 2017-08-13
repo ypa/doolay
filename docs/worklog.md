@@ -87,3 +87,4 @@
 - Started working on email message form.
 - Created models and migrations for messaging. And ran migrations.
 - Worked on contact e-mail page. Cannot use it. It's just for the contact page.
+- Worked on contact e-mail form for host page.
