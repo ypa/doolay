@@ -6,6 +6,7 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.contrib.wagtailapi import urls as wagtailapi_urls
+from doolay.contacts import views as contact_views
 
 # The only amend to this urls.py from out-of-the-box Wagtail is to add the
 # API endpoint
@@ -16,6 +17,7 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^api/', include(wagtailapi_urls)),
+    url(r'^contact/$', contact_views.contact, name='contact'),
 
 ]
 
