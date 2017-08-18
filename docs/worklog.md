@@ -91,3 +91,4 @@
 - More work on e-mail form on host page.
 - More work on e-mail, working now on rc3. Next step is to write a managemanet command to create form fields for all the host pages.
 - More digging into wgatail AbstractEmailForm. Ditched the idea. Will use just regular Django form for e-mailing. 
+- Added contacts app; from https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/
