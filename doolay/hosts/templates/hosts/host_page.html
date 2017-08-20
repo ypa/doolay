@@ -57,6 +57,47 @@
             {{ page.body }}
         </main>
 
+	<div class="block-header">
+	  <h2>Contact</h2>
+	</div>
+
+          <div class="columns">
+            <div class="column col-9 col-sm-12">
+              <form class="form-horizontal" action="#">
+                <div class="form-group">
+                  <div class="col-3">
+                    <label class="form-label" for="input-example-4">Name</label>
+                  </div>
+                  <div class="col-9">
+                    <input class="form-input" type="text" id="input-example-4" placeholder="Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-3">
+                    <label class="form-label" for="input-example-5">Email</label>
+                  </div>
+                  <div class="col-9">
+                    <input class="form-input" type="email" id="input-example-5" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-3">
+                    <label class="form-label" for="input-example-6">Message</label>
+                  </div>
+                  <div class="col-9">
+                    <textarea class="form-input" id="input-example-6" placeholder="Contact message" rows="7"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-3"></div>
+                  <div class="col-9">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-link" type="reset">Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
 
 </content>
 {% endblock %}
