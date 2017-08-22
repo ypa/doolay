@@ -65,7 +65,8 @@
         <div class="card-body">
           <div class="columns">
             <div class="column col-9 col-sm-12">
-              <form class="form-horizontal" action="#">
+              <form class="form-horizontal" action="/contact/" method="post">
+		{% csrf_token %}
                 <div class="form-group">
                   <div class="col-3">
                     <label class="form-label" for="input-example-4">Name</label>
