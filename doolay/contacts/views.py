@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
+from django.conf import settings
 
 
 def contact(request):
@@ -33,11 +34,12 @@ def contact(request):
                 content = template.render(context)
 
                 email = EmailMessage(
-                    "New contact form submission",
-                    content,
-                    "Your website" +'',
-                    ['youremail@gmail.com'],
-                    headers = {'Reply-To': contact_email }
+                    subject="Inquiry from %s" % contact_email,
+                    body=content,
+                    from_email=contact_email,
+                    to=[settings.DEFAULT_TO_EMAIL],
+                    headers={'Reply-To': contact_email},
+                    cc=(settings.DEFAULT_TO_EMAIL,)
                 )
 
                 email.send()

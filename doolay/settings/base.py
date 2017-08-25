@@ -103,6 +103,7 @@ WSGI_APPLICATION = 'doolay.wsgi.application'
 # Default to dummy email backend. Configure dev/production/local backend
 # as per https://docs.djangoproject.com/en/dev/topics/email/#email-backends
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_TO_EMAIL = 'yan.pye.aung@gmail.com'
 
 
 # Database
