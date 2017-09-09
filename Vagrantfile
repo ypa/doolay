@@ -94,7 +94,7 @@ Vagrant.configure(2) do |config|
       google.google_json_key_location = File.join(File.expand_path("..", File.dirname(__FILE__)),
                                                   "private-key.json")
   
-      google.name = "doolay-demo"
+      google.name = "demo-doolay-jessie-v3"
   
       google.zone = "asia-southeast1-a"
   
