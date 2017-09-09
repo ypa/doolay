@@ -101,7 +101,7 @@ Vagrant.configure(2) do |config|
   
       google.machine_type = "n1-standard-1"
   
-      google.image = "doolay-jessie2"
+      google.image = "doolay-jessie-v3"
   
       override.ssh.username = "vagrant"
       override.ssh.private_key_path = "~/.ssh/id_rsa"
