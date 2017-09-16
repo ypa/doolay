@@ -3,7 +3,6 @@ from django.shortcuts import render
 from doolay.contacts.forms import ContactForm
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect
-from django.template import Context
 from django.template.loader import get_template
 from django.conf import settings
 
@@ -26,11 +25,11 @@ def contact(request):
                 # Email the profile with the 
                 # contact information
                 template = get_template('email_template.txt')
-                context = Context({
+                context = {
                     'contact_name': contact_name,
                     'contact_email': contact_email,
                     'form_content': form_content,
-                })
+                }
                 content = template.render(context)
 
                 email = EmailMessage(
