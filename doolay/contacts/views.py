@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from doolay.contacts.forms import ContactForm
 from django.core.mail import EmailMessage
@@ -42,7 +43,8 @@ def contact(request):
                 )
 
                 email.send()
-                return redirect('contact')
+                redirect_url = request.META.get('HTTP_REFERER', '/')
+                return HttpResponseRedirect(redirect_url)
 
     return render(request, 'contacts.html', {
         'form': form_class,
