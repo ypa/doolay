@@ -6,6 +6,12 @@
 {% block content %}
 <content>
 
+	{% if messages %}
+	    {% for message in messages %}
+	    <p class="label label-{{ message.tags }}">{{ message }}</p>
+	    {% endfor %}
+	{% endif %}
+
 	<h1>{{ page.title }}</h1>
 
         <div class="container">
