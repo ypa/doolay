@@ -4,6 +4,7 @@ import random
 
 
 REPO_URL = 'git@github.com:ypa/doolay.git'
+env.user = 'vagrant'
 
 
 def deploy():
