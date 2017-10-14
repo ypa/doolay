@@ -57,5 +57,12 @@ Start gunicorn and restart nginx
 Now visit localhost:8080 which wis being forwarded in Vagrantfile. You should see the site.
 
 
+Automatic Code Push (WIP)
+===================
+From the your own workstation or laptop push your changes and branch to Github.
+Then run:
+```
+fab --user=vagrant deploy:host=demo.doolay.com
+```
 
 
