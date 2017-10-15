@@ -62,7 +62,7 @@ Automatic Code Push (WIP)
 From the your own workstation or laptop push your changes and branch to Github.
 Then run:
 ```
-fab deploy:host=demo.doolay.com
+fab deploy:host=staging.doolay.com
 ```
 
 
