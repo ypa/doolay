@@ -8,7 +8,7 @@ env.user = 'vagrant'
 
 
 def deploy():
-    site_folder = '/tmp/%s/sites/%s' % (env.user, env.host)
+    site_folder = '/home/%s/sites/%s' % (env.user, env.host)
     source_folder = site_folder + '/source'
 
     _create_directory_structure_if_necessary(site_folder)
