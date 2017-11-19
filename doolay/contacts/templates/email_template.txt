@@ -1,8 +1,9 @@
-Contact Name:
+The following guest has contacted you for inquiry:
+Guest Name:
 {{ contact_name }}
 
-Email:
+Guest Email:
 {{ contact_email }}
 
-Content:
+Guest Message:
 {{ form_content|safe|striptags }}

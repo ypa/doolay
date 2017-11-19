@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <p>
+The following guest has contacted you for inquiry:
+    </p>
+
+    <p>
+<strong>Guest Name:</strong>
+{{ contact_name }}
+    </p>
+
+    <p>
+    <strong>Guest Email:</strong>
+{{ contact_email }}
+    </p>
+
+    <p>
+    <strong>Guest Message:</strong>
+{{ form_content|safe|striptags|linebreaks }}
+    </p>
+  </body>
+</html>

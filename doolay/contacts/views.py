@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 from doolay.contacts.forms import ContactForm
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import redirect
 from django.template.loader import get_template
 from django.conf import settings
@@ -26,22 +26,25 @@ def contact(request):
 
             # Email the profile with the 
             # contact information
-            template = get_template('email_template.txt')
+            text_template = get_template('email_template.txt')
+            html_template = get_template('email_template.html')
             context = {
                 'contact_name': contact_name,
                 'contact_email': contact_email,
                 'form_content': form_content,
             }
-            content = template.render(context)
+            text_content = text_template.render(context)
+            html_content = html_template.render(context)
 
-            email = EmailMessage(
+            email = EmailMultiAlternatives(
                 subject="Inquiry from %s" % contact_email,
-                body=content,
+                body=text_content,
                 from_email=contact_email,
                 to=[settings.DEFAULT_TO_EMAIL],
                 headers={'Reply-To': contact_email},
                 cc=(settings.DEFAULT_TO_EMAIL,)
             )
+            email.attach_alternative(html_content, 'text/html')
 
             email.send()
             messages.success(request, 'Your inquiry was sent successfully!')
