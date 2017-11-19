@@ -18,5 +18,6 @@ YANs-Mac-mini:doolay ypa$ ssh vagrant@staging.doolay.com
 ```
 On server restart the gunicorn. Since we already have the gunicorn systemd setup:
 ```bash
+$ sudo systemctl restart gunicorn-doolay-staging
 $ sudo systemctl status gunicorn-doolay-staging
 ```
