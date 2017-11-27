@@ -41,9 +41,6 @@ APP_NAME = env.get('APP_NAME', 'doolay')
 if 'SECRET_KEY' in env:
     SECRET_KEY = env['SECRET_KEY']
 
-if 'ALLOWED_HOSTS' in env:
-    ALLOWED_HOSTS = env['ALLOWED_HOSTS'].split(',')
-
 if 'PRIMARY_HOST' in env:
     BASE_URL = 'http://%s/' % env['PRIMARY_HOST']
 
