@@ -4,6 +4,7 @@ import random
 
 
 REPO_URL = 'git@github.com:ypa/doolay.git'
+DEFAULT_ALLOWED_HOSTS = set(['demo.doolay.com', 'www.doolay.com'])
 env.user = 'vagrant'
 
 
@@ -13,7 +14,7 @@ def deploy():
 
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
-    # _update_settings(source_folder, env.host)
+    _update_settings(source_folder, env.host)
     # _update_virtualenv(source_folder)
     # _update_static_files(source_folder)
     # _update_database(source_folder)
@@ -33,11 +34,14 @@ def _get_latest_source(source_folder):
 
 
 def _update_settings(source_folder, site_name):
-    settings_path = source_folder + '/doolay/settings.py'
+    allowed_hosts = DEFAULT_ALLOWED_HOSTS
+    allowed_hosts.add(site_name)
+    settings_path = source_folder + '/doolay/settings/production.py'
     sed(settings_path, "DEBUG = True", "DEBUG = False")
     sed(settings_path,
         'ALLOWED_HOSTS =.+$',
-        'ALLOWED_HOSTS = ["%s"]' % (site_name,)
+        'ALLOWED_HOSTS = [%s]' % ', '.join('"{0}"'.format(host)
+                                           for host in allowed_hosts)
     )
     secret_key_file = source_folder + '/doolay/secret_key.py'
     if not exists(secret_key_file):
