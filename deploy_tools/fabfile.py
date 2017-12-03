@@ -15,7 +15,7 @@ def deploy():
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
     _update_settings(source_folder, env.host)
-    # _update_virtualenv(source_folder)
+    _update_virtualenv(site_folder)
     # _update_static_files(source_folder)
     # _update_database(source_folder)
 
@@ -51,12 +51,12 @@ def _update_settings(source_folder, site_name):
     append(settings_path, '\nfrom .secret_key import SECRET_KEY')
 
 
-def _update_virtualenv(source_folder):
-    virtualenv_folder = source_folder + '/../virtualenv'
+def _update_virtualenv(site_folder):
+    virtualenv_folder = site_folder + '/../../.virtualenvs/doolay'
     if not exists(virtualenv_folder + '/bin/pip'):
         run('virtualenv --python=python3 %s' % (virtualenv_folder,))
-    run('%s/bin/pip install -r %s/requirements.txt' % (
-        virtualenv_folder, source_folder
+    run('%s/bin/pip install -r %s/source/requirements.txt' % (
+        virtualenv_folder, site_folder
     ))
 
 
