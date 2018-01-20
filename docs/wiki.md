@@ -24,3 +24,13 @@ python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclu
 ```
 vagrant up gce --provider=google # This could take a long long time (to establish connection with google). It might be better to do it on Mac Mini.
 ```
+
+## Demo website
+http://demo.doolay.com
+
+Admin Url: http://demo.doolay.com/admin
+Login: testuser
+Pwd:T...@1
+
+Login2: admin
+Pwd: D...@1
