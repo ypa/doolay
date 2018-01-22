@@ -14,7 +14,7 @@ def deploy():
 
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
-    _update_settings(source_folder, env.host)
+    # _update_settings(source_folder, env.host)
     _update_virtualenv(site_folder)
     # _update_static_files(source_folder)
     # _update_database(source_folder)
@@ -43,7 +43,7 @@ def _update_settings(source_folder, site_name):
         'ALLOWED_HOSTS = [%s]' % ', '.join('"{0}"'.format(host)
                                            for host in allowed_hosts)
     )
-    secret_key_file = source_folder + '/doolay/secret_key.py'
+    secret_key_file = source_folder + '/doolay/settings/secret_key.py'
     if not exists(secret_key_file):
         chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         key = ''.join(random.SystemRandom().choice(chars) for _ in range(50))
