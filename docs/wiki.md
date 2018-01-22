@@ -28,9 +28,22 @@ vagrant up gce --provider=google # This could take a long long time (to establis
 ## Demo website
 http://demo.doolay.com
 
+### Admin
 Admin Url: http://demo.doolay.com/admin
-Login: testuser
-Pwd:T...@1
 
-Login2: admin
-Pwd: D...@1
+- Login: testuser
+- Pwd:T...@1
+
+- Login2: admin
+- Pwd: D...@1
+
+### Logs
+
+- App log: 
+```
+[doolay vagrant]$ less ~/sites/staging.doolay.com/error.log
+```
+- Gunicorn startup log: 
+```
+[doolay vagrant]$ less ~/sites/staging.doolay.com/gunicorn-error.log
+```
