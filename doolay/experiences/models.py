@@ -125,15 +125,3 @@ class ExperienceIndexPage(Page):
         'ExperiencePage'
     ]
 
-# Below we return the context so that we can access `experiences`
-# within our templates. The `experiences` context is doing exactly what Wagtail would
-# do out of the box (e.g. display all live descendants of the index page and
-# order them by their publication date)
-# More info
-# Docs http://docs.wagtail.io/en/v1.8/topics/pages.html#template-context
-    def get_context(self, request):
-        context = super(ExperienceIndexPage, self).get_context(request)
-        context['experiences'] = ExperiencePage.objects.descendant_of(
-            self).live().order_by(
-            '-first_published_at')
-        return context

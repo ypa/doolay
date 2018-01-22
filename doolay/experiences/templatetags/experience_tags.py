@@ -17,6 +17,6 @@ def duration(time_delta):
 @register.inclusion_tag('tags/experiences_grid.html', takes_context=True)
 def experiences_grid(context):
     return {
-        'experiences': ExperiencePage.objects.all(),
+        'experiences': ExperiencePage.objects.all().live().order_by('-first_published_at'),
         'request': context['request'],
     }
