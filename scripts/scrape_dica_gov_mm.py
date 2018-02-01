@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 
+from os.path import dirname, abspath, join
+import csv
 import time
 import requests
 from bs4 import BeautifulSoup
+
+
+SEARCH_URL_TMPL = 'https://www.dica.gov.mm/en/company-search?company={}'
+DATA_DIR = join(dirname(abspath(__file__)), '..', 'data')
+
 
 def get_content(url):
     response = requests.get(url)
@@ -25,10 +32,22 @@ def get_last_pagenator(body_main):
 
 
 def get_search_url(search_term):
-    return 'https://www.dica.gov.mm/en/company-search?company={}'.format(search_term)
+    return SEARCH_URL_TMPL.format(search_term)
 
 def get_page_num(pagenator):
     return int(pagenator.attrs['href'].split('&page=')[-1])
+
+
+def write_to_csv(file_path, rows):
+    with open(file_path, 'w', newline='', encoding='utf-8') as csv_file:
+        writer = csv.writer(csv_file, delimiter='|')
+        writer.writerows(rows)
+
+
+def get_rows(bs):
+    rows = parse_rows(bs.html.body.table)
+    for row in rows:
+        yield list(map(capitalize, parse_columns(row)))
 
 
 def construct_search_result_urls(search_url, last_page_num):
@@ -38,28 +57,36 @@ def construct_search_result_urls(search_url, last_page_num):
     for page_num in range(1, last_page_num +1):
         yield '{}&page={}'.format(search_url, page_num)
 
-def main():
-    search_url = get_search_url('tour')
+
+def capitalize(title):
+    return ' '.join(s.capitalize() for s in title.split(' '))
+
+
+def fetch_search_results(search_term):
+    search_url = get_search_url(search_term)
     search_content = get_content(search_url)
     search_bs = BeautifulSoup(search_content)
     last_pagenator = get_last_pagenator(search_bs.html.body.main)
     last_page_num = get_page_num(last_pagenator)
     result_urls = construct_search_result_urls(search_url, last_page_num)
+
+
     for url in result_urls:
-        print(url)
+        print('Fetching results for {}'.format(url))
+        content = get_content(url)
+        bs = BeautifulSoup(content)
+
+        for row in get_rows(bs):
+            yield row
+
+        time.sleep(1)
 
 
-
-
-    # print_rows(search_bs)
-
-
-def print_rows(bs):
-
-    rows = parse_rows(bs.html.body.table)
-    for row in rows:
-        columns = parse_columns(row)
-        print(' '.join(col for col in columns))
+def main():
+    search_term = 'tour'
+    out_file_path = join(DATA_DIR, '{}.csv'.format(search_term))
+    results = fetch_search_results(search_term)
+    write_to_csv(out_file_path, results)
 
 if __name__ == '__main__':
     main()
