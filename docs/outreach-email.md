@@ -8,7 +8,7 @@ We have been working on the website helping the tourists around the world who wa
 
 We send out surveys to these potential tourists and we found the most knowledgable and tour guides who understand the local culture and the authentic places.
 
-So we built doolay. 
+So we built [Doolay](http://demo.doolay.com). 
 
 Doolay is a one stop shop connecting those tourists who are oh-so long to visit Myanmar with some of the best tour guides in Myanmar.
 
@@ -19,19 +19,21 @@ And you have been chosen to be listed on Doolay because we believe that we could
 
 Send us with the following information:
 
-About you
+### About you
 - Name
 - Languages that you speak
 - Biography (A brief description about you)
 - Phone that potential tourist can reach
 - E-mail that potential tourist can reach
 - Your profile picture
+
 See the [example tour guide profile](http://demo.doolay.com/hosts/arwen/).
 
-About your guide tour/service experience
+### About your guide tour/service experience
 - How long is the tour
 - A brief description of your service
 - Highlights
 - A picture from your tour
+
 See the [example tour experience](http://demo.doolay.com/experiences/taste-mandalay/).
 
