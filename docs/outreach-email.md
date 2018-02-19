@@ -4,15 +4,18 @@ Hello,
 Please allow me to introduce myself. My name is Yan Pye Aung, I grew up in Yangon and I currently live in Los Angeles, California USA.
 I am a Software Engineer who loves Myanmar food and Myanmar culture.
 
-We have been working on the website helping the tourists around the world who want to visit our beatuiful country.
+We have been working on the website that helps the tourists around the world who want to visit our beatuiful country.
 
-We send out surveys to these potential tourists and we found the most knowledgable and tour guides who understand the local culture and the authentic places.
+Based on our research these potential tourists is what they value the most when visiting a country like Myanmar:
+- Knowledgable tour guides who understand the local culture.
+- No commitment, easy-going day trips to authentic palces.
 
 So we built [Doolay](http://demo.doolay.com). 
 
 Doolay is a one stop shop connecting those tourists who are oh-so long to visit Myanmar with some of the best tour guides in Myanmar.
 
 We will list you and your agency's tour guides on Doolay and allow users to contact you directly via e-mail or phone.
+We're mainly looking for shorter day tour experiences.
 This service will be free of charge for a forseeable future because we believe the more tourists come to our country the better for the entire Myanmar tourism industry.
 
 And you have been chosen to be listed on Doolay because we believe that we could help you reach more leads to tourists in the upcoming tourism season.
