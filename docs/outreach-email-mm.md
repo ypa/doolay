@@ -1,4 +1,5 @@
 မင်္ဂလာပါ။
+
 ကျွန်တော် နာမည်က ရန်ပြေအောင် လို့ခေါ်ပါ တယ်။ ကျွန်တော် ရန်ကုန် မှာ ကြီ:ပြင်:ပြီ: အခု  Los Angeles မြို့ USA  မှာ နေပါတယ်။
 
 ကျွန်တော်ရဲ့ အလုပ် အကိုင်က Software အင်ဂျင်နီရာ ဖြစ်ပါတယ်။ ကျွန်တော်က မြန်မာ အစာ:အစာ နဲ့ မြန်မာ့ ရို:ရာဓလေ့ ကို ချစ်မြတ်နို:သူတစ်​ ယောက်လဲဖြစ်ပါတယ်။
@@ -6,6 +7,7 @@
 အခု ကျွန်တော်တို့ ပြုလုပ်နေတဲ့  ဝဘ်ဆိုက် က မြန်မာပြည် ကိုလာချင်တဲ့ ဧည့်သည် တို:ရစ် တွေ အတွက်ဖြစ်ပါတယ်။
 
 ကျွန်တော်တို့ လေ့လာချက် အရ  အဲ ဒီလို မြန်မာပြည် ကိုလာချင်တဲ့ တို:ရစ် တွေဟာ ဒီလိုမြို: အ ချက် တွေ ကို အထူး အရေး ထားပါတယ်။
+
 ၁၊ မြန်မာ ပြည် အကြောင်း ကျွန်းကျင်  နှံ့စပ် တဲ့ တိုး ဂိုဒ်။
 ၂၊ လွယ် ကူ ချော မြေ့ ပြီး အစင်ပြေ ချောလန်း တဲ့ နာမည်ကြီး  မြန်မာ ပြည် ခရီး စင်။
 
@@ -16,20 +18,22 @@
 အခု ကောင်းတဲ့ သီတင်းက တော့ ကျွန်တော်တို ဒူးလေး ကို ပရိုမိုးရှင်း (Promotion) အ နေနဲ့ တိုးဂိုဒ် မြား ကိုအခမဲ့ တင်ပေးမှာဖြစ်ပါတယ်။
 အဲ့ဒီဟာကိုတင် စေချင်တယ်ဆိုရင် အကိုတို့ ညီမတို့ရဲ့ တိုးအေဂျမ်စီ အတွက် တိုးဂိုဒ် တစ်ယောက်နဲ့ သူ့ဧည့်ခံဆောင်ရွက်မဲ့ ခရီးစင် အသေးစိပ် ကို အောက်ဖော်ပြထားတဲ့ အတိုင်း ပြန်ပေးလိုက်ပါ။ တစ်ပတ်အတွင်းမှာ ပြန်ပေးပါ။ ကြေဇူးတင်ပါတယ်။
 
-About the tour guide
-Name
-Languages that you speak
-Biography (A brief description about you)
-Phone that potential tourist can reach
-E-mail that potential tourist can reach
-Your profile picture
+### About the tour guide
+
+* Name
+* Languages that you speak
+* Biography (A brief description about you)
+* Phone that potential tourist can reach
+* E-mail that potential tourist can reach
+* Your profile picture
+
 ဥပမာ တိုးဂိုဒ် - http://demo.doolay.com/hosts/arwen/
 
-About tour/service
-How long is the tour
-A brief description of your service
-Highlights
-A picture from your tour
+### About tour/service
+
+* How long is the tour
+* A brief description of your service
+* Highlights
+* A picture from your tour
+
 ဥပမာ ခရီး စင် -  http://demo.doolay.com/experiences/taste-mandalay/
-
-
