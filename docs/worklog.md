@@ -1,2 +1,2 @@
 - Started evaluating django-booking
-
+- Looked into diary and reservations apps for examples. Will need to implement on own.
