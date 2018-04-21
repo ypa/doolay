@@ -32,7 +32,7 @@ class Booking(models.Model):
         verbose_name='Experience start date time'
     )
     special_request = models.Text()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=9, decimal_places=2)
     currency = models.CharField(choices=CURRENCY_CHOICES, default=USD)
     notes = models.Text(verbose_name='Staff notes')
     time_period = models.PositiveIntegerField(
