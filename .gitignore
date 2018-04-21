@@ -11,3 +11,8 @@ static/*
 *.log
 *.lock
 doolay/fixtures/images/*
+
+
+# Sublime Text files
+*.sublime-project
+*.sublime-workspace
