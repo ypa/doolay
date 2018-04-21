@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 
 
-class BookingStatus(modles.Model):
+class BookingStatus(models.Model):
     name = models.SlugField()
     description = models.CharField(max_length=255)
 
@@ -22,7 +22,7 @@ class Booking(models.Model):
     customer_last_name = models.CharField(max_length=50)
     group_size = models.PositiveSmallIntegerField(null=False, blank=False)
     status = models.ForeignKey(
-        'bookings.BookingStatus'
+        'bookings.BookingStatus',
         verbose_name='Booking Status',
         null=False,
         blank=False,
@@ -32,22 +32,22 @@ class Booking(models.Model):
         blank=False,
         verbose_name='Experience start date time'
     )
-    special_request = models.Text(verbose_name='Customer special request')
+    special_request = models.TextField(verbose_name='Customer special request')
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    currency = models.CharField(choices=CURRENCY_CHOICES, default=USD)
-    notes = models.Text(verbose_name='Staff notes')
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default=USD)
+    notes = models.TextField(verbose_name='Staff notes')
     time_period = models.PositiveIntegerField(
         verbose_name='Time period',
         blank=True, null=True,
     )
     time_unit = models.CharField(
-        verbose_name=_('Time unit'),
+        verbose_name='Time unit',
         default=getattr(settings, 'BOOKING_TIME_INTERVAL', 'hour'),
         max_length=10,
         blank=True,
     )
     confirmation_id = models.CharField(
-        verbose_name=_('Confirmation Number'),
+        verbose_name='Confirmation Number',
         max_length=36,
         unique=True,
         null=True,
