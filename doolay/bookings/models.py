@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class BookingStatus(modles.Model):
@@ -31,7 +32,7 @@ class Booking(models.Model):
         blank=False,
         verbose_name='Experience start date time'
     )
-    special_request = models.Text()
+    special_request = models.Text(verbose_name='Customer special request')
     price = models.DecimalField(max_digits=9, decimal_places=2)
     currency = models.CharField(choices=CURRENCY_CHOICES, default=USD)
     notes = models.Text(verbose_name='Staff notes')
@@ -39,9 +40,17 @@ class Booking(models.Model):
         verbose_name='Time period',
         blank=True, null=True,
     )
-    booking_id = models.UUIDField(
-        max_length=100,
-        verbose_name=_('Booking ID'),
+    time_unit = models.CharField(
+        verbose_name=_('Time unit'),
+        default=getattr(settings, 'BOOKING_TIME_INTERVAL', 'hour'),
+        max_length=10,
+        blank=True,
+    )
+    confirmation_id = models.CharField(
+        verbose_name=_('Confirmation Number'),
+        max_length=36,
+        unique=True,
+        null=True,
         blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
@@ -51,5 +60,5 @@ class Booking(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return '#{} ({})'.format(self.booking_id or self.pk,
-                                 self.created_dt)
+        return '#{} ({})'.format(self.confirmation_id or self.pk,
+                                 self.created_at)
