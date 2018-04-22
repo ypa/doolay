@@ -44,7 +44,8 @@ class Booking(models.Model):
         verbose_name='Time unit',
         default=getattr(settings, 'BOOKING_TIME_INTERVAL', 'hour'),
         max_length=10,
-        blank=True,
+        blank=False,
+        null=False,
     )
     confirmation_id = models.CharField(
         verbose_name='Confirmation Number',
@@ -56,9 +57,16 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ['-created_at']
-
     def __str__(self):
         return '#{} ({})'.format(self.confirmation_id or self.pk,
                                  self.created_at)
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['customer_email'], name='customer_email_idx'),
+            models.Index(fields=['customer_last_name', 'customer_first_name']),
+        ]
+        unique_together = (
+            (experience, start_at) # To avoid duplicate entries on the same date time.
+        )
+
