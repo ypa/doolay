@@ -35,7 +35,7 @@ chardet==3.0.4
 
 
 # S3/boto dependencies
-boto3==1.4.4 
+boto3==1.4.4
 botocore==1.5.86
 docutils==0.13.1
 jmespath==0.9.3
