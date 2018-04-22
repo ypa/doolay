@@ -69,6 +69,6 @@ Or using gcloud command line client.
 gcloud compute --project "findingmyanmar" ssh --zone "asia-southeast1-a" "demo-doolay-jessie-v3"
 # then su to vagrant user
 whoami
-su vagrant
+sudo su vagrant
 whoami
  ```
