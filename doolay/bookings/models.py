@@ -61,12 +61,11 @@ class Booking(models.Model):
         return '#{} ({})'.format(self.confirmation_id or self.pk,
                                  self.created_at)
     class Meta:
-        ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['customer_email'], name='customer_email_idx'),
-            models.Index(fields=['customer_last_name', 'customer_first_name']),
-        ]
         unique_together = (
-            (experience, start_at) # To avoid duplicate entries on the same date time.
+            ('experience', 'start_at'), # To avoid duplicate entries on the same date time.
         )
-
+        index_together = [
+            ['customer_email'],
+            ['customer_last_name', 'customer_first_name'],
+        ]
+        ordering = ['-created_at']
