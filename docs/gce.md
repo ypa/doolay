@@ -56,3 +56,19 @@ vagrant provision --provision-with=shell
 
 Once GCE VM is provisioned create an image from the VM instance.
 https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images
+
+## Connecting to demo/staging instance
+
+```
+ssh vagrant@staging.doolay.com
+```
+
+Or using gcloud command line client.
+
+```
+gcloud compute --project "findingmyanmar" ssh --zone "asia-southeast1-a" "demo-doolay-jessie-v3"
+# then su to vagrant user
+whoami
+su vagrant
+whoami
+ ```
