@@ -1,6 +1,7 @@
 from datetime import timedelta
 from django.db import models
 from django.conf import settings
+from django.forms import ValidationError
 
 
 class BookingStatus(models.Model):
@@ -60,8 +61,22 @@ class Booking(models.Model):
 
     @property
     def duration(self):
-        duration_params = {self.time_unit.strip(): self.time_period}
-        timedelta(**duration_params)
+        if self.time_period is not None:
+            time_unit_plura = '%ss' % (self.time_unit.strip(),)
+            duration_params = {time_unit_plura: self.time_period}
+            return timedelta(**duration_params)
+        else:
+            return None
+
+    def validate_duration(self):
+        if self.duration is not None:
+            if self.duration != self.experience.duration:
+                msg = ("Experience page duration and booking duration don't match")
+                raise ValidationError(msg)
+
+    def clean(self, *args, **kwargs):
+        self.validate_duration()
+        super(Booking, self).clean(*args, **kwargs)
 
     def __str__(self):
         return '#{} ({})'.format(self.confirmation_id or self.pk,
