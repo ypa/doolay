@@ -1,3 +1,4 @@
+from datetime import timedelta
 from django.db import models
 from django.conf import settings
 
@@ -56,6 +57,11 @@ class Booking(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def duration(self):
+        duration_params = {self.time_unit.strip(): self.time_period}
+        timedelta(**duration_params)
 
     def __str__(self):
         return '#{} ({})'.format(self.confirmation_id or self.pk,
