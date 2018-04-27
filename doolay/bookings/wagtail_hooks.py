@@ -14,7 +14,7 @@ class BookingStatusAdmin(ModelAdmin):
 class BookingAdmin(ModelAdmin):
     model = Booking
     menu_label = 'Booking'
-    menu_icon = 'snippet'
+    menu_icon = 'doc-full-inverse'
     list_display = ('experience', 'customer_email')
     list_filter = ('customer_email',)
     search_fields = ('customer_email',)
