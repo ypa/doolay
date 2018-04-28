@@ -94,9 +94,14 @@ class Booking(Page):
         FieldPanel('status'),
         FieldPanel('time_period'),
         FieldPanel('time_unit'),
-        FieldPanel('experience'),
     ]
 
+    # Defining the parent. This means the editor will only be able to add the
+    # page under a ExperiencePage and won't see that the Booking exists as
+    # an option until that parent page has been added.
+    parent_page_types = [
+        'experiences.ExperiencePage'
+    ]
 
     @property
     def duration(self):
