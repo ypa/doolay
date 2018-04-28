@@ -2,14 +2,36 @@ from datetime import timedelta
 from django.db import models
 from django.conf import settings
 from django.forms import ValidationError
+from wagtail.wagtailsearch import index
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailcore.models import Page, Orderable
+from wagtail.wagtailsnippets.models import register_snippet
+from modelcluster.models import ClusterableModel
 
 
-class BookingStatus(models.Model):
-    name = models.SlugField()
+@register_snippet
+class BookingStatus(ClusterableModel):
+    search_fields = Page.search_fields + [
+        index.SearchField('title'),
+    ]
+    title = models.SlugField()
     description = models.CharField(max_length=255)
 
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('description'),
+    ]
 
-class Booking(models.Model):
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['title']
+        verbose_name = "Booking Status"
+        verbose_name_plural = "Booking Statuses"
+
+
+class Booking(Page):
     USD = 'USD'
     MMK = 'MMK'
 
@@ -18,7 +40,12 @@ class Booking(models.Model):
         (MMK, 'MMK')
     )
 
-    experience = models.ForeignKey('experiences.ExperiencePage', null=False)
+    experience = models.ForeignKey(
+        'experiences.ExperiencePage',
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+    )
     customer_email = models.EmailField()
     customer_first_name = models.CharField(max_length=35)
     customer_last_name = models.CharField(max_length=50)
@@ -26,8 +53,9 @@ class Booking(models.Model):
     status = models.ForeignKey(
         'bookings.BookingStatus',
         verbose_name='Booking Status',
-        null=False,
+        null=True,
         blank=False,
+        on_delete=models.SET_NULL,
     )
     start_at = models.DateTimeField(
         null=False,
@@ -58,6 +86,17 @@ class Booking(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('price'),
+        FieldPanel('currency'),
+        FieldPanel('notes'),
+        FieldPanel('status'),
+        FieldPanel('time_period'),
+        FieldPanel('time_unit'),
+        FieldPanel('experience'),
+    ]
+
 
     @property
     def duration(self):
