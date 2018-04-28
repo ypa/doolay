@@ -119,7 +119,7 @@ class Booking(Page):
                 raise ValidationError(msg)
 
     def clean(self, *args, **kwargs):
-        self.validate_duration()
+        # self.validate_duration()
         super(Booking, self).clean(*args, **kwargs)
 
     def __str__(self):
