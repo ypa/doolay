@@ -7,3 +7,4 @@ django-libsass==0.6
 libsass==0.8.3
 Pillow==2.9.0
 djangorestframework==3.6.4
+whitenoise==2.0.4
