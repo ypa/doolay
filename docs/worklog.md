@@ -6,3 +6,4 @@
 - Researched django-scheduler and swingtime.
 - Checked out wagtaildemo on mac mini/ get vagrant to work. Looking at Event page.    
 - Checked out ls.joyous, a calendar app for wagtail. Looks promising.
+- Worked on wagtail2 branch, created the original working version of requiremnets base+production with wagtail 1.8.
