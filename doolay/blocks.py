@@ -1,6 +1,6 @@
-from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailembeds.blocks import EmbedBlock
-from wagtail.wagtailcore.blocks import (
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
+from wagtail.core.blocks import (
     StructBlock,
     TextBlock,
     StreamBlock,
@@ -8,7 +8,7 @@ from wagtail.wagtailcore.blocks import (
     CharBlock,
     ChoiceBlock
 )
-# Note, you could import _all_ the blocks by using `from wagtail.wagtailcore
+# Note, you could import _all_ the blocks by using `from wagtail.core
 # import blocks`. But it's a bad idea to import everything.
 # Docs: http://docs.wagtail.io/en/latest/topics/streamfield.html
 

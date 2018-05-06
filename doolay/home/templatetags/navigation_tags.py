@@ -1,5 +1,5 @@
 from django import template
-from wagtail.wagtailcore.models import Page
+from wagtail.core.models import Page
 from doolay.home.models import HomePage
 
 register = template.Library()
