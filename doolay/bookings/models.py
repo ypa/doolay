@@ -2,10 +2,10 @@ from datetime import timedelta
 from django.db import models
 from django.conf import settings
 from django.forms import ValidationError
-from wagtail.wagtailsearch import index
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailsnippets.models import register_snippet
+from wagtail.search import index
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.models import Page, Orderable
+from wagtail.snippets.models import register_snippet
 from modelcluster.models import ClusterableModel
 
 

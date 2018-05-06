@@ -2,8 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailadmin.edit_handlers import (
+from wagtail.core.models import Page
+from wagtail.admin.edit_handlers import (
         FieldPanel,
         MultiFieldPanel,
         PageChooserPanel

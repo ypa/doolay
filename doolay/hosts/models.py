@@ -7,18 +7,18 @@ from django.utils.safestring import mark_safe
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
 
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailsearch import index
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailadmin.edit_handlers import (
+from wagtail.core.models import Page, Orderable
+from wagtail.search import index
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import (
         FieldPanel,
         InlinePanel,
         StreamFieldPanel,
         PageChooserPanel
         )
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from doolay.blocks import GlobalStreamBlock
 
 
