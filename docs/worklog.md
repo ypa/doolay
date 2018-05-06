@@ -10,3 +10,4 @@
 - Worked on wagtail2 branch, upgraded wagtail to 1.9 and django 1.10.
 - Worked on wagtail2 branch, upgraded to wagtail 1.13 and django 1.11.
 - Looked into wagtail 2.0 release notes and upgrade guide.
+- Updated module files for wagtail 2. Reinstalled a new version of vagrant on Thinkpad2 and testing vagrant-wagtail-base box.
