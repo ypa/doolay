@@ -194,7 +194,7 @@ CACHES = {
 
 WAGTAILSEARCH_BACKENDS = {
     'default': {
-        'BACKEND': 'wagtail.search.backends.elasticsearch',
+        'BACKEND': 'wagtail.search.backends.elasticsearch5',
         'INDEX': 'doolay',
     },
 }
