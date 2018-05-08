@@ -28,6 +28,8 @@ Use vagrant google plugin to spin up Google compute engine instance.
 From thinkpad as vagrant user:
 ```
 sudo su vagrant
+mdir ~/gce-debain-stretch
+cd !$
 ```
 
 First add gce compatible vagrant box:
