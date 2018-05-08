@@ -28,7 +28,7 @@ Use vagrant google plugin to spin up Google compute engine instance.
 From thinkpad as vagrant user:
 ```
 sudo su vagrant
-mdir ~/gce-debain-stretch
+mkdir ~/gce-debain-stretch
 cd !$
 ```
 
@@ -40,8 +40,8 @@ vagrant box add gce https://github.com/mitchellh/vagrant-google/raw/master/googl
 Create the VM:
 ```
 # First sync up dir with repo
-rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/dev/
-cd ~/vagrant_boxes/dev/
+rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/gce-debain-stretch/
+cd ~/vagrant_boxes/gce-debain-stretch/
 vagrant up --provider=google # This could take a long long time (to establish connection with google)
 ```
 
