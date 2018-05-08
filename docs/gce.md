@@ -13,10 +13,17 @@ gcloud compute project-info add-metadata --metadata-from-file sshKeys=/tmp/id_rs
 gcloud compute images list
 ```
 
-## Create VM instance and image
+## Prepping for the VM
 
+
+First as you (ypa user) update `vagrant_doolay_gce_base` repo's `Vagrantfile` with correct base image `install.sh` file.
+
+On thinkpad the repo is checked out at `~/work/vagrant_doolay_gce_base`. Use wagtail's own `https://github.com/wagtail/vagrant-wagtail-base` as a reference.
+
+
+## Create GCE VM instance as vagrant user
 These are the steps for creating GCE VM instances and images.
-Use vagrant google plugin to spin up Google compute engine instance
+Use vagrant google plugin to spin up Google compute engine instance.
 
 From thinkpad as vagrant user:
 ```
