@@ -12,3 +12,4 @@
 - Looked into wagtail 2.0 release notes and upgrade guide.
 - Updated module files for wagtail 2. Reinstalled a new version of vagrant on Thinkpad2 and testing vagrant-wagtail-base box.
 - First time wagtail2 branch working!
+- Remove bookings app. Started building GCE image for debian-stretch with python 3.6. Manually provisioned instance with Postgres, Elastic search, redis and Python 3.6 built from source.
