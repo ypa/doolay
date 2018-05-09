@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'doolay.experiences',
     'doolay.blog',
     'doolay.contacts',
-    'doolay.bookings',
 
     'wagtail.contrib.search_promotions',
     'wagtail.contrib.forms',

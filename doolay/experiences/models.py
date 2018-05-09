@@ -59,9 +59,6 @@ class ExperiencePage(Page):
         StreamFieldPanel('body'),
     ]
 
-    subpage_types = ['bookings.Booking']
-    # Setting an empty array means that no child page can be added to this page type
-
     parent_page_types = [
         'ExperienceIndexPage'
     ]
