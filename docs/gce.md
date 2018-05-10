@@ -50,9 +50,10 @@ The rsync will failed because the base debian (jessie) image doesn't come with r
 Minimal manual provision steps on the box.
 - Install rsync
 ```
-vagrant ssh
+vagrant ssh  # use g cloud compute ssh to login to it.
 sudo apt-get install rsync
 ```
+- Make sure all the software are installed (correct version of Python, Postgres, Redis, Elasticsearch).
 - Create a vagrant user.
 - Add your ~/.ssh/id_rsa.pub keys to vagrant user's ~/.ssh/authorized_keys on the VM.
 - (optional) update vagrant user's ~/.bashrc aliases.
