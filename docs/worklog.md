@@ -12,3 +12,4 @@
 - Looked into wagtail 2.0 release notes and upgrade guide.
 - Updated module files for wagtail 2. Reinstalled a new version of vagrant on Thinkpad2 and testing vagrant-wagtail-base box.
 - First time wagtail2 branch working!
+- Add step to install nginx in vagrant/provision.sh
