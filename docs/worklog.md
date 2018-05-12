@@ -14,3 +14,4 @@
 - First time wagtail2 branch working!
 - Remove bookings app. Started building GCE image for debian-stretch with python 3.6. Manually provisioned instance with Postgres, Elastic search, redis and Python 3.6 built from source.
 - Add step to install nginx in vagrant/provision.sh
+- Looked more into details on swingtime and django-scheduler. Django-swingtime looks promising.
