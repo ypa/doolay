@@ -15,3 +15,5 @@
 - Remove bookings app. Started building GCE image for debian-stretch with python 3.6. Manually provisioned instance with Postgres, Elastic search, redis and Python 3.6 built from source.
 - Add step to install nginx in vagrant/provision.sh
 - Looked more into details on swingtime and django-scheduler. Django-swingtime looks promising.
+- Ended up going with django-eventtools, since it's more lightweight for my current need.
+- Added BookingSlot model as eventtools's BaseOccurance and have ExperiencePage as foreign key. Made ExperiencePage as BaseEvent.
