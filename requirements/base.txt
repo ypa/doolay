@@ -7,3 +7,6 @@ django-libsass==0.6
 libsass==0.8.3
 Pillow>=4.0,<5.0
 whitenoise==2.0.4
+
+# bookings and events
+django-eventtools>=0.9
