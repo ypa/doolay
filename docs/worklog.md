@@ -18,3 +18,4 @@
 - Ended up going with django-eventtools, since it's more lightweight for my current need.
 - Added BookingSlot model as eventtools's BaseOccurance and have ExperiencePage as foreign key. Made ExperiencePage as BaseEvent.
 - Experimented with making BookingSlot a Wagtail page wiht content_panels. Ended up reverting back, didn't like it. Will experiment with wagtail-calendar app.
+- Added wagtail_calendar to the doolay project and ran ``wagtail updatemodulepaths``.
