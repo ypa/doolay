@@ -20,3 +20,4 @@
 - Experimented with making BookingSlot a Wagtail page wiht content_panels. Ended up reverting back, didn't like it. Will experiment with wagtail-calendar app.
 - Added wagtail_calendar to the doolay project and ran ``wagtail updatemodulepaths``.
 - Testing wagtail_calendar hooks.
+- Added parantel key booking slots.
