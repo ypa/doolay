@@ -21,3 +21,4 @@
 - Added wagtail_calendar to the doolay project and ran ``wagtail updatemodulepaths``.
 - Testing wagtail_calendar hooks.
 - Added parantel key booking slots.
+- Created branch booking-calendar branch and testing with different djang-calendar apps. Reverted them back.
