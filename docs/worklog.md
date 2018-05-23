@@ -23,3 +23,4 @@
 - Added parantel key booking slots.
 - Created branch booking-calendar branch and testing with different djang-calendar apps. Reverted them back.
 - Checked out django-scheduler.
+- Checking out more django-scheduler.
