@@ -7,12 +7,18 @@ from doolay.experiences.models import ExperiencePage
 
 
 class Booking(BaseEvent):
+
 	experience_page = models.OneToOneField(
         ExperiencePage,
         on_delete=models.CASCADE,
         primary_key=True,
+        verbose_name="experience page",
     )
 
+    def __str__(self):
+        exp_page = self.experience_page
+        host = exp_page.host
+        return "%s - %s" % (host, exp_page)
 
 @receiver(post_save, sender=ExperiencePage)
 def create_booking(sender, instance, created, **kwargs):
