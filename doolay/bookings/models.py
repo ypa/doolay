@@ -8,7 +8,7 @@ from doolay.experiences.models import ExperiencePage
 
 class Booking(BaseEvent):
 
-	experience_page = models.OneToOneField(
+    experience_page = models.OneToOneField(
         ExperiencePage,
         on_delete=models.CASCADE,
         primary_key=True,
