@@ -9,6 +9,14 @@ Run the command every time a model is updated.
 Maybe create a cron to run everyday.
 
 
+## Creating a new app (eg, bookings) under doolay
+```
+# first create a directory structure
+$ mkdir doolay/bookings
+# ssh to vagrant (so that you have the dependencies setup)
+$ python manage.py startapp bookings doolay/bookings
+```
+
 ## Backing up
 ### Using pg_dump
 Run the following from the VM to get the pgdump
