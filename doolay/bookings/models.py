@@ -27,3 +27,9 @@ class BookingSlot(BaseOccurrence):
 		related_name='booking_slots',
 		related_query_name='booking_slot',
 	)
+
+	notes = models.TextField(
+		help_text='Notes about the booking slot',
+		blank=True,
+		null=True
+	)
