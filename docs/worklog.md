@@ -24,3 +24,4 @@
 - Created branch booking-calendar branch and testing with different djang-calendar apps. Reverted them back.
 - Checked out django-scheduler.
 - Checking out more django-scheduler.
+- Update back to using djang-eventools for simplicity sake and add bookings app with model admin for booking slots.
