@@ -27,15 +27,16 @@ def create_booking(sender, instance, created, **kwargs):
 
 
 class BookingSlot(BaseOccurrence):
-	booking = models.ForeignKey(
-		Booking,
-		on_delete=models.CASCADE,
-		related_name='booking_slots',
-		related_query_name='booking_slot',
-	)
+    booking = models.ForeignKey(
+        Booking,
+        on_delete=models.CASCADE,
+        related_name='booking_slots',
+        related_query_name='booking_slot',
+        verbose_name='Booking for Experience page'
+        )
 
-	notes = models.TextField(
-		help_text='Notes about the booking slot',
-		blank=True,
-		null=True
-	)
+    notes = models.TextField(
+        help_text='Notes about the booking slot',
+        blank=True,
+        null=True
+        )
