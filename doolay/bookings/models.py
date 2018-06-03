@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 from eventtools.models import BaseEvent, BaseOccurrence
 from doolay.experiences.models import ExperiencePage
@@ -11,6 +12,12 @@ class Booking(BaseEvent):
         on_delete=models.CASCADE,
         primary_key=True,
     )
+
+
+@receiver(post_save, sender=ExperiencePage)
+def create_booking(sender, instance, created, **kwargs):
+    if created:
+        Booking.objects.create(experience_page=instance)
 
 
 class BookingSlot(BaseOccurrence):
