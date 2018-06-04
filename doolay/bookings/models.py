@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.urlresolvers import reverse
 
 from eventtools.models import BaseEvent, BaseOccurrence
 from doolay.experiences.models import ExperiencePage
@@ -40,3 +41,7 @@ class BookingSlot(BaseOccurrence):
         blank=True,
         null=True
         )
+
+    def get_absolute_url(self):
+        url = reverse('admin:%s_%s_change' % (self._meta.app_label, self._meta.model_name), args=[self.id])
+        return u'<a href="%s" title="%s">%s</a>' % (url, str(self.start), str(self.booking))
