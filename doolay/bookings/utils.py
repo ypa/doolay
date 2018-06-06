@@ -35,12 +35,12 @@ class BookingSlotCalendar(HTMLCalendar):
         s = ''.join(self.formatday(d, wd, slots) for (d, wd) in theweek)
         return '<tr>%s</tr>' % s
  
-    def formatmonth(self, theyear, themonth, withyear=True):
+    def formatmonth(self, booking_id, theyear, themonth, withyear=True):
         """
         Return a formatted month as a table.
         """
  
-        slots = BookingSlot.objects.filter(start__month=themonth)
+        slots = BookingSlot.objects.filter(booking_id=booking_id, start__month=themonth)
  
         v = []
         a = v.append
