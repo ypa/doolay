@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from doolay.bookings.models import BookingSlot
 from doolay.bookings.utils import BookingSlotCalendar
 
+@admin.register(BookingSlot)
 class BookingSlotAdmin(admin.ModelAdmin):
     list_display = ['booking', 'start', 'end', 'repeat', 'repeat_until', 'notes']
     search_fields = ('booking__experience_page__title',)
@@ -51,4 +52,3 @@ class BookingSlotAdmin(admin.ModelAdmin):
         extra_context['calendar'] = mark_safe(html_calendar)
         return super(BookingSlotAdmin, self).changelist_view(request, extra_context)
 
-admin.site.register(BookingSlot, BookingSlotAdmin)
