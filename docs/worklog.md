@@ -25,3 +25,4 @@
 - Checked out django-scheduler.
 - Checking out more django-scheduler.
 - Update back to using djang-eventools for simplicity sake and add bookings app with model admin for booking slots.
+- Move calendar view under Booking model admin as change view. This way calendar corresponds to only one experience page at a time and only shows its booking slots.
