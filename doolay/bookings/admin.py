@@ -5,8 +5,14 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.utils.safestring import mark_safe
 
-from doolay.bookings.models import BookingSlot
+from doolay.bookings.models import BookingSlot, Booking
 from doolay.bookings.utils import BookingSlotCalendar
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+	list_display = ['experience_page']
+	search_fields = ('experience_page__title', 'experience_page__host__title')
 
 @admin.register(BookingSlot)
 class BookingSlotAdmin(admin.ModelAdmin):
