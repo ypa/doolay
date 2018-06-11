@@ -17,11 +17,13 @@ class BookingSlotCalendar(HTMLCalendar):
         """
         Return a day as a table cell.
         """
-        slots_from_day = slots.filter(start__day=day)
-        slots_html = "<ul>"
-        for slot in slots_from_day:
-            slots_html += slot.get_absolute_url() + "<br>"
-        slots_html += "</ul>"
+        # slots_from_day = slots.filter(start__day=day)
+        slots_html = ""
+        for occurrence_dt, slot in slots:
+            if occurrence_dt.day == day:
+                slots_html += "<ul>"
+                slots_html += slot.get_absolute_url() + "<br>"
+                slots_html += "</ul>"
  
         if day == 0:
             return '<td class="noday">&nbsp;</td>'  # day outside month
@@ -41,6 +43,10 @@ class BookingSlotCalendar(HTMLCalendar):
         """
  
         slots = BookingSlot.objects.filter(booking_id=booking_id, start__month=themonth)
+        slot_occurrences = []
+        for slot in slots:
+            for _, occurrence_dt, occurrence in slot.all_occurrences():
+                slot_occurrences.append((occurrence_dt, occurrence))
  
         v = []
         a = v.append
@@ -51,7 +57,7 @@ class BookingSlotCalendar(HTMLCalendar):
         a(self.formatweekheader())
         a('\n')
         for week in self.monthdays2calendar(theyear, themonth):
-            a(self.formatweek(week, slots))
+            a(self.formatweek(week, slot_occurrences))
             a('\n')
         a('</table>')
         a('\n')
