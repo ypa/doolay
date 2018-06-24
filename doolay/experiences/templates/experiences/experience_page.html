@@ -41,38 +41,38 @@
             <a class="btn btn-primary" href="#booking-modal">Book this experience</a>
         </div>
 
-{# booking modal #}
-<div class="modal modal-sm" id="booking-modal"><a class="modal-overlay" href="#modals-sizes" aria-label="Close"></a>
-  <div class="modal-container" role="document">
-    <div class="modal-header"><a class="btn btn-clear float-right" href="#modals-sizes" aria-label="Close"></a>
-      <div class="modal-title h5">Your party info</div>
-  </div>
-  <div class="modal-body">
-      <div class="content">
-        <form>
-            <div class="form-group">
-                <label class="form-label" for="booking">Booking Date</label>
-                <input class="form-input" type="text" id="booking" placeholder="Booking Date">
-                <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" placeholder="Your Name">
-                <label class="form-label" for="email">E-mail</label>
-                <input class="form-input" id="email" type="email" placeholder="Email" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
-                <label class="form-label" for="party-size">Number of people</label>
-                <input class="form-input" id="party-size" type="number" placeholder="0">
+        {# booking modal #}
+        <div class="modal modal-sm" id="booking-modal"><a class="modal-overlay" href="#modals-sizes" aria-label="Close"></a>
+            <div class="modal-container" role="document">
+                <div class="modal-header"><a class="btn btn-clear float-right" href="#modals-sizes" aria-label="Close"></a>
+                    <div class="modal-title h5">Your party info</div>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label" for="booking">Booking Date</label>
+                                <input class="form-input" type="text" id="booking" placeholder="Booking Date">
+                                <label class="form-label" for="name">Name</label>
+                                <input class="form-input" type="text" id="name" placeholder="Your Name">
+                                <label class="form-label" for="email">E-mail</label>
+                                <input class="form-input" id="email" type="email" placeholder="Email" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                                <label class="form-label" for="party-size">Number of people</label>
+                                <input class="form-input" id="party-size" type="number" placeholder="0">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="special-notes">Special Notes</label>
+                                <textarea class="form-input" id="special-notes" placeholder="Textarea" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Book</button><a class="btn btn-link" href="#modals-sizes" aria-label="Close">Cancel</a>
+                </div>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="special-notes">Special Notes</label>
-              <textarea class="form-input" id="special-notes" placeholder="Textarea" rows="3"></textarea>
-            </div>
-        </form>
-      </div>
-   </div>
-    <div class="modal-footer">
-      <button class="btn btn-primary">Book</button><a class="btn btn-link" href="#modals-sizes" aria-label="Close">Cancel</a>
-    </div>
-  </div>
-</div>
-    {# end booking modal #}
+        </div>
+        {# end booking modal #}
 
     </div>
     {# end tile #}
