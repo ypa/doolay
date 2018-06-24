@@ -11,4 +11,3 @@ class Command(BaseCommand):
     def handle(self, **options):
         renditions = Rendition.objects.all()
         renditions.delete()
-

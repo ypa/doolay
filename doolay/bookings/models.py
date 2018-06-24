@@ -21,6 +21,7 @@ class Booking(BaseEvent):
         host = exp_page.host
         return "%s - %s" % (host, exp_page)
 
+
 @receiver(post_save, sender=ExperiencePage)
 def create_booking(sender, instance, created, **kwargs):
     if created:
@@ -33,15 +34,15 @@ class BookingSlot(BaseOccurrence):
         on_delete=models.CASCADE,
         related_name='booking_slots',
         related_query_name='booking_slot',
-        verbose_name='Booking for Experience page'
-        )
+        verbose_name='Booking for Experience page')
 
     notes = models.TextField(
-        help_text='Notes about the booking slot',
-        blank=True,
-        null=True
-        )
+        help_text='Notes about the booking slot', blank=True, null=True)
 
     def get_absolute_url(self):
-        url = reverse('admin:%s_%s_change' % (self._meta.app_label, self._meta.model_name), args=[self.id])
-        return u'<a href="%s" title="%s">%s</a>' % (url, str(self.start), str(self.booking))
+        url = reverse(
+            'admin:%s_%s_change' % (self._meta.app_label,
+                                    self._meta.model_name),
+            args=[self.id])
+        return u'<a href="%s" title="%s">%s</a>' % (url, str(self.start),
+                                                    str(self.booking))

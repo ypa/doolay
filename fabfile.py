@@ -3,7 +3,6 @@ from datetime import datetime
 
 from fabric.api import *
 
-
 env.roledefs = {
     'production': [],
     'staging': [],
@@ -40,7 +39,8 @@ def deploy_staging():
     run('restart')
 
 
-def _pull_data(env_name, remote_db_name, local_db_name, remote_dump_path, local_dump_path):
+def _pull_data(env_name, remote_db_name, local_db_name, remote_dump_path,
+               local_dump_path):
     timestamp = datetime.now().strftime('%Y%m%d-%I%M%S')
 
     filename = '.'.join([env_name, remote_db_name, timestamp, 'sql'])
@@ -57,7 +57,8 @@ def _pull_data(env_name, remote_db_name, local_db_name, remote_dump_path, local_
     # Dump/download database from server
     run('pg_dump {remote_db_name} -xOf {remote_filename}'.format(**params))
     run('gzip {remote_filename}'.format(**params))
-    get('{remote_filename}.gz'.format(**params), '{local_filename}.gz'.format(**params))
+    get('{remote_filename}.gz'.format(**params),
+        '{local_filename}.gz'.format(**params))
     run('rm {remote_filename}.gz'.format(**params))
 
     # Load database locally

@@ -18,10 +18,8 @@ DEBUG = True
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
 
 # Application definition
 
@@ -34,7 +32,6 @@ INSTALLED_APPS = [
     'doolay.blog',
     'doolay.contacts',
     'doolay.bookings',
-
     'wagtail.contrib.search_promotions',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -47,19 +44,16 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-
     'wagtail.contrib.styleguide',
     'modelcluster',
     'compressor',
     'taggit',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'eventtools',
 ]
 
@@ -71,7 +65,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
@@ -99,12 +92,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'doolay.wsgi.application'
 
-
 # Default to dummy email backend. Configure dev/production/local backend
 # as per https://docs.djangoproject.com/en/dev/topics/email/#email-backends
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_TO_EMAIL = 'yan.pye.aung@gmail.com'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -116,25 +107,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -148,7 +141,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -169,14 +161,12 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
 # Django compressor settings
 # http://django-compressor.readthedocs.org/en/latest/settings/
 
 COMPRESS_PRECOMPILERS = [
     ('text/x-scss', 'django_libsass.SassCompiler'),
 ]
-
 
 # Use Redis as the cache backend for extra performance
 
@@ -191,7 +181,6 @@ CACHES = {
     }
 }
 
-
 # Use Elasticsearch as the search backend for extra performance and better search results
 
 WAGTAILSEARCH_BACKENDS = {
@@ -201,7 +190,6 @@ WAGTAILSEARCH_BACKENDS = {
     },
 }
 
-
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "doolay"
@@ -210,13 +198,13 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         },
         'logfile': {
-            'level':'DEBUG',
-            'class':'logging.FileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, './doolay.log'),
         },
     },
@@ -248,4 +236,3 @@ LOGGING = {
 if not DEBUG:
     for logger in LOGGING['loggers']:
         logger['handlers'].append('logfile')
-
