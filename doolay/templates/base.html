@@ -28,9 +28,10 @@
         {% wagtailuserbar %}
 
         <header class="navbar">
-            <section class="navbar-section">
                 {% block header %}
+                <section class="navbar-section">
                     <a href="/" class="navbar-brand mr-2">{% title %}</a>
+                </section>
                     {% comment %}
                         This tag is controlled by navigation_tags.py and populated by 
                         a field on the HomePage model
@@ -41,7 +42,6 @@
                     {% get_site_root as site_root %}
                     {% top_menu parent=site_root calling_page=self %}
                 {% endblock main-navigation %}
-            </section>
         </header>
         <div class="divider separator"></div>
 
