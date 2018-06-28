@@ -3,7 +3,7 @@
 
     <section class="navbar-section">
       {% for menuitem in menuitems %}
-                <a href="{% pageurl menuitem %}" class="btn btn-link {% if menuitem.active %}disabled{% endif %}">{{ menuitem.title }}</a>
+                <a href="{% pageurl menuitem %}" class="btn btn-link {% if menuitem.active %}active{% endif %}">{{ menuitem.title }}</a>
       {% endfor %}
     </section>
   
