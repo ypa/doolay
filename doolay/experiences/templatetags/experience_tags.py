@@ -26,3 +26,7 @@ def experiences_grid(context):
 @register.inclusion_tag('tags/booking_modal.html', takes_context=True)
 def booking_modal(context):
     return { 'request': context['request'] }
+
+@register.inclusion_tag('tags/booking_calendar.html', takes_context=True)
+def booking_calendar(context):
+    return { 'request': context['request'] }
