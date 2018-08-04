@@ -1,11 +1,12 @@
 <!-- booking_calendar template tag -->
+<!-- this month -->
 <div class="calendar">
     <!-- calendar navbar -->
     <div class="calendar-nav navbar">
-        <button class="btn btn-action btn-link btn-lg">
+        <button class="btn btn-action btn-link btn-lg" disabled="">
             <i class="icon icon-arrow-left"></i>
         </button>
-        <div class="navbar-primary">{{month}} {{year}}</div>
+        <div class="navbar-primary">{{this_month}} {{this_month_year}}</div>
         <button class="btn btn-action btn-link btn-lg">
             <i class="icon icon-arrow-right"></i>
         </button>
@@ -37,6 +38,53 @@
 
             <!-- calendar next month -->
             {% for day in this_month_next %}
+                <div class="calendar-date next-month">
+                    <button class="date-item">{{day}}</button>
+                </div>
+            {% endfor %}
+        </div> {# end calendar-body #}
+    </div> {# end calendar-container #}
+</div>
+
+<!-- next month -->
+<div class="calendar">
+    <!-- calendar navbar -->
+    <div class="calendar-nav navbar">
+        <button class="btn btn-action btn-link btn-lg" disabled="">
+            <i class="icon icon-arrow-left"></i>
+        </button>
+        <div class="navbar-primary">{{next_month}} {{next_month_year}}</div>
+        <button class="btn btn-action btn-link btn-lg">
+            <i class="icon icon-arrow-right"></i>
+        </button>
+    </div>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="calendar-date">Sun</div>
+            <div class="calendar-date">Mon</div>
+            <div class="calendar-date">Tue</div>
+            <div class="calendar-date">Wed</div>
+            <div class="calendar-date">Thu</div>
+            <div class="calendar-date">Fri</div>
+            <div class="calendar-date">Sat</div>
+        </div>
+        <div class="calendar-body">
+            <!-- calendar previous month -->
+            {% for day in next_month_previous %}
+                <div class="calendar-date prev-month">
+                    <button class="date-item">{{day}}</button>
+                </div>
+            {% endfor %}
+
+            <!-- calendar current month -->
+            {% for day in next_month_current %}
+                <div class="calendar-date">
+                    <button class="date-item">{{day}}</button>
+                </div>
+            {% endfor %}
+
+            <!-- calendar next month -->
+            {% for day in next_month_next %}
                 <div class="calendar-date next-month">
                     <button class="date-item">{{day}}</button>
                 </div>

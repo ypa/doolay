@@ -1,5 +1,7 @@
 import calendar
+from datetime import datetime
 from collections import defaultdict
+from dateutil import relativedelta
 from django import template
 from doolay.experiences.models import ExperiencePage
 
@@ -31,20 +33,24 @@ def booking_modal(context):
 
 @register.inclusion_tag('tags/booking_calendar.html', takes_context=True)
 def booking_calendar(context):
-    year, month = get_current_year_month()
-    this_month_days = get_calendar_month_days(year, month)
+    today = datetime.today()
+    today_next_month = today + relativedelta.relativedelta(months=1)
+    this_month_days = get_calendar_month_days(today.year, today.month)
+    next_month_days = get_calendar_month_days(today_next_month.year, today_next_month.month)
     return {
         'request': context['request'],
-        'month': month,
-        'year': year,
+        'this_month': today.strftime(calendar.month_name.format),
+        'this_month_year': today.year,
         'this_month_previous': this_month_days['previous'],
         'this_month_current': this_month_days['current'],
         'this_month_next': this_month_days['next'],
+
+        'next_month': today_next_month.strftime(calendar.month_name.format),
+        'next_month_year': today_next_month.year,
+        'next_month_previous': next_month_days['previous'],
+        'next_month_current': next_month_days['current'],
+        'next_month_next': next_month_days['next'],
     }
-
-
-def get_current_year_month():
-    return (2018, 8)
 
 
 def get_calendar_month_days(year, month):
