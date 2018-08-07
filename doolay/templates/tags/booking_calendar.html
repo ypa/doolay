@@ -1,13 +1,13 @@
 <!-- booking_calendar template tag -->
 <!-- this month -->
-<div class="calendar">
+<div class="calendar" id='this-month-calendar'>
     <!-- calendar navbar -->
     <div class="calendar-nav navbar">
-        <button class="btn btn-action btn-link btn-lg" disabled="">
+        <button class="btn btn-action btn-link btn-lg btn-left" disabled="">
             <i class="icon icon-arrow-left"></i>
         </button>
         <div class="navbar-primary">{{this_month}} {{this_month_year}}</div>
-        <button class="btn btn-action btn-link btn-lg">
+        <button class="btn btn-action btn-link btn-lg btn-right">
             <i class="icon icon-arrow-right"></i>
         </button>
     </div>
@@ -47,14 +47,14 @@
 </div>
 
 <!-- next month -->
-<div class="calendar">
+<div class="calendar" id="next-month-calendar">
     <!-- calendar navbar -->
     <div class="calendar-nav navbar">
-        <button class="btn btn-action btn-link btn-lg" disabled="">
+        <button class="btn btn-action btn-link btn-lg btn-left">
             <i class="icon icon-arrow-left"></i>
         </button>
         <div class="navbar-primary">{{next_month}} {{next_month_year}}</div>
-        <button class="btn btn-action btn-link btn-lg">
+        <button class="btn btn-action btn-link btn-lg btn-right" disabled="">
             <i class="icon icon-arrow-right"></i>
         </button>
     </div>
