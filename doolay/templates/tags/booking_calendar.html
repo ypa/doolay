@@ -23,23 +23,23 @@
         </div>
         <div class="calendar-body">
             <!-- calendar previous month -->
-            {% for day in this_month_previous %}
+            {% for cal_date in this_month_previous %}
                 <div class="calendar-date prev-month">
-                    <button class="date-item">{{day}}</button>
+                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
 
             <!-- calendar current month -->
-            {% for day in this_month_current %}
+            {% for cal_date in this_month_current %}
                 <div class="calendar-date">
-                    <button class="date-item">{{day}}</button>
+                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
 
             <!-- calendar next month -->
-            {% for day in this_month_next %}
+            {% for cal_date in this_month_next %}
                 <div class="calendar-date next-month">
-                    <button class="date-item">{{day}}</button>
+                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
         </div> {# end calendar-body #}
@@ -70,23 +70,23 @@
         </div>
         <div class="calendar-body">
             <!-- calendar previous month -->
-            {% for day in next_month_previous %}
+            {% for cal_date in next_month_previous %}
                 <div class="calendar-date prev-month">
-                    <button class="date-item">{{day}}</button>
+                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
 
             <!-- calendar current month -->
-            {% for day in next_month_current %}
+            {% for cal_date in next_month_current %}
                 <div class="calendar-date">
-                    <button class="date-item">{{day}}</button>
+                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
 
             <!-- calendar next month -->
-            {% for day in next_month_next %}
+            {% for cal_date in next_month_next %}
                 <div class="calendar-date next-month">
-                    <button class="date-item">{{day}}</button>
+                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
         </div> {# end calendar-body #}

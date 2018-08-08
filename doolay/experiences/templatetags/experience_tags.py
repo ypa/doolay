@@ -4,11 +4,13 @@ from collections import defaultdict
 from dateutil import relativedelta
 from django import template
 from doolay.experiences.models import ExperiencePage
+from collections import namedtuple
 
 register = template.Library()
 
 HOUR = 60 * 60
 
+CalendarDate = namedtuple('CalendarDate', 'day, isodate')
 
 @register.filter
 def duration(time_delta):
@@ -58,9 +60,9 @@ def get_calendar_month_days(year, month):
     cal = calendar.Calendar(calendar.SUNDAY)
     for date in cal.itermonthdates(year, month):
         if date.month < month:
-            date_by_month['previous'].append(date.day)
+            date_by_month['previous'].append(CalendarDate(date.day, date.strftime('%Y-%m-%d')))
         elif date.month == month:
-            date_by_month['current'].append(date.day)
+            date_by_month['current'].append(CalendarDate(date.day, date.strftime('%Y-%m-%d')))
         else:
-            date_by_month['next'].append(date.day)
+            date_by_month['next'].append(CalendarDate(date.day, date.strftime('%Y-%m-%d')))
     return date_by_month
