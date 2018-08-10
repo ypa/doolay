@@ -16,4 +16,10 @@ $(document).ready(function() {
   		$("#next-month-calendar").hide();
   		$("#this-month-calendar").show();
 	});
+
+    // set active on calendar date.
+    $(".calendar-body .date-item").click(function() {
+        $(".calendar-body .date-item").removeClass('active');
+        $(this).addClass('active');
+    });
 });
