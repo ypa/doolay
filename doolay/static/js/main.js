@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $("#booking").datepicker();
+    // $("#booking").datepicker(); jquery datepicker
 
     // show this month calendar and hide the next one
     $("#next-month-calendar").hide();
@@ -17,9 +17,20 @@ $(document).ready(function() {
   		$("#this-month-calendar").show();
 	});
 
+    // disable the booking button by default.
+	$("#booking-request").addClass('disabled');
+
     // set active on calendar date.
     $(".calendar-body .date-item").click(function() {
         $(".calendar-body .date-item").removeClass('active');
         $(this).addClass('active');
+	    $("#booking-request").removeClass('disabled'); // now enable the button
+    });
+
+    // populate date on modal
+    $("#booking-request").click(function() {
+        var selectedDate = $(".date-item.active").attr("value");
+        $("#booking-date").val(selectedDate);
+        $("#booking-date").prop('disabled', true);
     });
 });
