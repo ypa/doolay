@@ -46,3 +46,25 @@ class BookingSlot(BaseOccurrence):
             args=[self.id])
         return u'<a href="%s" title="%s">%s</a>' % (url, str(self.start),
                                                     str(self.booking))
+
+class BookingSlotRequest(models.Model):
+    request_date = models.DateTimeField(db_index=True)
+
+    slot = models.ForeignKey(
+        BookingSlot,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='booking_slot_requests',
+        related_query_name='booking_slot_request',
+        verbose_name='Request for booking slot')
+
+    first_name = models.CharField(max_length=254)
+
+    last_name = models.CharField(max_length=254)
+
+    email_address = models.EmailField()
+
+    group_size = models.PositiveIntegerField()
+
+    message = models.TextField(
+        help_text='Special notes', blank=True, null=True)
