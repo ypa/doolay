@@ -15,12 +15,8 @@
     }
 },
 {
-    "model": "bookings.booking",
-    "pk": 9,
-    "fields": {}
-},
-{
     "model": "wagtailcore.site",
+    "pk": 1,
     "fields": {
         "hostname": "localhost",
         "port": 80,
@@ -41,6 +37,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 1,
     "fields": {
         "app_label": "wagtailcore",
         "model": "page"
@@ -48,6 +45,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 2,
     "fields": {
         "app_label": "wagtailimages",
         "model": "image"
@@ -55,6 +53,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 3,
     "fields": {
         "app_label": "wagtailadmin",
         "model": "admin"
@@ -62,6 +61,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 4,
     "fields": {
         "app_label": "wagtaildocs",
         "model": "document"
@@ -69,6 +69,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 5,
     "fields": {
         "app_label": "home",
         "model": "homepage"
@@ -76,6 +77,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 6,
     "fields": {
         "app_label": "places",
         "model": "placeindexpage"
@@ -83,6 +85,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 7,
     "fields": {
         "app_label": "places",
         "model": "placepage"
@@ -90,6 +93,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 8,
     "fields": {
         "app_label": "hosts",
         "model": "hostindexpage"
@@ -97,6 +101,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 9,
     "fields": {
         "app_label": "hosts",
         "model": "hostpage"
@@ -104,6 +109,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 10,
     "fields": {
         "app_label": "hosts",
         "model": "hostlanguage"
@@ -111,6 +117,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 11,
     "fields": {
         "app_label": "hosts",
         "model": "hostlanguagerelationship"
@@ -118,6 +125,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 12,
     "fields": {
         "app_label": "experiences",
         "model": "experienceindexpage"
@@ -125,6 +133,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 13,
     "fields": {
         "app_label": "experiences",
         "model": "experiencepage"
@@ -132,6 +141,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 14,
     "fields": {
         "app_label": "blog",
         "model": "blogpage"
@@ -139,6 +149,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 15,
     "fields": {
         "app_label": "blog",
         "model": "blogindexpage"
@@ -146,6 +157,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 16,
     "fields": {
         "app_label": "bookings",
         "model": "booking"
@@ -153,6 +165,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 17,
     "fields": {
         "app_label": "bookings",
         "model": "bookingslot"
@@ -160,6 +173,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 18,
     "fields": {
         "app_label": "bookings",
         "model": "bookingslotrequest"
@@ -167,6 +181,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 19,
     "fields": {
         "app_label": "wagtailsearchpromotions",
         "model": "searchpromotion"
@@ -174,6 +189,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 20,
     "fields": {
         "app_label": "wagtailforms",
         "model": "formsubmission"
@@ -181,6 +197,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 21,
     "fields": {
         "app_label": "wagtailredirects",
         "model": "redirect"
@@ -188,6 +205,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 22,
     "fields": {
         "app_label": "wagtailembeds",
         "model": "embed"
@@ -195,6 +213,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 23,
     "fields": {
         "app_label": "wagtailusers",
         "model": "userprofile"
@@ -202,6 +221,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 24,
     "fields": {
         "app_label": "wagtailimages",
         "model": "rendition"
@@ -209,6 +229,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 25,
     "fields": {
         "app_label": "wagtailsearch",
         "model": "query"
@@ -216,6 +237,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 26,
     "fields": {
         "app_label": "wagtailsearch",
         "model": "querydailyhits"
@@ -223,6 +245,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 27,
     "fields": {
         "app_label": "wagtailcore",
         "model": "grouppagepermission"
@@ -230,6 +253,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 28,
     "fields": {
         "app_label": "wagtailcore",
         "model": "pagerevision"
@@ -237,6 +261,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 29,
     "fields": {
         "app_label": "wagtailcore",
         "model": "pageviewrestriction"
@@ -244,6 +269,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 30,
     "fields": {
         "app_label": "wagtailcore",
         "model": "site"
@@ -251,6 +277,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 31,
     "fields": {
         "app_label": "wagtailcore",
         "model": "collection"
@@ -258,6 +285,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 32,
     "fields": {
         "app_label": "wagtailcore",
         "model": "groupcollectionpermission"
@@ -265,6 +293,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 33,
     "fields": {
         "app_label": "wagtailcore",
         "model": "collectionviewrestriction"
@@ -272,6 +301,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 34,
     "fields": {
         "app_label": "taggit",
         "model": "tag"
@@ -279,6 +309,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 35,
     "fields": {
         "app_label": "taggit",
         "model": "taggeditem"
@@ -286,6 +317,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 36,
     "fields": {
         "app_label": "admin",
         "model": "logentry"
@@ -293,6 +325,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 37,
     "fields": {
         "app_label": "auth",
         "model": "permission"
@@ -300,6 +333,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 38,
     "fields": {
         "app_label": "auth",
         "model": "group"
@@ -307,6 +341,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 39,
     "fields": {
         "app_label": "auth",
         "model": "user"
@@ -314,6 +349,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 40,
     "fields": {
         "app_label": "contenttypes",
         "model": "contenttype"
@@ -321,6 +357,7 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 41,
     "fields": {
         "app_label": "sessions",
         "model": "session"
@@ -328,1423 +365,1128 @@
 },
 {
     "model": "auth.permission",
+    "pk": 1,
     "fields": {
         "name": "Can add image",
-        "content_type": [
-            "wagtailimages",
-            "image"
-        ],
+        "content_type": 2,
         "codename": "add_image"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 2,
     "fields": {
         "name": "Can change image",
-        "content_type": [
-            "wagtailimages",
-            "image"
-        ],
+        "content_type": 2,
         "codename": "change_image"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 3,
     "fields": {
         "name": "Can delete image",
-        "content_type": [
-            "wagtailimages",
-            "image"
-        ],
+        "content_type": 2,
         "codename": "delete_image"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 4,
     "fields": {
         "name": "Can access Wagtail admin",
-        "content_type": [
-            "wagtailadmin",
-            "admin"
-        ],
+        "content_type": 3,
         "codename": "access_admin"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 5,
     "fields": {
         "name": "Can add document",
-        "content_type": [
-            "wagtaildocs",
-            "document"
-        ],
+        "content_type": 4,
         "codename": "add_document"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 6,
     "fields": {
         "name": "Can change document",
-        "content_type": [
-            "wagtaildocs",
-            "document"
-        ],
+        "content_type": 4,
         "codename": "change_document"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 7,
     "fields": {
         "name": "Can delete document",
-        "content_type": [
-            "wagtaildocs",
-            "document"
-        ],
+        "content_type": 4,
         "codename": "delete_document"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 8,
     "fields": {
         "name": "Can add home page",
-        "content_type": [
-            "home",
-            "homepage"
-        ],
+        "content_type": 5,
         "codename": "add_homepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 9,
     "fields": {
         "name": "Can change home page",
-        "content_type": [
-            "home",
-            "homepage"
-        ],
+        "content_type": 5,
         "codename": "change_homepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 10,
     "fields": {
         "name": "Can delete home page",
-        "content_type": [
-            "home",
-            "homepage"
-        ],
+        "content_type": 5,
         "codename": "delete_homepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 11,
     "fields": {
         "name": "Can add place index page",
-        "content_type": [
-            "places",
-            "placeindexpage"
-        ],
+        "content_type": 6,
         "codename": "add_placeindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 12,
     "fields": {
         "name": "Can change place index page",
-        "content_type": [
-            "places",
-            "placeindexpage"
-        ],
+        "content_type": 6,
         "codename": "change_placeindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 13,
     "fields": {
         "name": "Can delete place index page",
-        "content_type": [
-            "places",
-            "placeindexpage"
-        ],
+        "content_type": 6,
         "codename": "delete_placeindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 14,
     "fields": {
         "name": "Can add place page",
-        "content_type": [
-            "places",
-            "placepage"
-        ],
+        "content_type": 7,
         "codename": "add_placepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 15,
     "fields": {
         "name": "Can change place page",
-        "content_type": [
-            "places",
-            "placepage"
-        ],
+        "content_type": 7,
         "codename": "change_placepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 16,
     "fields": {
         "name": "Can delete place page",
-        "content_type": [
-            "places",
-            "placepage"
-        ],
+        "content_type": 7,
         "codename": "delete_placepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 17,
     "fields": {
         "name": "Can add host index page",
-        "content_type": [
-            "hosts",
-            "hostindexpage"
-        ],
+        "content_type": 8,
         "codename": "add_hostindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 18,
     "fields": {
         "name": "Can change host index page",
-        "content_type": [
-            "hosts",
-            "hostindexpage"
-        ],
+        "content_type": 8,
         "codename": "change_hostindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 19,
     "fields": {
         "name": "Can delete host index page",
-        "content_type": [
-            "hosts",
-            "hostindexpage"
-        ],
+        "content_type": 8,
         "codename": "delete_hostindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 20,
     "fields": {
         "name": "Can add host page",
-        "content_type": [
-            "hosts",
-            "hostpage"
-        ],
+        "content_type": 9,
         "codename": "add_hostpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 21,
     "fields": {
         "name": "Can change host page",
-        "content_type": [
-            "hosts",
-            "hostpage"
-        ],
+        "content_type": 9,
         "codename": "change_hostpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 22,
     "fields": {
         "name": "Can delete host page",
-        "content_type": [
-            "hosts",
-            "hostpage"
-        ],
+        "content_type": 9,
         "codename": "delete_hostpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 23,
     "fields": {
         "name": "Can add Language",
-        "content_type": [
-            "hosts",
-            "hostlanguage"
-        ],
+        "content_type": 10,
         "codename": "add_hostlanguage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 24,
     "fields": {
         "name": "Can change Language",
-        "content_type": [
-            "hosts",
-            "hostlanguage"
-        ],
+        "content_type": 10,
         "codename": "change_hostlanguage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 25,
     "fields": {
         "name": "Can delete Language",
-        "content_type": [
-            "hosts",
-            "hostlanguage"
-        ],
+        "content_type": 10,
         "codename": "delete_hostlanguage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 26,
     "fields": {
         "name": "Can add host language relationship",
-        "content_type": [
-            "hosts",
-            "hostlanguagerelationship"
-        ],
+        "content_type": 11,
         "codename": "add_hostlanguagerelationship"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 27,
     "fields": {
         "name": "Can change host language relationship",
-        "content_type": [
-            "hosts",
-            "hostlanguagerelationship"
-        ],
+        "content_type": 11,
         "codename": "change_hostlanguagerelationship"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 28,
     "fields": {
         "name": "Can delete host language relationship",
-        "content_type": [
-            "hosts",
-            "hostlanguagerelationship"
-        ],
+        "content_type": 11,
         "codename": "delete_hostlanguagerelationship"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 29,
     "fields": {
         "name": "Can add experience index page",
-        "content_type": [
-            "experiences",
-            "experienceindexpage"
-        ],
+        "content_type": 12,
         "codename": "add_experienceindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 30,
     "fields": {
         "name": "Can change experience index page",
-        "content_type": [
-            "experiences",
-            "experienceindexpage"
-        ],
+        "content_type": 12,
         "codename": "change_experienceindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 31,
     "fields": {
         "name": "Can delete experience index page",
-        "content_type": [
-            "experiences",
-            "experienceindexpage"
-        ],
+        "content_type": 12,
         "codename": "delete_experienceindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 32,
     "fields": {
         "name": "Can add experience page",
-        "content_type": [
-            "experiences",
-            "experiencepage"
-        ],
+        "content_type": 13,
         "codename": "add_experiencepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 33,
     "fields": {
         "name": "Can change experience page",
-        "content_type": [
-            "experiences",
-            "experiencepage"
-        ],
+        "content_type": 13,
         "codename": "change_experiencepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 34,
     "fields": {
         "name": "Can delete experience page",
-        "content_type": [
-            "experiences",
-            "experiencepage"
-        ],
+        "content_type": 13,
         "codename": "delete_experiencepage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 35,
     "fields": {
         "name": "Can add blog page",
-        "content_type": [
-            "blog",
-            "blogpage"
-        ],
+        "content_type": 14,
         "codename": "add_blogpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 36,
     "fields": {
         "name": "Can change blog page",
-        "content_type": [
-            "blog",
-            "blogpage"
-        ],
+        "content_type": 14,
         "codename": "change_blogpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 37,
     "fields": {
         "name": "Can delete blog page",
-        "content_type": [
-            "blog",
-            "blogpage"
-        ],
+        "content_type": 14,
         "codename": "delete_blogpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 38,
     "fields": {
         "name": "Can add blog index page",
-        "content_type": [
-            "blog",
-            "blogindexpage"
-        ],
+        "content_type": 15,
         "codename": "add_blogindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 39,
     "fields": {
         "name": "Can change blog index page",
-        "content_type": [
-            "blog",
-            "blogindexpage"
-        ],
+        "content_type": 15,
         "codename": "change_blogindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 40,
     "fields": {
         "name": "Can delete blog index page",
-        "content_type": [
-            "blog",
-            "blogindexpage"
-        ],
+        "content_type": 15,
         "codename": "delete_blogindexpage"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 41,
     "fields": {
         "name": "Can add booking",
-        "content_type": [
-            "bookings",
-            "booking"
-        ],
+        "content_type": 16,
         "codename": "add_booking"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 42,
     "fields": {
         "name": "Can change booking",
-        "content_type": [
-            "bookings",
-            "booking"
-        ],
+        "content_type": 16,
         "codename": "change_booking"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 43,
     "fields": {
         "name": "Can delete booking",
-        "content_type": [
-            "bookings",
-            "booking"
-        ],
+        "content_type": 16,
         "codename": "delete_booking"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 44,
     "fields": {
         "name": "Can add booking slot",
-        "content_type": [
-            "bookings",
-            "bookingslot"
-        ],
+        "content_type": 17,
         "codename": "add_bookingslot"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 45,
     "fields": {
         "name": "Can change booking slot",
-        "content_type": [
-            "bookings",
-            "bookingslot"
-        ],
+        "content_type": 17,
         "codename": "change_bookingslot"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 46,
     "fields": {
         "name": "Can delete booking slot",
-        "content_type": [
-            "bookings",
-            "bookingslot"
-        ],
+        "content_type": 17,
         "codename": "delete_bookingslot"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 47,
     "fields": {
         "name": "Can add booking slot request",
-        "content_type": [
-            "bookings",
-            "bookingslotrequest"
-        ],
+        "content_type": 18,
         "codename": "add_bookingslotrequest"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 48,
     "fields": {
         "name": "Can change booking slot request",
-        "content_type": [
-            "bookings",
-            "bookingslotrequest"
-        ],
+        "content_type": 18,
         "codename": "change_bookingslotrequest"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 49,
     "fields": {
         "name": "Can delete booking slot request",
-        "content_type": [
-            "bookings",
-            "bookingslotrequest"
-        ],
+        "content_type": 18,
         "codename": "delete_bookingslotrequest"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 50,
     "fields": {
         "name": "Can add search promotion",
-        "content_type": [
-            "wagtailsearchpromotions",
-            "searchpromotion"
-        ],
+        "content_type": 19,
         "codename": "add_searchpromotion"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 51,
     "fields": {
         "name": "Can change search promotion",
-        "content_type": [
-            "wagtailsearchpromotions",
-            "searchpromotion"
-        ],
+        "content_type": 19,
         "codename": "change_searchpromotion"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 52,
     "fields": {
         "name": "Can delete search promotion",
-        "content_type": [
-            "wagtailsearchpromotions",
-            "searchpromotion"
-        ],
+        "content_type": 19,
         "codename": "delete_searchpromotion"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 53,
     "fields": {
         "name": "Can add form submission",
-        "content_type": [
-            "wagtailforms",
-            "formsubmission"
-        ],
+        "content_type": 20,
         "codename": "add_formsubmission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 54,
     "fields": {
         "name": "Can change form submission",
-        "content_type": [
-            "wagtailforms",
-            "formsubmission"
-        ],
+        "content_type": 20,
         "codename": "change_formsubmission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 55,
     "fields": {
         "name": "Can delete form submission",
-        "content_type": [
-            "wagtailforms",
-            "formsubmission"
-        ],
+        "content_type": 20,
         "codename": "delete_formsubmission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 56,
     "fields": {
         "name": "Can add redirect",
-        "content_type": [
-            "wagtailredirects",
-            "redirect"
-        ],
+        "content_type": 21,
         "codename": "add_redirect"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 57,
     "fields": {
         "name": "Can change redirect",
-        "content_type": [
-            "wagtailredirects",
-            "redirect"
-        ],
+        "content_type": 21,
         "codename": "change_redirect"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 58,
     "fields": {
         "name": "Can delete redirect",
-        "content_type": [
-            "wagtailredirects",
-            "redirect"
-        ],
+        "content_type": 21,
         "codename": "delete_redirect"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 59,
     "fields": {
         "name": "Can add embed",
-        "content_type": [
-            "wagtailembeds",
-            "embed"
-        ],
+        "content_type": 22,
         "codename": "add_embed"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 60,
     "fields": {
         "name": "Can change embed",
-        "content_type": [
-            "wagtailembeds",
-            "embed"
-        ],
+        "content_type": 22,
         "codename": "change_embed"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 61,
     "fields": {
         "name": "Can delete embed",
-        "content_type": [
-            "wagtailembeds",
-            "embed"
-        ],
+        "content_type": 22,
         "codename": "delete_embed"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 62,
     "fields": {
         "name": "Can add user profile",
-        "content_type": [
-            "wagtailusers",
-            "userprofile"
-        ],
+        "content_type": 23,
         "codename": "add_userprofile"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 63,
     "fields": {
         "name": "Can change user profile",
-        "content_type": [
-            "wagtailusers",
-            "userprofile"
-        ],
+        "content_type": 23,
         "codename": "change_userprofile"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 64,
     "fields": {
         "name": "Can delete user profile",
-        "content_type": [
-            "wagtailusers",
-            "userprofile"
-        ],
+        "content_type": 23,
         "codename": "delete_userprofile"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 65,
     "fields": {
         "name": "Can add rendition",
-        "content_type": [
-            "wagtailimages",
-            "rendition"
-        ],
+        "content_type": 24,
         "codename": "add_rendition"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 66,
     "fields": {
         "name": "Can change rendition",
-        "content_type": [
-            "wagtailimages",
-            "rendition"
-        ],
+        "content_type": 24,
         "codename": "change_rendition"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 67,
     "fields": {
         "name": "Can delete rendition",
-        "content_type": [
-            "wagtailimages",
-            "rendition"
-        ],
+        "content_type": 24,
         "codename": "delete_rendition"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 68,
     "fields": {
         "name": "Can add query",
-        "content_type": [
-            "wagtailsearch",
-            "query"
-        ],
+        "content_type": 25,
         "codename": "add_query"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 69,
     "fields": {
         "name": "Can change query",
-        "content_type": [
-            "wagtailsearch",
-            "query"
-        ],
+        "content_type": 25,
         "codename": "change_query"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 70,
     "fields": {
         "name": "Can delete query",
-        "content_type": [
-            "wagtailsearch",
-            "query"
-        ],
+        "content_type": 25,
         "codename": "delete_query"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 71,
     "fields": {
         "name": "Can add Query Daily Hits",
-        "content_type": [
-            "wagtailsearch",
-            "querydailyhits"
-        ],
+        "content_type": 26,
         "codename": "add_querydailyhits"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 72,
     "fields": {
         "name": "Can change Query Daily Hits",
-        "content_type": [
-            "wagtailsearch",
-            "querydailyhits"
-        ],
+        "content_type": 26,
         "codename": "change_querydailyhits"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 73,
     "fields": {
         "name": "Can delete Query Daily Hits",
-        "content_type": [
-            "wagtailsearch",
-            "querydailyhits"
-        ],
+        "content_type": 26,
         "codename": "delete_querydailyhits"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 74,
     "fields": {
         "name": "Can add page",
-        "content_type": [
-            "wagtailcore",
-            "page"
-        ],
+        "content_type": 1,
         "codename": "add_page"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 75,
     "fields": {
         "name": "Can change page",
-        "content_type": [
-            "wagtailcore",
-            "page"
-        ],
+        "content_type": 1,
         "codename": "change_page"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 76,
     "fields": {
         "name": "Can delete page",
-        "content_type": [
-            "wagtailcore",
-            "page"
-        ],
+        "content_type": 1,
         "codename": "delete_page"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 77,
     "fields": {
         "name": "Can add group page permission",
-        "content_type": [
-            "wagtailcore",
-            "grouppagepermission"
-        ],
+        "content_type": 27,
         "codename": "add_grouppagepermission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 78,
     "fields": {
         "name": "Can change group page permission",
-        "content_type": [
-            "wagtailcore",
-            "grouppagepermission"
-        ],
+        "content_type": 27,
         "codename": "change_grouppagepermission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 79,
     "fields": {
         "name": "Can delete group page permission",
-        "content_type": [
-            "wagtailcore",
-            "grouppagepermission"
-        ],
+        "content_type": 27,
         "codename": "delete_grouppagepermission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 80,
     "fields": {
         "name": "Can add page revision",
-        "content_type": [
-            "wagtailcore",
-            "pagerevision"
-        ],
+        "content_type": 28,
         "codename": "add_pagerevision"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 81,
     "fields": {
         "name": "Can change page revision",
-        "content_type": [
-            "wagtailcore",
-            "pagerevision"
-        ],
+        "content_type": 28,
         "codename": "change_pagerevision"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 82,
     "fields": {
         "name": "Can delete page revision",
-        "content_type": [
-            "wagtailcore",
-            "pagerevision"
-        ],
+        "content_type": 28,
         "codename": "delete_pagerevision"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 83,
     "fields": {
         "name": "Can add page view restriction",
-        "content_type": [
-            "wagtailcore",
-            "pageviewrestriction"
-        ],
+        "content_type": 29,
         "codename": "add_pageviewrestriction"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 84,
     "fields": {
         "name": "Can change page view restriction",
-        "content_type": [
-            "wagtailcore",
-            "pageviewrestriction"
-        ],
+        "content_type": 29,
         "codename": "change_pageviewrestriction"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 85,
     "fields": {
         "name": "Can delete page view restriction",
-        "content_type": [
-            "wagtailcore",
-            "pageviewrestriction"
-        ],
+        "content_type": 29,
         "codename": "delete_pageviewrestriction"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 86,
     "fields": {
         "name": "Can add site",
-        "content_type": [
-            "wagtailcore",
-            "site"
-        ],
+        "content_type": 30,
         "codename": "add_site"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 87,
     "fields": {
         "name": "Can change site",
-        "content_type": [
-            "wagtailcore",
-            "site"
-        ],
+        "content_type": 30,
         "codename": "change_site"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 88,
     "fields": {
         "name": "Can delete site",
-        "content_type": [
-            "wagtailcore",
-            "site"
-        ],
+        "content_type": 30,
         "codename": "delete_site"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 89,
     "fields": {
         "name": "Can add collection",
-        "content_type": [
-            "wagtailcore",
-            "collection"
-        ],
+        "content_type": 31,
         "codename": "add_collection"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 90,
     "fields": {
         "name": "Can change collection",
-        "content_type": [
-            "wagtailcore",
-            "collection"
-        ],
+        "content_type": 31,
         "codename": "change_collection"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 91,
     "fields": {
         "name": "Can delete collection",
-        "content_type": [
-            "wagtailcore",
-            "collection"
-        ],
+        "content_type": 31,
         "codename": "delete_collection"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 92,
     "fields": {
         "name": "Can add group collection permission",
-        "content_type": [
-            "wagtailcore",
-            "groupcollectionpermission"
-        ],
+        "content_type": 32,
         "codename": "add_groupcollectionpermission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 93,
     "fields": {
         "name": "Can change group collection permission",
-        "content_type": [
-            "wagtailcore",
-            "groupcollectionpermission"
-        ],
+        "content_type": 32,
         "codename": "change_groupcollectionpermission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 94,
     "fields": {
         "name": "Can delete group collection permission",
-        "content_type": [
-            "wagtailcore",
-            "groupcollectionpermission"
-        ],
+        "content_type": 32,
         "codename": "delete_groupcollectionpermission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 95,
     "fields": {
         "name": "Can add collection view restriction",
-        "content_type": [
-            "wagtailcore",
-            "collectionviewrestriction"
-        ],
+        "content_type": 33,
         "codename": "add_collectionviewrestriction"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 96,
     "fields": {
         "name": "Can change collection view restriction",
-        "content_type": [
-            "wagtailcore",
-            "collectionviewrestriction"
-        ],
+        "content_type": 33,
         "codename": "change_collectionviewrestriction"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 97,
     "fields": {
         "name": "Can delete collection view restriction",
-        "content_type": [
-            "wagtailcore",
-            "collectionviewrestriction"
-        ],
+        "content_type": 33,
         "codename": "delete_collectionviewrestriction"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 98,
     "fields": {
         "name": "Can add Tag",
-        "content_type": [
-            "taggit",
-            "tag"
-        ],
+        "content_type": 34,
         "codename": "add_tag"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 99,
     "fields": {
         "name": "Can change Tag",
-        "content_type": [
-            "taggit",
-            "tag"
-        ],
+        "content_type": 34,
         "codename": "change_tag"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 100,
     "fields": {
         "name": "Can delete Tag",
-        "content_type": [
-            "taggit",
-            "tag"
-        ],
+        "content_type": 34,
         "codename": "delete_tag"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 101,
     "fields": {
         "name": "Can add Tagged Item",
-        "content_type": [
-            "taggit",
-            "taggeditem"
-        ],
+        "content_type": 35,
         "codename": "add_taggeditem"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 102,
     "fields": {
         "name": "Can change Tagged Item",
-        "content_type": [
-            "taggit",
-            "taggeditem"
-        ],
+        "content_type": 35,
         "codename": "change_taggeditem"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 103,
     "fields": {
         "name": "Can delete Tagged Item",
-        "content_type": [
-            "taggit",
-            "taggeditem"
-        ],
+        "content_type": 35,
         "codename": "delete_taggeditem"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 104,
     "fields": {
         "name": "Can add log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
+        "content_type": 36,
         "codename": "add_logentry"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 105,
     "fields": {
         "name": "Can change log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
+        "content_type": 36,
         "codename": "change_logentry"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 106,
     "fields": {
         "name": "Can delete log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
+        "content_type": 36,
         "codename": "delete_logentry"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 107,
     "fields": {
         "name": "Can add permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
+        "content_type": 37,
         "codename": "add_permission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 108,
     "fields": {
         "name": "Can change permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
+        "content_type": 37,
         "codename": "change_permission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 109,
     "fields": {
         "name": "Can delete permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
+        "content_type": 37,
         "codename": "delete_permission"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 110,
     "fields": {
         "name": "Can add group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
+        "content_type": 38,
         "codename": "add_group"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 111,
     "fields": {
         "name": "Can change group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
+        "content_type": 38,
         "codename": "change_group"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 112,
     "fields": {
         "name": "Can delete group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
+        "content_type": 38,
         "codename": "delete_group"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 113,
     "fields": {
         "name": "Can add user",
-        "content_type": [
-            "auth",
-            "user"
-        ],
+        "content_type": 39,
         "codename": "add_user"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 114,
     "fields": {
         "name": "Can change user",
-        "content_type": [
-            "auth",
-            "user"
-        ],
+        "content_type": 39,
         "codename": "change_user"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 115,
     "fields": {
         "name": "Can delete user",
-        "content_type": [
-            "auth",
-            "user"
-        ],
+        "content_type": 39,
         "codename": "delete_user"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 116,
     "fields": {
         "name": "Can add content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
+        "content_type": 40,
         "codename": "add_contenttype"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 117,
     "fields": {
         "name": "Can change content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
+        "content_type": 40,
         "codename": "change_contenttype"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 118,
     "fields": {
         "name": "Can delete content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
+        "content_type": 40,
         "codename": "delete_contenttype"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 119,
     "fields": {
         "name": "Can add session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
+        "content_type": 41,
         "codename": "add_session"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 120,
     "fields": {
         "name": "Can change session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
+        "content_type": 41,
         "codename": "change_session"
     }
 },
 {
     "model": "auth.permission",
+    "pk": 121,
     "fields": {
         "name": "Can delete session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
+        "content_type": 41,
         "codename": "delete_session"
     }
 },
 {
     "model": "auth.group",
+    "pk": 1,
     "fields": {
         "name": "Moderators",
         "permissions": [
-            [
-                "access_admin",
-                "wagtailadmin",
-                "admin"
-            ],
-            [
-                "add_document",
-                "wagtaildocs",
-                "document"
-            ],
-            [
-                "change_document",
-                "wagtaildocs",
-                "document"
-            ],
-            [
-                "delete_document",
-                "wagtaildocs",
-                "document"
-            ],
-            [
-                "add_image",
-                "wagtailimages",
-                "image"
-            ],
-            [
-                "change_image",
-                "wagtailimages",
-                "image"
-            ],
-            [
-                "delete_image",
-                "wagtailimages",
-                "image"
-            ]
+            4,
+            5,
+            6,
+            7,
+            1,
+            2,
+            3
         ]
     }
 },
 {
     "model": "auth.group",
+    "pk": 2,
     "fields": {
         "name": "Editors",
         "permissions": [
-            [
-                "access_admin",
-                "wagtailadmin",
-                "admin"
-            ],
-            [
-                "add_document",
-                "wagtaildocs",
-                "document"
-            ],
-            [
-                "change_document",
-                "wagtaildocs",
-                "document"
-            ],
-            [
-                "delete_document",
-                "wagtaildocs",
-                "document"
-            ],
-            [
-                "add_image",
-                "wagtailimages",
-                "image"
-            ],
-            [
-                "change_image",
-                "wagtailimages",
-                "image"
-            ],
-            [
-                "delete_image",
-                "wagtailimages",
-                "image"
-            ]
+            4,
+            5,
+            6,
+            7,
+            1,
+            2,
+            3
         ]
     }
 },
 {
     "model": "auth.user",
+    "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$36000$QyE9vhG7JcIo$mmuWxfLlvskmoPbgIr48FNLDqOs+yv2A22vrRHzPwKg=",
         "last_login": "2018-08-16T03:59:47.337Z",
@@ -1764,129 +1506,79 @@
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 1,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "collection": 1,
-        "permission": [
-            "add_image",
-            "wagtailimages",
-            "image"
-        ]
+        "permission": 1
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 2,
     "fields": {
-        "group": [
-            "Editors"
-        ],
+        "group": 2,
         "collection": 1,
-        "permission": [
-            "add_image",
-            "wagtailimages",
-            "image"
-        ]
+        "permission": 1
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 3,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "collection": 1,
-        "permission": [
-            "change_image",
-            "wagtailimages",
-            "image"
-        ]
+        "permission": 2
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 4,
     "fields": {
-        "group": [
-            "Editors"
-        ],
+        "group": 2,
         "collection": 1,
-        "permission": [
-            "change_image",
-            "wagtailimages",
-            "image"
-        ]
+        "permission": 2
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 5,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "collection": 1,
-        "permission": [
-            "add_document",
-            "wagtaildocs",
-            "document"
-        ]
+        "permission": 5
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 6,
     "fields": {
-        "group": [
-            "Editors"
-        ],
+        "group": 2,
         "collection": 1,
-        "permission": [
-            "add_document",
-            "wagtaildocs",
-            "document"
-        ]
+        "permission": 5
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 7,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "collection": 1,
-        "permission": [
-            "change_document",
-            "wagtaildocs",
-            "document"
-        ]
+        "permission": 6
     }
 },
 {
     "model": "wagtailcore.groupcollectionpermission",
     "pk": 8,
     "fields": {
-        "group": [
-            "Editors"
-        ],
+        "group": 2,
         "collection": 1,
-        "permission": [
-            "change_document",
-            "wagtaildocs",
-            "document"
-        ]
+        "permission": 6
     }
 },
 {
     "model": "wagtailcore.grouppagepermission",
     "pk": 1,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "page": 1,
         "permission_type": "add"
     }
@@ -1895,9 +1587,7 @@
     "model": "wagtailcore.grouppagepermission",
     "pk": 2,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "page": 1,
         "permission_type": "edit"
     }
@@ -1906,9 +1596,7 @@
     "model": "wagtailcore.grouppagepermission",
     "pk": 3,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "page": 1,
         "permission_type": "publish"
     }
@@ -1917,9 +1605,7 @@
     "model": "wagtailcore.grouppagepermission",
     "pk": 4,
     "fields": {
-        "group": [
-            "Editors"
-        ],
+        "group": 2,
         "page": 1,
         "permission_type": "add"
     }
@@ -1928,9 +1614,7 @@
     "model": "wagtailcore.grouppagepermission",
     "pk": 5,
     "fields": {
-        "group": [
-            "Editors"
-        ],
+        "group": 2,
         "page": 1,
         "permission_type": "edit"
     }
@@ -1939,9 +1623,7 @@
     "model": "wagtailcore.grouppagepermission",
     "pk": 6,
     "fields": {
-        "group": [
-            "Moderators"
-        ],
+        "group": 1,
         "page": 1,
         "permission_type": "lock"
     }
@@ -1953,9 +1635,7 @@
         "page": 3,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:00:31.040Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 3, \"path\": \"000100010001\", \"depth\": 3, \"numchild\": 0, \"title\": \"Home\", \"draft_title\": \"Home\", \"slug\": \"home\", \"content_type\": 5, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"organisation_name\": \"yan\", \"strapline\": \"doolay\", \"featured_page_1\": null, \"featured_page_2\": null, \"featured_page_3\": null, \"copyright_notice\": null}",
         "approved_go_live_at": null
     }
@@ -1967,9 +1647,7 @@
         "page": 4,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:01:22.988Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 4, \"path\": \"0001000100010001\", \"depth\": 4, \"numchild\": 0, \"title\": \"Experiences\", \"draft_title\": \"Experiences\", \"slug\": \"experiences\", \"content_type\": 12, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/experiences/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"image\": null, \"introduction\": \"\"}",
         "approved_go_live_at": null
     }
@@ -1981,9 +1659,7 @@
         "page": 5,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:01:55.475Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 5, \"path\": \"0001000100010002\", \"depth\": 4, \"numchild\": 0, \"title\": \"Hosts\", \"draft_title\": \"Hosts\", \"slug\": \"hosts\", \"content_type\": 8, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/hosts/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"image\": null, \"introduction\": \"\"}",
         "approved_go_live_at": null
     }
@@ -1995,9 +1671,7 @@
         "page": 6,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:02:09.474Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 6, \"path\": \"0001000100010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"Places\", \"draft_title\": \"Places\", \"slug\": \"places\", \"content_type\": 6, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/places/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"image\": null, \"introduction\": \"\"}",
         "approved_go_live_at": null
     }
@@ -2009,9 +1683,7 @@
         "page": 7,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:08:09.135Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 7, \"path\": \"00010001000100020001\", \"depth\": 5, \"numchild\": 0, \"title\": \"Yan\", \"draft_title\": \"Yan\", \"slug\": \"yan\", \"content_type\": 9, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/hosts/yan/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"image\": null, \"email_address\": \"test@example.com\", \"body\": \"[{\\\"type\\\": \\\"paragraph\\\", \\\"value\\\": \\\"<p>This is Yan.</p>\\\", \\\"id\\\": \\\"ca599798-064b-45ef-8ece-69a751c1154a\\\"}]\", \"host_language_relationship\": [{\"pk\": 1, \"host_page\": 7, \"host_languages\": 1}]}",
         "approved_go_live_at": null
     }
@@ -2023,9 +1695,7 @@
         "page": 8,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:08:59.685Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 8, \"path\": \"00010001000100030001\", \"depth\": 5, \"numchild\": 0, \"title\": \"Yangon\", \"draft_title\": \"Yangon\", \"slug\": \"yangon\", \"content_type\": 7, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/places/yangon/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"image\": null, \"body\": \"[{\\\"type\\\": \\\"paragraph\\\", \\\"value\\\": \\\"<p>This is Yangon.</p>\\\", \\\"id\\\": \\\"971d6e39-c08f-4915-981a-ea8392a0e2b8\\\"}]\"}",
         "approved_go_live_at": null
     }
@@ -2037,9 +1707,7 @@
         "page": 9,
         "submitted_for_moderation": false,
         "created_at": "2018-08-16T04:10:38.044Z",
-        "user": [
-            "test"
-        ],
+        "user": 1,
         "content_json": "{\"pk\": 9, \"path\": \"00010001000100010001\", \"depth\": 5, \"numchild\": 0, \"title\": \"Awesome Yangon\", \"draft_title\": \"Awesome Yangon\", \"slug\": \"awesome-yangon\", \"content_type\": 13, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/home/experiences/awesome-yangon/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"image\": null, \"host\": 7, \"place\": 8, \"duration\": \"00:12:00\", \"body\": \"[{\\\"type\\\": \\\"paragraph\\\", \\\"value\\\": \\\"<p>This is awesome Yangon experience.</p>\\\", \\\"id\\\": \\\"b978a3ef-6a6c-4436-82ac-343067691f84\\\"}]\"}",
         "approved_go_live_at": null
     }
@@ -2054,10 +1722,7 @@
         "title": "Root",
         "draft_title": "Root",
         "slug": "root",
-        "content_type": [
-            "wagtailcore",
-            "page"
-        ],
+        "content_type": 1,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/",
@@ -2085,10 +1750,7 @@
         "title": "Welcome to your new Wagtail site!",
         "draft_title": "Welcome to your new Wagtail site!",
         "slug": "home",
-        "content_type": [
-            "wagtailcore",
-            "page"
-        ],
+        "content_type": 1,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/",
@@ -2116,16 +1778,11 @@
         "title": "Home",
         "draft_title": "Home",
         "slug": "home",
-        "content_type": [
-            "home",
-            "homepage"
-        ],
+        "content_type": 5,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
@@ -2149,16 +1806,11 @@
         "title": "Experiences",
         "draft_title": "Experiences",
         "slug": "experiences",
-        "content_type": [
-            "experiences",
-            "experienceindexpage"
-        ],
+        "content_type": 12,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/experiences/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
@@ -2182,16 +1834,11 @@
         "title": "Hosts",
         "draft_title": "Hosts",
         "slug": "hosts",
-        "content_type": [
-            "hosts",
-            "hostindexpage"
-        ],
+        "content_type": 8,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/hosts/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
@@ -2215,16 +1862,11 @@
         "title": "Places",
         "draft_title": "Places",
         "slug": "places",
-        "content_type": [
-            "places",
-            "placeindexpage"
-        ],
+        "content_type": 6,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/places/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
@@ -2248,16 +1890,11 @@
         "title": "Yan",
         "draft_title": "Yan",
         "slug": "yan",
-        "content_type": [
-            "hosts",
-            "hostpage"
-        ],
+        "content_type": 9,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/hosts/yan/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
@@ -2281,16 +1918,11 @@
         "title": "Yangon",
         "draft_title": "Yangon",
         "slug": "yangon",
-        "content_type": [
-            "places",
-            "placepage"
-        ],
+        "content_type": 7,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/places/yangon/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
@@ -2314,16 +1946,11 @@
         "title": "Awesome Yangon",
         "draft_title": "Awesome Yangon",
         "slug": "awesome-yangon",
-        "content_type": [
-            "experiences",
-            "experiencepage"
-        ],
+        "content_type": 13,
         "live": true,
         "has_unpublished_changes": false,
         "url_path": "/home/home/experiences/awesome-yangon/",
-        "owner": [
-            "test"
-        ],
+        "owner": 1,
         "seo_title": "",
         "show_in_menus": false,
         "search_description": "",
