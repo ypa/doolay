@@ -30,16 +30,11 @@
     }
 },
 {
-    "model": "bookings.booking",
-    "pk": 9,
-    "fields": {}
-},
-{
     "model": "wagtailcore.site",
     "pk": 2,
     "fields": {
         "hostname": "localhost",
-        "port": 80,
+        "port": 81,
         "site_name": null,
         "root_page": 3,
         "is_default_site": true
@@ -1776,7 +1771,7 @@
     "model": "wagtailcore.page",
     "pk": 3,
     "fields": {
-        "path": "00010001",
+        "path": "00010001234",
         "depth": 2,
         "numchild": 3,
         "title": "Home",
