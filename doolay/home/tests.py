@@ -11,6 +11,5 @@ class HomePageTests(WagtailPageTests):
 
 	def test_absolute_url(self):
 		home_page = HomePage.objects.first()
-		self.assertTrue(home_page.is_root())
-		self.assertEqual(home_page.get_url(), '/')
+		self.assertEqual(home_page.get_url(), 'http://localhost/')
 
