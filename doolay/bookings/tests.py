@@ -10,7 +10,7 @@ from model_mommy.recipe import Recipe, foreign_key
 
 
 class BookingModelTest(TestCase):
-	fixtures = ['doolay/fixtures/unittest_data.json']
+	fixtures = ['unittest_data.json']
 
 	def test_create_booking(self):
 		exp = ExperiencePage.objects.first()
