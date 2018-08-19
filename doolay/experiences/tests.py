@@ -17,13 +17,12 @@ class ExperienceModelTest(WagtailPageTests):
         place = PlacePage.objects.first()
         exp_list = ExperienceIndexPage.objects.first()
         self.exp_page_counter += 1
-        self.exp_page = Recipe(
+        self.exp_page_recipe = Recipe(
             ExperiencePage,
             host=host,
             place=place,
             path='%s000%s' % (exp_list.path, self.exp_page_counter),
             depth=4,
-            url_path="/home/experiences/exp_page_%s" % (self.exp_page_counter,)
         )
 
     def test_can_create_exp_page_under_exp_index_page(self):
@@ -35,7 +34,7 @@ class ExperienceModelTest(WagtailPageTests):
     def test_creating_exp_page_also_create_booking_obj(self):
         num_bookings_before = len(Booking.objects.all())
 
-        new_exp_page = self.exp_page.make()
+        new_exp_page = self.exp_page_recipe.make()
 
         num_bookings_after = len(Booking.objects.all())
         self.assertEqual(num_bookings_after, num_bookings_before + 1)
