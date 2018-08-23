@@ -34,7 +34,7 @@
     "pk": 2,
     "fields": {
         "hostname": "localhost",
-        "port": 81,
+        "port": 8081,
         "site_name": null,
         "root_page": 3,
         "is_default_site": true
