@@ -9,7 +9,11 @@ class HomePageTests(WagtailPageTests):
 	def test_can_create_a_page(self):
 		self.assertCanCreateAt(HomePage, Page)
 
-	def test_absolute_url(self):
+	def test_full_url(self):
 		home_page = HomePage.objects.first()
 		self.assertEqual(home_page.get_url(), 'http://localhost/')
 
+	def test_homepage_under_root(self):
+		home_page = HomePage.objects.first()
+		root_page = home_page.get_root()
+		self.assertTrue(root_page.is_root())
