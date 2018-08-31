@@ -1,7 +1,11 @@
+from datetime import timedelta
+from django.utils import timezone
 from django.test import TestCase
 from django.conf import settings
 from doolay.bookings.models import Booking, BookingSlot, BookingSlotRequest
 from doolay.experiences.models import ExperiencePage
+
+from eventtools.models import REPEAT_CHOICES
 
 
 from model_mommy import mommy
@@ -59,4 +63,17 @@ class BookingSlotRequestCreateViewTest(TestCase):
         slot.refresh_from_db()
         self.assertEqual(slot.booking_slot_requests.count(), 1)
 
+    def test_create_booking_slot_occurrences(self):
+        slot  = BookingSlot(
+                                booking=self.booking,
+                                start=timezone.now(),
+                                end=timezone.now() + timedelta(hours=8),
+                                repeat=REPEAT_CHOICES[1][0], # weekly
+                                repeat_until=(timezone.now() + timedelta(weeks=4)).date(),
+                                notes='test notes'
+                            )
+
+        slot.save()
+        slot.refresh_from_db()
+        self.assertEqual(len([oc for oc in slot.all_occurrences()]), 5)
 
