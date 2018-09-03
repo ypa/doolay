@@ -25,21 +25,27 @@
             <!-- calendar previous month -->
             {% for cal_date in this_month_previous %}
                 <div class="calendar-date prev-month">
-                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                    <button class="date-item disabled" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
 
             <!-- calendar current month -->
             {% for cal_date in this_month_current %}
-                <div class="calendar-date">
-                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                {% if cal_date.is_available %}
+                <div class="calendar-date tooltip" data-tooltip="Request this date">
+                    <button class="date-item badge" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
+                {% else %}
+                <div class="calendar-date tooltip" data-tooltip="Not available">
+                    <button class="date-item disabled" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                </div>
+                {% endif %}
             {% endfor %}
 
             <!-- calendar next month -->
             {% for cal_date in this_month_next %}
                 <div class="calendar-date next-month">
-                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                    <button class="date-item disabled" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
         </div> {# end calendar-body #}
@@ -72,21 +78,27 @@
             <!-- calendar previous month -->
             {% for cal_date in next_month_previous %}
                 <div class="calendar-date prev-month">
-                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                    <button class="date-item disabled" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
 
             <!-- calendar current month -->
             {% for cal_date in next_month_current %}
-                <div class="calendar-date">
-                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                {% if cal_date.is_available %}
+                <div class="calendar-date tooltip" data-tooltip="Request this date">
+                    <button class="date-item badge" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
+                {% else %}
+                <div class="calendar-date tooltip" data-tooltip="Not available">
+                    <button class="date-item disabled" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                </div>
+                {% endif %}
             {% endfor %}
 
             <!-- calendar next month -->
             {% for cal_date in next_month_next %}
                 <div class="calendar-date next-month">
-                    <button class="date-item" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                    <button class="date-item disabled" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
             {% endfor %}
         </div> {# end calendar-body #}
