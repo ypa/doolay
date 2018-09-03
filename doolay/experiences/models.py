@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from datetime import timedelta
 from django.db import models
+from django.utils import timezone
 
 from wagtail.core.models import Page
 from wagtail.search import index
@@ -83,6 +84,12 @@ class ExperiencePage(Page):
         #   {% endfor %}
 
     api_fields = ['image', 'body']
+
+    def get_available_slot_dates(self, within_days=65):
+        from_date = timezone.now().date()
+        to_date = from_date + timedelta(days=within_days)
+        return [start_dt.date() for (start_dt, end_dt, slot) in
+                self.booking.all_occurrences(from_date, to_date)]
 
 
 class ExperienceIndexPage(Page):
