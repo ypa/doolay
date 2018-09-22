@@ -31,7 +31,7 @@
 
             <!-- calendar current month -->
             {% for cal_date in this_month_current %}
-                {% if cal_date.is_available %}
+                {% if cal_date.available_slot %}
                 <div class="calendar-date tooltip" data-tooltip="Request this date">
                     <button class="date-item badge" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
@@ -84,7 +84,7 @@
 
             <!-- calendar current month -->
             {% for cal_date in next_month_current %}
-                {% if cal_date.is_available %}
+                {% if cal_date.available_slot %}
                 <div class="calendar-date tooltip" data-tooltip="Request this date">
                     <button class="date-item badge" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>

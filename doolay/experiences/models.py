@@ -86,10 +86,15 @@ class ExperiencePage(Page):
     api_fields = ['image', 'body']
 
     def get_available_slot_dates(self, within_days=65):
+        """
+        Return a dict of available slot date -> slot_id for the experience.
+        """
         from_date = timezone.now().date()
         to_date = from_date + timedelta(days=within_days)
-        return [start_dt.date() for (start_dt, end_dt, slot) in
-                self.booking.all_occurrences(from_date, to_date)]
+
+        return {start_dt.date(): slot.id
+                for (start_dt, end_dt, slot) in
+                self.booking.all_occurrences(from_date, to_date)}
 
 
 class ExperienceIndexPage(Page):

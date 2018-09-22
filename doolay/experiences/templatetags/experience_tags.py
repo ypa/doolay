@@ -10,7 +10,7 @@ register = template.Library()
 
 HOUR = 60 * 60
 
-CalendarDate = namedtuple('CalendarDate', 'day, isodate, is_available')
+CalendarDate = namedtuple('CalendarDate', 'day, isodate, available_slot')
 
 @register.filter
 def duration(time_delta):
@@ -36,11 +36,11 @@ def booking_modal(context):
 @register.inclusion_tag('tags/booking_calendar.html', takes_context=True)
 def booking_calendar(context):
     page = context.get('self')
-    available_dates = page.get_available_slot_dates()
+    available_slots = page.get_available_slot_dates()
     today = datetime.today()
     today_next_month = today + relativedelta.relativedelta(months=1)
-    this_month_days = get_calendar_month_days(today.year, today.month, available_dates)
-    next_month_days = get_calendar_month_days(today_next_month.year, today_next_month.month, available_dates)
+    this_month_days = get_calendar_month_days(today.year, today.month, available_slots)
+    next_month_days = get_calendar_month_days(today_next_month.year, today_next_month.month, available_slots)
     return {
         'request': context['request'],
         'this_month': today.strftime(calendar.month_name.format),
@@ -57,14 +57,18 @@ def booking_calendar(context):
     }
 
 
-def get_calendar_month_days(year, month, available_dates):
+def get_calendar_month_days(year, month, available_slots):
+    available_slot = lambda date: available_slots[date] if date in available_slots else None
+
     date_by_month = defaultdict(list)
     cal = calendar.Calendar(calendar.SUNDAY)
     for date in cal.itermonthdates(year, month):
+        calendar_date = CalendarDate(day=date.day, isodate=date.strftime('%Y-%m-%d'),
+                                     available_slot=available_slot(date))
         if date.month < month:
-            date_by_month['previous'].append(CalendarDate(date.day, date.strftime('%Y-%m-%d'), date in available_dates))
+            date_by_month['previous'].append(calendar_date)
         elif date.month == month:
-            date_by_month['current'].append(CalendarDate(date.day, date.strftime('%Y-%m-%d'), date in available_dates))
+            date_by_month['current'].append(calendar_date)
         else:
-            date_by_month['next'].append(CalendarDate(date.day, date.strftime('%Y-%m-%d'), date in available_dates))
+            date_by_month['next'].append(calendar_date)
     return date_by_month
