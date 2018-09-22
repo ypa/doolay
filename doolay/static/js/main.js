@@ -27,10 +27,15 @@ $(document).ready(function() {
 	    $("#booking-request").removeClass('disabled'); // now enable the button
     });
 
-    // populate date on modal
+    // populate modal
     $("#booking-request").click(function() {
         var selectedDate = $(".date-item.active").attr("value");
+        // populate date field and disable
         $("#booking-date").val(selectedDate);
         $("#booking-date").prop('disabled', true);
+
+        var slotId = $(".date-item.active").attr("slot");
+        var requestUrl = "/bookings/request/" + slotId + '/';
+        $("#booking_request_form").attr('action', requestUrl);
     });
 });

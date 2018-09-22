@@ -33,7 +33,7 @@
             {% for cal_date in this_month_current %}
                 {% if cal_date.available_slot %}
                 <div class="calendar-date tooltip" data-tooltip="Request this date">
-                    <button class="date-item badge" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                    <button class="date-item badge" slot="{{cal_date.available_slot}}" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
                 {% else %}
                 <div class="calendar-date tooltip" data-tooltip="Not available">
@@ -86,7 +86,7 @@
             {% for cal_date in next_month_current %}
                 {% if cal_date.available_slot %}
                 <div class="calendar-date tooltip" data-tooltip="Request this date">
-                    <button class="date-item badge" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
+                    <button class="date-item badge" slot="{{cal_date.available_slot}}" value="{{cal_date.isodate}}">{{cal_date.day}}</button>
                 </div>
                 {% else %}
                 <div class="calendar-date tooltip" data-tooltip="Not available">
