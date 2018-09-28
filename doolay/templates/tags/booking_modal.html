@@ -4,9 +4,10 @@
         <div class="modal-header"><a class="btn btn-clear float-right" href="#modals-sizes" aria-label="Close"></a>
             <div class="modal-title h5">Your party info</div>
         </div>
-        <div class="modal-body">
-            <div class="content">
-                <form action="/bookings/request/id" class="form-horizontal" id="booking_request_form">
+        <form action="/bookings/request/id" class="form-horizontal" id="booking_request_form" method="post">
+            {% csrf_token %}
+            <div class="modal-body">
+                <div class="content">
                     <div class="form-group">
                         <div class="col-3 col-sm-12">
                             <label class="form-label" for="booking">Date</label>
@@ -47,11 +48,11 @@
                             <textarea class="form-input" id="special-notes" placeholder="Notes" rows="3"></textarea>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit Request</button><a class="btn btn-link" href="#modals-sizes" aria-label="Close">Cancel</a>
-        </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit Request</button><a class="btn btn-link" href="#modals-sizes" aria-label="Close">Cancel</a>
+            </div>
+        </form>
     </div>
 </div>
