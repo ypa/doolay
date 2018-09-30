@@ -4,23 +4,14 @@ from doolay.bookings.models import BookingSlotRequest
 
 
 class BookingSlotRequestSerializer(serializers.ModelSerializer):
-    request_date = serializers.DateField()
 
     class Meta:
         model = BookingSlotRequest
-        fields = (
-        	'request_date', 
-        	'slot', 
-        	'first_name', 
-        	'last_name',
-        	'email_address',
-        	'group_size',
-        	'message',
-        )
+        fields = '__all__'
 
     def validate(self, data):
-        request_date = data['request_date']
-        self.validate_request_slot_date(request_date)
+        request_dt = data['request_date']
+        self.validate_request_slot_date(request_dt.date())
         return super(__class__, self).validate(data)
 
     def get_datetime_from_date(self, date, hour=0, minute=0, second=0):
