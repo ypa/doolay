@@ -1,10 +1,11 @@
 from datetime import timedelta
-from django.forms import ValidationError
+import json
 from django.utils import timezone
 from django.test import TestCase
 from django.conf import settings
 from doolay.bookings.models import Booking, BookingSlot, BookingSlotRequest
 from doolay.experiences.models import ExperiencePage
+from rest_framework.serializers import ValidationError
 
 from eventtools.models import REPEAT_CHOICES
 
@@ -64,17 +65,18 @@ class BookingSlotRequestCreateViewTest(TestCase):
         slot = BookingSlot.objects.first()
         self.assertEqual(slot.booking_slot_requests.count(), 0) # makeing sure no request created for slot yet
         response = self.client.post(
-            '/bookings/request/%d/' % (slot.id,),
-            data= {
+            '/api/bookings/%d/request/' % (slot.id,),
+            json.dumps({
                 'request_date': slot.first_occurrence()[0].strftime('%Y-%m-%d'),
                 'first_name': 'Joe', 
                 'last_name': 'Doe',
                 'email_address': 'jd@example.com', 
                 'group_size': 4,
                 'message': 'We need a child seat',
-            }
+            }),
+            content_type='application/json',
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 201)
         slot.refresh_from_db()
         self.assertEqual(slot.booking_slot_requests.count(), 1)
 
@@ -93,19 +95,19 @@ class BookingSlotRequestCreateViewTest(TestCase):
 
         request_dt = slot.first_occurrence()[0] - timedelta(days=1)
 
-        with self.assertRaises(ValidationError):
-            response = self.client.post(
-                '/bookings/request/%d/' % (slot.id,),
-                data= {
-                    'request_date': request_dt.strftime('%Y-%m-%d'),
-                    'first_name': 'Joe', 
-                    'last_name': 'Doe',
-                    'email_address': 'jd@example.com', 
-                    'group_size': 4,
-                    'message': 'We need a child seat',
-                }
-            )
-
+        response = self.client.post(
+            '/api/bookings/%d/request/' % (slot.id,),
+            json.dumps({
+                'request_date': request_dt.strftime('%Y-%m-%d'),
+                'first_name': 'Joe', 
+                'last_name': 'Doe',
+                'email_address': 'jd@example.com', 
+                'group_size': 4,
+                'message': 'We need a child seat',
+            }),
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 400)
         slot.refresh_from_db()
         self.assertEqual(slot.booking_slot_requests.count(), 0)
 

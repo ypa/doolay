@@ -6,7 +6,9 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.core import urls as wagtail_urls
 from doolay.contacts import views as contact_views
-from doolay.bookings import views as booking_views
+from doolay.bookings.views import BookingSlotRequestAPIView
+
+
 
 # The only amend to this urls.py from out-of-the-box Wagtail is to add the
 # API endpoint
@@ -16,8 +18,7 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^contact/$', contact_views.contact, name='contact'),
-    url(r'^bookings/request/(?P<slot_id>[0-9]+)/$',
-        booking_views.BookingSlotRequestCreate.as_view(), name='request_slot'),
+    url(r'^api/bookings/(?P<slot_id>[0-9]+)/request/$', BookingSlotRequestAPIView.as_view(), name='create')
 ]
 
 if settings.DEBUG:
