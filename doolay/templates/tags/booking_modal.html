@@ -1,27 +1,30 @@
 <!-- booking_modal template tag -->
-<div class="modal modal" id="booking-modal"><a class="modal-overlay" href="#modals-sizes" aria-label="Close"></a>
+<div class="modal modal" id="booking-modal"><a class="modal-overlay" href="#modals-overlay" aria-label="Close"></a>
     <div class="modal-container" role="document">
-        <div class="modal-header"><a class="btn btn-clear float-right" href="#modals-sizes" aria-label="Close"></a>
+        <div class="modal-header"><a class="btn btn-clear float-right" href="#modals-overlay" aria-label="Close"></a>
             <div class="modal-title h5">Your party info</div>
         </div>
-        <form action="/bookings/request/id" class="form-horizontal" id="booking_request_form" method="post">
+        <form action="<place_holder_url>" class="form-horizontal" id="booking_request_form" method="post">
             {% csrf_token %}
             <div class="modal-body">
                 <div class="content">
                     <div class="form-group">
                         <div class="col-3 col-sm-12">
-                            <label class="form-label" for="booking">Date</label>
+                            <label class="form-label" for="booking">Selected Date</label>
                         </div>
                         <div class="col-9 col-sm-12">
-                            <input class="form-input" type="text" id="booking-date" placeholder="Booking Date">
+                            <input class="form-input" type="text" id="request_date" placeholder="Booking Date">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-3 col-sm-12">
-                            <label class="form-label" for="name">Name</label>
+                            <label class="form-label" for="first_name">Name</label>
                         </div>
-                        <div class="col-9 col-sm-12">
-                            <input class="form-input" type="text" id="name" placeholder="Your Name">
+                        <div class="col-4 col-sm-12">
+                            <input class="form-input" type="text" id="first_name" placeholder="First Name">
+                        </div>
+                        <div class="col-5 col-sm-12">
+                            <input class="form-input" type="text" id="last_name" placeholder="Last Name">
                         </div>
                     </div>
                     <div class="form-group">
@@ -29,29 +32,29 @@
                             <label class="form-label" for="email">E-mail</label>
                         </div>
                         <div class="col-9 col-sm-12">
-                            <input class="form-input" id="email" type="email" placeholder="Your E-mail address" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                            <input class="form-input" id="email_address" type="email" placeholder="Your E-mail address" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-3 col-sm-12">
-                            <label class="form-label" for="party-size">Number of people</label>
+                            <label class="form-label" for="group_size">Number of people</label>
                         </div>
                         <div class="col-9 col-sm-12">
-                            <input class="form-input" id="party-size" type="number" placeholder="2">
+                            <input class="form-input" id="group_size" type="number" placeholder="2">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-3 col-sm-12">
-                            <label class="form-label" for="special-notes">Notes</label>
+                            <label class="form-label" for="notes">Notes</label>
                         </div>
                         <div class="col-9 col-sm-12">
-                            <textarea class="form-input" id="special-notes" placeholder="Notes" rows="3"></textarea>
+                            <textarea class="form-input" id="notes" placeholder="Notes" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit Request</button><a class="btn btn-link" href="#modals-sizes" aria-label="Close">Cancel</a>
+                <button type="submit" class="btn btn-primary">Submit Request</button><a class="btn btn-link" href="#modals-overlay" aria-label="Close">Cancel</a>
             </div>
         </form>
     </div>

@@ -1,5 +1,13 @@
 
+function closeModal() {
+    // todo: WIP..
+    // $("#booking_request_form .modal-footer a.btn.btn-link").trigger('click'); // does this work? 10/07/2018
+    window.location.search += '#booking-overlay';
+}
+
+
 $(document).ready(function() {
+
     // $("#booking").datepicker(); jquery datepicker
 
     // show this month calendar and hide the next one
@@ -31,11 +39,39 @@ $(document).ready(function() {
     $("#booking-request").click(function() {
         var selectedDate = $(".date-item.active").attr("value");
         // populate date field and disable
-        $("#booking-date").val(selectedDate);
-        $("#booking-date").prop('disabled', true);
+        $("#request_date").val(selectedDate);
+        $("#request_date").prop('disabled', true);
 
         var slotId = $(".date-item.active").attr("slot");
-        var requestUrl = "/bookings/request/" + slotId + '/';
+        var requestUrl = "/api/bookings/" + slotId + '/request/';
         $("#booking_request_form").attr('action', requestUrl);
     });
+
+
+    // submit the form
+    $('#booking_request_form').on('submit', function () {
+        const bookingRequest = {
+            'request_date': $('#request_date').val(),
+            'first_name': $('#first_name').val(),
+            'last_name': $('#last_name').val(),
+            'email_address': $('#email_address').val(),
+            'group_size': $('#group_size').val(),
+            'notes': $('#notes').val()
+        };
+
+        $.ajax({
+            url: $('#booking_request_form').attr('action'),
+            type: 'POST',
+            accepts: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify(bookingRequest),
+            success: function (result) {
+                closeModal();
+            }
+        });
+        return false;
+
+    });
+
+
 });
