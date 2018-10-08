@@ -1,12 +1,26 @@
 
 function closeModal() {
-    // todo: WIP..
-    // $("#booking_request_form .modal-footer a.btn.btn-link").trigger('click'); // does this work? 10/07/2018
-    window.location.search += '#booking-overlay';
+    var closeBtn = $("#booking_request_form .modal-footer a.btn.btn-link");
+    window.location = closeBtn.attr("href");
+}
+
+function handleSuccessfulBookingRequest() {
+    console.log('success');
+    $('.has-error').empty();
+    $("#booking_request_form input").val(""); // clearing inputs
+    closeModal();
+    $(".toast-success").show();
+}
+
+function displayErrorOnModal(errorText) {
+    console.error(errorText);
+    $('.has-error').empty();
+    $('.has-error').append( "<p>" + errorText + "</p>" );
+    $('.has-error').show();
 }
 
 
-$(document).ready(function() {
+jQuery(document).ready(function ($) {
 
     // $("#booking").datepicker(); jquery datepicker
 
@@ -31,6 +45,7 @@ $(document).ready(function() {
     // set active on calendar date.
     $(".calendar-body .date-item").click(function() {
         $(".calendar-body .date-item").removeClass('active');
+        $(".toast-success").hide();
         $(this).addClass('active');
 	    $("#booking-request").removeClass('disabled'); // now enable the button
     });
@@ -50,6 +65,8 @@ $(document).ready(function() {
 
     // submit the form
     $('#booking_request_form').on('submit', function () {
+        $('.has-error').append( '<button class="btn loading">button</button>' );
+
         const bookingRequest = {
             'request_date': $('#request_date').val(),
             'first_name': $('#first_name').val(),
@@ -65,13 +82,20 @@ $(document).ready(function() {
             accepts: 'application/json',
             contentType: 'application/json',
             data: JSON.stringify(bookingRequest),
+            error: function (jqXHR, statusText, errorThrown) {
+                displayErrorOnModal(jqXHR.responseText);
+            },
             success: function (result) {
-                closeModal();
+                handleSuccessfulBookingRequest();
             }
+
         });
         return false;
 
     });
 
+    $('input').on('keypress', function () {
+        $('.has-error').hide();
+    });
 
 });
