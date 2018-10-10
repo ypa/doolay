@@ -7,6 +7,7 @@ function closeModal() {
 function handleSuccessfulBookingRequest() {
     console.log('success');
     $('.has-error').empty();
+    $("#submit_request").removeClass("loading");
     $("#booking_request_form input").val(""); // clearing inputs
     closeModal();
     $(".toast-success").show();
@@ -65,7 +66,7 @@ jQuery(document).ready(function ($) {
 
     // submit the form
     $('#booking_request_form').on('submit', function () {
-        $('.has-error').append( '<button class="btn loading">button</button>' );
+        $("#submit_request").addClass("loading");
 
         const bookingRequest = {
             'request_date': $('#request_date').val(),
