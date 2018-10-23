@@ -7,18 +7,14 @@ from django.utils.safestring import mark_safe
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
 
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailsearch import index
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailadmin.edit_handlers import (
-        FieldPanel,
-        InlinePanel,
-        StreamFieldPanel,
-        PageChooserPanel
-        )
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
+from wagtail.core.models import Page, Orderable
+from wagtail.search import index
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import (FieldPanel, InlinePanel,
+                                         StreamFieldPanel, PageChooserPanel)
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from doolay.blocks import GlobalStreamBlock
 
 
@@ -59,15 +55,10 @@ class HostLanguageRelationship(models.Model):
     Docs: http://www.tivix.com/blog/working-wagtail-i-want-my-m2ms/
     """
     host_page = ParentalKey(
-        'HostPage', related_name='host_language_relationship'
-    )
+        'HostPage', related_name='host_language_relationship')
     host_languages = models.ForeignKey(
-        'HostLanguage',
-        related_name="language_host_relationship"
-    )
-    panels = [
-        SnippetChooserPanel('host_languages')
-    ]
+        'HostLanguage', related_name="language_host_relationship")
+    panels = [SnippetChooserPanel('host_languages')]
 
 
 class HostPage(Page):
@@ -77,20 +68,17 @@ class HostPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Host image'
-    )
+        help_text='Host image')
 
     email_address = models.EmailField()
 
     @property
     def friendly_email(self):
-        return mark_safe(u"%s <%s>") % (
-            escape(self.title), escape(self.email_address)
-        )
+        return mark_safe(u"%s <%s>") % (escape(self.title),
+                                        escape(self.email_address))
 
     body = StreamField(
-        GlobalStreamBlock(), verbose_name="Host's biography", blank=True
-        )
+        GlobalStreamBlock(), verbose_name="Host's biography", blank=True)
     # We've defined the StreamBlock() within blocks.py that we've imported on
     # line 20. Defining it in a different file aids consistency across the site
     # but it can be defined on a per page basis if that's helpful for you
@@ -103,16 +91,13 @@ class HostPage(Page):
             'host_language_relationship',
             label='Language',
             min_num=None,
-            max_num=3
-        )
+            max_num=3)
     ]
 
     # Defining the parent. This means the editor will only be able to add the
     # page under a HostIndexPage and won't see that the HostPage exists as
     # an option until that parent page has been added.
-    parent_page_types = [
-        'HostIndexPage'
-    ]
+    parent_page_types = ['HostIndexPage']
 
     # Defining what content type can sit under the parent
     # The empty array will mean no children can be added
@@ -125,16 +110,10 @@ class HostPage(Page):
         return languages
 
     def places(self):
-        places = [
-            exp.place for exp in self.providing_experiences.all()
-        ]
+        places = [exp.place for exp in self.providing_experiences.all()]
         return places
 
-    api_fields = [
-        'image',
-        'body',
-        'experience'
-    ]
+    api_fields = ['image', 'body', 'experience']
 
 
 class HostIndexPage(Page):
@@ -151,32 +130,25 @@ class HostIndexPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Hosts listing image'
-    )
+        help_text='Hosts listing image')
 
     introduction = models.TextField(
-        help_text='Text to describe the index page',
-        blank=True)
+        help_text='Text to describe the index page', blank=True)
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
         FieldPanel('introduction')
     ]
 
-    parent_page_types = [
-        'home.HomePage'
-    ]
+    parent_page_types = ['home.HomePage']
 
     # Defining what content type can sit under the parent
-    subpage_types = [
-        'HostPage'
-    ]
+    subpage_types = ['HostPage']
 
-# We're using get context to organise alphabetically
-# Docs http://docs.wagtail.io/en/v1.6.3/topics/pages.html#template-context
+    # We're using get context to organise alphabetically
+    # Docs http://docs.wagtail.io/en/v1.6.3/topics/pages.html#template-context
     def get_context(self, request):
         context = super(HostIndexPage, self).get_context(request)
         context['hosts'] = HostPage.objects.descendant_of(
-            self).live().order_by(
-            'title')
+            self).live().order_by('title')
         return context

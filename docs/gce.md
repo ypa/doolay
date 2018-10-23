@@ -13,23 +13,14 @@ gcloud compute project-info add-metadata --metadata-from-file sshKeys=/tmp/id_rs
 gcloud compute images list
 ```
 
-## Prepping for the VM
+## Create VM instance and image
 
-
-First as you (ypa user) update `vagrant_doolay_gce_base` repo's `Vagrantfile` with correct base image `install.sh` file.
-
-On thinkpad the repo is checked out at `~/work/vagrant_doolay_gce_base`. Use wagtail's own `https://github.com/wagtail/vagrant-wagtail-base` as a reference.
-
-
-## Create GCE VM instance as vagrant user
 These are the steps for creating GCE VM instances and images.
-Use vagrant google plugin to spin up Google compute engine instance.
+Use vagrant google plugin to spin up Google compute engine instance
 
 From thinkpad as vagrant user:
 ```
 sudo su vagrant
-mkdir ~/gce-debain-stretch
-cd !$
 ```
 
 First add gce compatible vagrant box:
@@ -40,8 +31,8 @@ vagrant box add gce https://github.com/mitchellh/vagrant-google/raw/master/googl
 Create the VM:
 ```
 # First sync up dir with repo
-rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/gce-debain-stretch/
-cd ~/vagrant_boxes/gce-debain-stretch/
+rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/dev/
+cd ~/vagrant_boxes/dev/
 vagrant up --provider=google # This could take a long long time (to establish connection with google)
 ```
 
@@ -50,10 +41,9 @@ The rsync will failed because the base debian (jessie) image doesn't come with r
 Minimal manual provision steps on the box.
 - Install rsync
 ```
-vagrant ssh  # use g cloud compute ssh to login to it.
+vagrant ssh
 sudo apt-get install rsync
 ```
-- Make sure all the software are installed (correct version of Python, Postgres, Redis, Elasticsearch).
 - Create a vagrant user.
 - Add your ~/.ssh/id_rsa.pub keys to vagrant user's ~/.ssh/authorized_keys on the VM.
 - (optional) update vagrant user's ~/.bashrc aliases.

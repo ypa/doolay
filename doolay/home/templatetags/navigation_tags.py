@@ -1,5 +1,5 @@
 from django import template
-from wagtail.wagtailcore.models import Page
+from wagtail.core.models import Page
 from doolay.home.models import HomePage
 
 register = template.Library()
@@ -107,10 +107,7 @@ def breadcrumbs(context):
 
 # Retrieves all live pages which are children of the calling page
 # for standard index listing
-@register.inclusion_tag(
-    'tags/standard_index_listing.html',
-    takes_context=True
-)
+@register.inclusion_tag('tags/standard_index_listing.html', takes_context=True)
 def standard_index_listing(context, calling_page):
     pages = calling_page.get_children().live()
     return {

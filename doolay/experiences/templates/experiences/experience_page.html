@@ -21,23 +21,39 @@
     </main>
 
 
-    <h4>Your Host</h4>
-    <div class="tile">
-        <div class="tile-icon">
+
+    <div class="card">
+        <div class="card-header text-center">
             <div class="example-tile-icon">
                 {% image page.host.image fill-100x100-c100 as host_photo %}
                 <a href="{{ page.host.url }}">
-                <figure class="avatar avatar-xl">
-                    <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
+                    <figure class="avatar avatar-lg">
+                        <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
                 </figure>
             </div>
-        </div>
+            <div class="card-title h5 mt-10">
+                <a href="{{ page.host.url }}" class="tile-tile">{{ page.host.title }}</a>
+            </div>
+            <div class="card-subtitle text-gray">Available dates</div>
+            <div class="toast toast-success" style="display: none;">
+              Your booking request was submitted. We will contact you shortly via E-mail.
+            </div>
+        </div> {# end card-header #}
+        <div class="card-body">
 
-        <div class="tile-content">
-            <a href="{{ page.host.url }}" class="tile-tile">{{ page.host.title }}</a>
+            {% booking_calendar %}
+
+        </div> {# end card-body #}
+        <div class="card-footer text-center">
+            <div class="tile-action">
+                <a class="btn btn-primary" href="#booking-modal" id="booking-request">Request booking for select date</a>
+            </div>
+
+            {% booking_modal %}
+
         </div>
     </div>
-    {# end tile #}
+    {# end card #}
 
 
 </content>

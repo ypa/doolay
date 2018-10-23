@@ -16,15 +16,11 @@ def contact(request):
         form = form_class(data=request.POST)
 
         if form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name'
-                , '')
-            contact_email = request.POST.get(
-                'contact_email'
-                , '')
+            contact_name = request.POST.get('contact_name', '')
+            contact_email = request.POST.get('contact_email', '')
             form_content = request.POST.get('content', '')
 
-            # Email the profile with the 
+            # Email the profile with the
             # contact information
             text_template = get_template('email_template.txt')
             html_template = get_template('email_template.html')
@@ -42,8 +38,7 @@ def contact(request):
                 from_email=contact_email,
                 to=[settings.DEFAULT_TO_EMAIL],
                 headers={'Reply-To': contact_email},
-                cc=(settings.DEFAULT_TO_EMAIL,)
-            )
+                cc=(settings.DEFAULT_TO_EMAIL, ))
             email.attach_alternative(html_content, 'text/html')
 
             email.send()

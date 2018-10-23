@@ -10,8 +10,9 @@ from .base import *
 DEBUG = False
 TEMPLATES[0]['OPTIONS']['debug'] = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'demo.doolay.com', 'staging.doolay.com']
-
+ALLOWED_HOSTS = [
+    'localhost', '127.0.0.1', 'demo.doolay.com', 'staging.doolay.com'
+]
 
 # Compress static files offline and minify CSS
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
@@ -22,7 +23,6 @@ COMPRESS_CSS_FILTERS = [
 ]
 COMPRESS_CSS_HASHING_METHOD = 'content'
 
-
 # Configuration from environment variables
 # Alternatively, you can set these in a local.py file on the server
 
@@ -32,7 +32,6 @@ env = os.environ.copy()
 for key, value in os.environ.items():
     if key.startswith('CFG_'):
         env[key[4:]] = value
-
 
 # Basic configuration
 
@@ -48,10 +47,10 @@ if 'SERVER_EMAIL' in env:
     SERVER_EMAIL = env['SERVER_EMAIL']
 
 if 'CACHE_PURGE_URL' in env:
-    INSTALLED_APPS += ('wagtail.contrib.wagtailfrontendcache', )
+    INSTALLED_APPS += ('wagtail.contrib.frontend_cache', )
     WAGTAILFRONTENDCACHE = {
         'default': {
-            'BACKEND': 'wagtail.contrib.wagtailfrontendcache.backends.HTTPBackend',
+            'BACKEND': 'wagtail.contrib.frontend_cache.backends.HTTPBackend',
             'LOCATION': env['CACHE_PURGE_URL'],
         },
     }
@@ -72,7 +71,6 @@ if 'MEDIA_URL' in env:
 if 'MEDIA_DIR' in env:
     MEDIA_ROOT = env['MEDIA_DIR']
 
-
 # Database
 
 if 'DATABASE_URL' in os.environ:
@@ -83,13 +81,13 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': env.get('PGDATABASE', APP_NAME),
-            'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
+            'CONN_MAX_AGE':
+            600,  # number of seconds database connections should persist for
 
             # User, host and port can be configured by the PGUSER, PGHOST and
             # PGPORT environment variables (these get picked up by libpq).
         }
     }
-
 
 # Redis
 # Redis place can either be passed through with REDIS_HOST or REDIS_SOCKET
@@ -109,7 +107,6 @@ elif 'REDIS_SOCKET' in env:
 else:
     REDIS_LOCATION = None
 
-
 if REDIS_LOCATION is not None:
     CACHES = {
         'default': {
@@ -121,7 +118,6 @@ if REDIS_LOCATION is not None:
             }
         }
     }
-
 
 # Logging
 
@@ -136,70 +132,69 @@ LOGGING = {
     },
     'formatters': {
         'default': {
-            'verbose': '[%(asctime)s] (%(process)d/%(thread)d) %(name)s %(levelname)s: %(message)s'
+            'verbose':
+            '[%(asctime)s] (%(process)d/%(thread)d) %(name)s %(levelname)s: %(message)s'
         }
     },
     'loggers': {
         'doolay': {
-            'handlers':     [],
-            'level':        'INFO',
-            'propagate':    False,
-            'formatter':    'verbose',
+            'handlers': [],
+            'level': 'INFO',
+            'propagate': False,
+            'formatter': 'verbose',
         },
         'wagtail': {
-            'handlers':     [],
-            'level':        'INFO',
-            'propagate':    False,
-            'formatter':    'verbose',
+            'handlers': [],
+            'level': 'INFO',
+            'propagate': False,
+            'formatter': 'verbose',
         },
         'django.request': {
-            'handlers':     ['mail_admins'],
-            'level':        'ERROR',
-            'propagate':    False,
-            'formatter':    'verbose',
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+            'formatter': 'verbose',
         },
         'django.security': {
-            'handlers':     ['mail_admins'],
-            'level':        'ERROR',
-            'propagate':    False,
-            'formatter':    'verbose',
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+            'formatter': 'verbose',
         },
     },
 }
 
-
 if 'LOG_DIR' in env:
     # doolay log
     LOGGING['handlers']['doolay_file'] = {
-        'level':        'INFO',
-        'class':        'cloghandler.ConcurrentRotatingFileHandler',
-        'filename':     os.path.join(env['LOG_DIR'], 'doolay.log'),
-        'maxBytes':     5242880,  # 5MB
-        'backupCount':  5
+        'level': 'INFO',
+        'class': 'cloghandler.ConcurrentRotatingFileHandler',
+        'filename': os.path.join(env['LOG_DIR'], 'doolay.log'),
+        'maxBytes': 5242880,  # 5MB
+        'backupCount': 5
     }
     LOGGING['loggers']['wagtail']['handlers'].append('doolay_file')
 
     # Wagtail log
     LOGGING['handlers']['wagtail_file'] = {
-        'level':        'INFO',
-        'class':        'cloghandler.ConcurrentRotatingFileHandler',
-        'filename':     os.path.join(env['LOG_DIR'], 'wagtail.log'),
-        'maxBytes':     5242880,  # 5MB
-        'backupCount':  5
+        'level': 'INFO',
+        'class': 'cloghandler.ConcurrentRotatingFileHandler',
+        'filename': os.path.join(env['LOG_DIR'], 'wagtail.log'),
+        'maxBytes': 5242880,  # 5MB
+        'backupCount': 5
     }
     LOGGING['loggers']['wagtail']['handlers'].append('wagtail_file')
 
     # Error log
     LOGGING['handlers']['errors_file'] = {
-        'level':        'ERROR',
-        'class':        'cloghandler.ConcurrentRotatingFileHandler',
-        'filename':     os.path.join(env['LOG_DIR'], 'error.log'),
-        'maxBytes':     5242880,  # 5MB
-        'backupCount':  5
+        'level': 'ERROR',
+        'class': 'cloghandler.ConcurrentRotatingFileHandler',
+        'filename': os.path.join(env['LOG_DIR'], 'error.log'),
+        'maxBytes': 5242880,  # 5MB
+        'backupCount': 5
     }
     LOGGING['loggers']['django.request']['handlers'].append('errors_file')
     LOGGING['loggers']['django.security']['handlers'].append('errors_file')
-
 
 try:
     from .local import *

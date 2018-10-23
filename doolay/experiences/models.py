@@ -2,14 +2,14 @@ from __future__ import unicode_literals
 
 from datetime import timedelta
 from django.db import models
+from django.utils import timezone
 
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailsearch import index
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailadmin.edit_handlers import (
-    FieldPanel, StreamFieldPanel, PageChooserPanel
-)
+from wagtail.core.models import Page
+from wagtail.search import index
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import (FieldPanel, StreamFieldPanel,
+                                         PageChooserPanel)
 from doolay.blocks import GlobalStreamBlock
 
 
@@ -28,16 +28,18 @@ class ExperiencePage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Experiences image'
-    )
+        help_text='Experiences image')
 
-    host = models.ForeignKey('hosts.HostPage', null=True,
-                             on_delete=models.SET_NULL,
-                             related_name='providing_experiences')
+    host = models.ForeignKey(
+        'hosts.HostPage',
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='providing_experiences')
 
-    place = models.ForeignKey('places.PlacePage',
-                              on_delete=models.PROTECT,
-                              related_name='experiences')
+    place = models.ForeignKey(
+        'places.PlacePage',
+        on_delete=models.PROTECT,
+        related_name='experiences')
 
     duration = models.DurationField(default=timedelta)
 
@@ -45,8 +47,7 @@ class ExperiencePage(Page):
     body = StreamField(
         GlobalStreamBlock(),
         verbose_name='A description of this experience',
-        blank=True
-        )
+        blank=True)
 
     # Defining the fields that should be shown to the editor within the content
     # editor (it may be that you wouldn't want to show a field defined above in
@@ -59,17 +60,12 @@ class ExperiencePage(Page):
         StreamFieldPanel('body'),
     ]
 
-    subpage_types = ['bookings.Booking']
-    # Setting an empty array means that no child page can be added to this page type
+    parent_page_types = ['ExperienceIndexPage']
 
-    parent_page_types = [
-        'ExperienceIndexPage'
-    ]
     # Setting a parent means that it can only be added under that parent
 
     def parent_url(self):
-        parent_set = Page.objects.parent_of(
-                self).all()
+        parent_set = Page.objects.parent_of(self).all()
         # Get all objects for the parent page within a queryset using
         # Treebeard's `parent_of`
 
@@ -89,6 +85,17 @@ class ExperiencePage(Page):
 
     api_fields = ['image', 'body']
 
+    def get_available_slot_dates(self, within_days=65):
+        """
+        Return a dict of available slot date -> slot_id for the experience.
+        """
+        from_date = timezone.now().date()
+        to_date = from_date + timedelta(days=within_days)
+
+        return {start_dt.date(): slot.id
+                for (start_dt, end_dt, slot) in
+                self.booking.all_occurrences(from_date, to_date)}
+
 
 class ExperienceIndexPage(Page):
     """
@@ -104,24 +111,17 @@ class ExperienceIndexPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Experiences listing image'
-    )
+        help_text='Experiences listing image')
 
     introduction = models.TextField(
-        help_text='Text to describe the index page',
-        blank=True)
+        help_text='Text to describe the index page', blank=True)
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('image'),
         FieldPanel('introduction')
     ]
 
-    parent_page_types = [
-        'home.HomePage'
-    ]
+    parent_page_types = ['home.HomePage']
 
     # Defining what content type can sit under the parent
-    subpage_types = [
-        'ExperiencePage'
-    ]
-
+    subpage_types = ['ExperiencePage']

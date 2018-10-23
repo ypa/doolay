@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from wagtail.wagtailimages.models import Rendition
+from wagtail.images.models import Rendition
 
 
 class Command(BaseCommand):
@@ -11,4 +11,3 @@ class Command(BaseCommand):
     def handle(self, **options):
         renditions = Rendition.objects.all()
         renditions.delete()
-

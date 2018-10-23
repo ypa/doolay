@@ -9,13 +9,14 @@ Run the command every time a model is updated.
 Maybe create a cron to run everyday.
 
 
-## Creating a new app (eg, bookings) under doolay
+## Running Code Formatter using yapf
 ```
-# first create a directory structure
-$ mkdir doolay/bookings
-# ssh to vagrant (so that you have the dependencies setup)
-$ python manage.py startapp bookings doolay/bookings
+$ pwd # root of the project
+/Users/ypa/work/doolay/doolay
+$ yapf -r ./doolay/ -e "*migrations*" -vv | grep -i reformatting # Dry run: find out what files to be formated
+$ yapf -r ./doolay/ -e "*migrations*" -vv -i # format the files in place
 ```
+
 
 ## Backing up
 ### Using pg_dump
@@ -23,10 +24,12 @@ Run the following from the VM to get the pgdump
 ```
 [doolay vagrant]$ pg_dump doolay > doolay.sql
 ```
+
 ### Using django dumpdata to fixtures
 ```
 python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/initial_data.json
 ```
+
 
 ## Launching GCE VM
 ```

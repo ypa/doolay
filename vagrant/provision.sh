@@ -8,6 +8,9 @@ VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
 PYTHON=$VIRTUALENV_DIR/bin/python
 PIP=$VIRTUALENV_DIR/bin/pip
 
+# Install nginx
+apt-get install -y nginx
+systemctl enable nginx
 
 # Create database
 su - vagrant -c "createdb $PROJECT_NAME"
@@ -40,7 +43,6 @@ su - vagrant -c "tar -zxvf $PROJECT_DIR/doolay/fixtures/images.tar.gz \
 su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py makemigrations && \
 				 $PYTHON $PROJECT_DIR/manage.py migrate --noinput && \
 				 $PYTHON $PROJECT_DIR/manage.py load_initial_data && \
-				 $PYTHON $PROJECT_DIR/manage.py cleanup_wagtailimage_renditions && \
 				 $PYTHON $PROJECT_DIR/manage.py update_index"
 
 # su - vagrant -c "psql -d $PROJECT_NAME -f $PROJECT_DIR/db/$PROJECT_NAME.sql && \

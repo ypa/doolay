@@ -1,11 +1,9 @@
 
 {% load static navigation_tags wagtailcore_tags %}
 
-      <ul class="tab tab-block">
+    <section class="navbar-section">
       {% for menuitem in menuitems %}
-        <li class="tab-item {% if menuitem.active %}active{% endif %}">
-                <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
-        </li>
+                <a href="{% pageurl menuitem %}" class="btn btn-link {% if menuitem.active %}active{% endif %}">{{ menuitem.title }}</a>
       {% endfor %}
-    </ul>
+    </section>
   

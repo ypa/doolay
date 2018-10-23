@@ -75,8 +75,10 @@ Vagrant.configure(2) do |config|
   config.vm.define :dev, primary: true do |dev|
     # Every Vagrant development environment requires a box. You can search for
     # boxes at https://atlas.hashicorp.com/search.
-    dev.vm.box = "vzmm/doolay"
-    dev.vm.box_version = "0.0.1"
+    # dev.vm.box = "vzmm/doolay"
+    # dev.vm.box_version = "0.0.1"
+    dev.vm.box = "torchbox/wagtail-stretch64"
+    dev.vm.box_version = "1.0.0"
   end
 
   # GCE 

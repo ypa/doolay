@@ -1,136 +1,70 @@
-from datetime import timedelta
 from django.db import models
-from django.conf import settings
-from django.forms import ValidationError
-from wagtail.wagtailsearch import index
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailsnippets.models import register_snippet
-from modelcluster.models import ClusterableModel
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.core.urlresolvers import reverse
+
+from eventtools.models import BaseEvent, BaseOccurrence
+from doolay.experiences.models import ExperiencePage
 
 
-@register_snippet
-class BookingStatus(ClusterableModel):
-    search_fields = Page.search_fields + [
-        index.SearchField('title'),
-    ]
-    title = models.SlugField()
-    description = models.CharField(max_length=255)
+class Booking(BaseEvent):
 
-    panels = [
-        FieldPanel('title'),
-        FieldPanel('description'),
-    ]
+    experience_page = models.OneToOneField(
+        ExperiencePage,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        verbose_name="experience page",
+    )
 
     def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['title']
-        verbose_name = "Booking Status"
-        verbose_name_plural = "Booking Statuses"
+        exp_page = self.experience_page
+        host = exp_page.host
+        return "%s - %s" % (host, exp_page)
 
 
-class Booking(Page):
-    USD = 'USD'
-    MMK = 'MMK'
+@receiver(post_save, sender=ExperiencePage)
+def create_booking(sender, instance, created, **kwargs):
+    if created:
+        Booking.objects.create(experience_page=instance)
 
-    CURRENCY_CHOICES = (
-        (USD, 'USD'),
-        (MMK, 'MMK')
-    )
 
-    experience = models.ForeignKey(
-        'experiences.ExperiencePage',
-        null=True,
-        blank=False,
+class BookingSlot(BaseOccurrence):
+    booking = models.ForeignKey(
+        Booking,
+        on_delete=models.CASCADE,
+        related_name='booking_slots',
+        related_query_name='booking_slot',
+        verbose_name='Booking for Experience page')
+
+    notes = models.TextField(
+        help_text='Notes about the booking slot', blank=True, null=True)
+
+    def get_absolute_url(self):
+        url = reverse(
+            'admin:%s_%s_change' % (self._meta.app_label,
+                                    self._meta.model_name),
+            args=[self.id])
+        return u'<a href="%s" title="%s">%s</a>' % (url, str(self.start),
+                                                    str(self.booking))
+
+class BookingSlotRequest(models.Model):
+    request_date = models.DateTimeField(db_index=True)
+
+    slot = models.ForeignKey(
+        BookingSlot,
         on_delete=models.SET_NULL,
-    )
-    customer_email = models.EmailField()
-    customer_first_name = models.CharField(max_length=35)
-    customer_last_name = models.CharField(max_length=50)
-    group_size = models.PositiveSmallIntegerField(null=False, blank=False)
-    status = models.ForeignKey(
-        'bookings.BookingStatus',
-        verbose_name='Booking Status',
         null=True,
-        blank=False,
-        on_delete=models.SET_NULL,
-    )
-    start_at = models.DateTimeField(
-        null=False,
-        blank=False,
-        verbose_name='Experience start date time'
-    )
-    special_request = models.TextField(verbose_name='Customer special request')
-    price = models.DecimalField(max_digits=9, decimal_places=2)
-    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default=USD)
-    notes = models.TextField(verbose_name='Staff notes')
-    time_period = models.PositiveIntegerField(
-        verbose_name='Time period',
-        blank=True, null=True,
-    )
-    time_unit = models.CharField(
-        verbose_name='Time unit',
-        default=getattr(settings, 'BOOKING_TIME_INTERVAL', 'hour'),
-        max_length=10,
-        blank=False,
-        null=False,
-    )
-    confirmation_id = models.CharField(
-        verbose_name='Confirmation Number',
-        max_length=36,
-        unique=True,
-        null=True,
-        blank=True,
-    )
-    created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True)
+        related_name='booking_slot_requests',
+        related_query_name='booking_slot_request',
+        verbose_name='Request for booking slot')
 
-    content_panels = Page.content_panels + [
-        FieldPanel('price'),
-        FieldPanel('currency'),
-        FieldPanel('notes'),
-        FieldPanel('status'),
-        FieldPanel('time_period'),
-        FieldPanel('time_unit'),
-    ]
+    first_name = models.CharField(max_length=254)
 
-    # Defining the parent. This means the editor will only be able to add the
-    # page under a ExperiencePage and won't see that the Booking exists as
-    # an option until that parent page has been added.
-    parent_page_types = [
-        'experiences.ExperiencePage'
-    ]
+    last_name = models.CharField(max_length=254)
 
-    @property
-    def duration(self):
-        if self.time_period is not None:
-            time_unit_plura = '%ss' % (self.time_unit.strip(),)
-            duration_params = {time_unit_plura: self.time_period}
-            return timedelta(**duration_params)
-        else:
-            return None
+    email_address = models.EmailField()
 
-    def validate_duration(self):
-        if self.duration is not None:
-            if self.duration != self.experience.duration:
-                msg = ("Experience page duration and booking duration don't match")
-                raise ValidationError(msg)
+    group_size = models.PositiveIntegerField()
 
-    def clean(self, *args, **kwargs):
-        # self.validate_duration()
-        super(Booking, self).clean(*args, **kwargs)
-
-    def __str__(self):
-        return '#{} ({})'.format(self.confirmation_id or self.pk,
-                                 self.created_at)
-    class Meta:
-        unique_together = (
-            ('experience', 'start_at'), # To avoid duplicate entries on the same date time.
-        )
-        index_together = [
-            ['customer_email'],
-            ['customer_last_name', 'customer_first_name'],
-        ]
-        ordering = ['-created_at']
+    message = models.TextField(
+        help_text='Special notes', blank=True, null=True)
