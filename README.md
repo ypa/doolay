@@ -1,2 +1,2 @@
-Curated Tour Destinations
-=========================
+Curated Tour Guides and Experiences
+===================================
