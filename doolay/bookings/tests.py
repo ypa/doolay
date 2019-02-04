@@ -47,6 +47,21 @@ class BookingSlotRequestCreateViewTest(TestCase):
         self.slot_recipe = Recipe(BookingSlot, booking=self.booking)
         self.slot_recipe.make()
 
+    def _request_booking_for_slot(self, slot_id, request_dt, group_size):
+        response = self.client.post(
+            '/api/bookings/%d/request/' % slot_id,
+            json.dumps({
+                'request_date': request_dt.strftime('%Y-%m-%d'),
+                'first_name': 'Joe', 
+                'last_name': 'Doe',
+                'email_address': 'jd@example.com', 
+                'group_size': group_size,
+                'message': 'We need a child seat',
+            }),
+            content_type='application/json',
+        )
+        return response
+
     def test_create_booking_slot_occurrences(self):
         slot  = BookingSlot(
                                 booking=self.booking,
@@ -64,21 +79,11 @@ class BookingSlotRequestCreateViewTest(TestCase):
     def test_saving_a_POST_slot_request_request(self):
         slot = BookingSlot.objects.first()
         self.assertEqual(slot.booking_slot_requests.count(), 0) # makeing sure no request created for slot yet
-        response = self.client.post(
-            '/api/bookings/%d/request/' % (slot.id,),
-            json.dumps({
-                'request_date': slot.first_occurrence()[0].strftime('%Y-%m-%d'),
-                'first_name': 'Joe', 
-                'last_name': 'Doe',
-                'email_address': 'jd@example.com', 
-                'group_size': 4,
-                'message': 'We need a child seat',
-            }),
-            content_type='application/json',
-        )
+        request_dt = slot.first_occurrence()[0]
+        response = self._request_booking_for_slot(slot.id, request_dt, group_size=4)
         self.assertEqual(response.status_code, 201)
         slot.refresh_from_db()
-        self.assertEqual(slot.booking_slot_requests.count(), 1)
+        self.assertEqual(slot.booking_slot_requests.count(), 1) # verify that one entry got created
 
     def test_slot_request_raises_validation_error_if_no_occurrence(self):
         slot  = BookingSlot(
@@ -94,38 +99,10 @@ class BookingSlotRequestCreateViewTest(TestCase):
         slot.refresh_from_db()
 
         request_dt = slot.first_occurrence()[0] - timedelta(days=1)
-
-        response = self.client.post(
-            '/api/bookings/%d/request/' % (slot.id,),
-            json.dumps({
-                'request_date': request_dt.strftime('%Y-%m-%d'),
-                'first_name': 'Joe', 
-                'last_name': 'Doe',
-                'email_address': 'jd@example.com', 
-                'group_size': 4,
-                'message': 'We need a child seat',
-            }),
-            content_type='application/json',
-        )
+        response = self._request_booking_for_slot(slot.id, request_dt, group_size=4)
         self.assertEqual(response.status_code, 400)
         slot.refresh_from_db()
         self.assertEqual(slot.booking_slot_requests.count(), 0)
-
-    def _request_booking_for_slot(self, slot_id, request_dt, group_size):
-        response = self.client.post(
-            '/api/bookings/%d/request/' % slot_id,
-            json.dumps({
-                'request_date': request_dt.strftime('%Y-%m-%d'),
-                'first_name': 'Joe', 
-                'last_name': 'Doe',
-                'email_address': 'jd@example.com', 
-                'group_size': group_size,
-                'message': 'We need a child seat',
-            }),
-            content_type='application/json',
-        )
-        return response
-
 
     def test_slot_request_raises_validation_error_if_not_available(self):
         """
@@ -151,4 +128,5 @@ class BookingSlotRequestCreateViewTest(TestCase):
         # now attempt to request for the same spot.
         response = self._request_booking_for_slot(slot.id, request_dt, group_size=4)
         self.assertEqual(response.status_code, 400) # verify that it throws bad request error
+        slot.refresh_from_db()
         self.assertEqual(slot.booking_slot_requests.count(), 1) # verify that another request didn't get created
