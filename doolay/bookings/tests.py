@@ -111,3 +111,44 @@ class BookingSlotRequestCreateViewTest(TestCase):
         slot.refresh_from_db()
         self.assertEqual(slot.booking_slot_requests.count(), 0)
 
+    def _request_booking_for_slot(self, slot_id, request_dt, group_size):
+        response = self.client.post(
+            '/api/bookings/%d/request/' % slot_id,
+            json.dumps({
+                'request_date': request_dt.strftime('%Y-%m-%d'),
+                'first_name': 'Joe', 
+                'last_name': 'Doe',
+                'email_address': 'jd@example.com', 
+                'group_size': group_size,
+                'message': 'We need a child seat',
+            }),
+            content_type='application/json',
+        )
+        return response
+
+
+    def test_slot_request_raises_validation_error_if_not_available(self):
+        """
+        Prevent double-booking test.
+        """
+        slot  = BookingSlot(
+                    booking=self.booking,
+                    start=timezone.now(),
+                    end=timezone.now() + timedelta(hours=8),
+                    repeat=REPEAT_CHOICES[1][0], # weekly
+                    repeat_until=(timezone.now() + timedelta(weeks=4)).date(),
+                    notes='test notes'
+                )
+
+        slot.save()
+        slot.refresh_from_db()
+        request_dt = slot.first_occurrence()[0]
+        response = self._request_booking_for_slot(slot.id, request_dt, group_size=4)
+        self.assertEqual(response.status_code, 201)
+        slot.refresh_from_db()
+        self.assertEqual(slot.booking_slot_requests.count(), 1) # verify that the first request got created
+
+        # now attempt to request for the same spot.
+        response = self._request_booking_for_slot(slot.id, request_dt, group_size=4)
+        self.assertEqual(response.status_code, 400) # verify that it throws bad request error
+        self.assertEqual(slot.booking_slot_requests.count(), 1) # verify that another request didn't get created
