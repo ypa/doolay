@@ -25,6 +25,14 @@ Run the following from the VM to get the pgdump
 [doolay vagrant]$ pg_dump doolay > doolay.sql
 ```
 
+### Dropping database (careful!)
+And then recreating it from the backup file.
+```
+[doolay vagrant]$ dropdb doolay
+[doolay vagrant]$ createdb doolay
+[doolay vagrant]$ psql doolay < doolay.sql
+```
+
 ### Using django dumpdata to fixtures
 ```
 python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/initial_data.json
