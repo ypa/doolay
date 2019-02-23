@@ -151,56 +151,6 @@
     }
 },
 {
-    "model": "bookings.booking",
-    "pk": 6,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 10,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 20,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 21,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 22,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 23,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 24,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 25,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 26,
-    "fields": {}
-},
-{
-    "model": "bookings.booking",
-    "pk": 42,
-    "fields": {}
-},
-{
     "model": "wagtailembeds.embed",
     "pk": 1,
     "fields": {
