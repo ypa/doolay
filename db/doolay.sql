@@ -1978,6 +1978,16 @@ COPY public.blog_blogpage (page_ptr_id, date, intro, body, image_id) FROM stdin;
 --
 
 COPY public.bookings_booking (experience_page_id) FROM stdin;
+6
+10
+20
+21
+22
+23
+24
+25
+26
+42
 \.
 
 
