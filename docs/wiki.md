@@ -66,3 +66,28 @@ Admin Url: http://demo.doolay.com/admin
 ```
 [doolay vagrant]$ less ~/sites/staging.doolay.com/gunicorn-error.log
 ```
+
+
+### Gotchas
+
+#### Unittest caching site root paths
+
+Sometimes after running unittests and then when you start up the dev server with `djrun` you might run into the broken pages with at:
+```
+...
+'NoneType' object has no attribute 'startswith'
+...
+Exception Location:	/vagrant/doolay/home/templatetags/navigation_tags.py in top_menu, line 65
+```
+
+That is because site root paths are getting cached in Redis. Some of my debugging outputs from `pdb`:
+```
+<function RedisCache.get at 0x7ff0f17ee840>
+(Pdb) p method(self, 'wagtail_site_root_paths')
+[(1, '/home/', 'http://localhost'), (2, '/home/', 'http://localhost:8081')]
+```
+
+You could resolve it by flushing the Redis cache:
+```
+[doolay vagrant]$ redis-cli flushall
+```
