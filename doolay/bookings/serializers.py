@@ -1,4 +1,5 @@
 from datetime import datetime
+import pytz
 from rest_framework import serializers
 from doolay.bookings.models import BookingSlotRequest
 
@@ -14,7 +15,7 @@ class BookingSlotRequestSerializer(serializers.ModelSerializer):
         self.validate_request_slot_date(request_dt.date())
         return super(__class__, self).validate(data)
 
-    def get_datetime_from_date(self, date, hour=0, minute=0, second=0):
+    def _get_datetime_from_date(self, date, hour=0, minute=0, second=0, tz=pytz.UTC):
         return datetime(
             year=date.year,
             month=date.month,
@@ -22,7 +23,12 @@ class BookingSlotRequestSerializer(serializers.ModelSerializer):
             hour=hour,
             minute=minute,
             second=second
-        )
+        ).replace(tzinfo=tz)
+
+    def get_24hour_datetime_range_from_date(self, date):
+        start_dt = self._get_datetime_from_date(date) 
+        end_dt = self._get_datetime_from_date(date, 23, 59, 59) 
+        return (start_dt, end_dt)
 
     def validate_request_slot_date(self, request_date):
 
@@ -41,14 +47,13 @@ class BookingSlotRequestSerializer(serializers.ModelSerializer):
 
     def fetch_inventory_slot_dates(self, request_date):
         slot = self.context['slot']
-        from_date = self.get_datetime_from_date(request_date)
-        to_date = self.get_datetime_from_date(request_date, 23, 59, 59)
-
+        from_dt, to_dt = self.get_24hour_datetime_range_from_date(request_date)
         return [start_dt.date() for (start_dt, end_dt, s) in
-                slot.all_occurrences(from_date, to_date)]
+                slot.all_occurrences(from_dt, to_dt)]
 
     def is_request_not_available(self, request_date):
-        already_requested = BookingSlotRequest.objects.filter(request_date=request_date)
+        dt_range = self.get_24hour_datetime_range_from_date(request_date)
+        already_requested = BookingSlotRequest.objects.filter(request_date__range=dt_range)
         return already_requested.count() > 0
 
     def create(self, validated_data):
