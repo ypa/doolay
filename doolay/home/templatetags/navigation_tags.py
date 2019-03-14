@@ -23,7 +23,7 @@ def footer(context):
     }
 
 
-@register.assignment_tag(takes_context=True)
+@register.simple_tag(takes_context=True)
 def get_site_root(context):
     # This returns a core.Page. The main menu needs to have the site.root_page
     # efined else will return an object attribute error ('str' object has no
