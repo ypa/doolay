@@ -1,4 +1,5 @@
-from django.conf.urls import include, url
+from django.urls import re_path, include
+from django.conf.urls import url
 from django.conf import settings
 from django.contrib import admin
 
@@ -14,9 +15,9 @@ from doolay.bookings.views import BookingSlotRequestAPIView
 # API endpoint
 
 urlpatterns = [
-    url(r'^djadmin/', include(admin.site.urls)),
-    url(r'^admin/', include(wagtailadmin_urls)),
-    url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'^djadmin/', admin.site.urls),
+    re_path(r'^admin/', include(wagtailadmin_urls)),
+    re_path(r'^documents/', include(wagtaildocs_urls)),
     url(r'^contact/$', contact_views.contact, name='contact'),
     url(r'^api/bookings/(?P<slot_id>[0-9]+)/request/$', BookingSlotRequestAPIView.as_view(), name='create')
 ]
@@ -38,5 +39,5 @@ if settings.DEBUG:
     ]
 
 urlpatterns += [
-    url(r'', include(wagtail_urls)),
+    re_path(r'', include(wagtail_urls)),
 ]

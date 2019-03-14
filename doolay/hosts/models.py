@@ -57,7 +57,8 @@ class HostLanguageRelationship(models.Model):
     host_page = ParentalKey(
         'HostPage', related_name='host_language_relationship')
     host_languages = models.ForeignKey(
-        'HostLanguage', related_name="language_host_relationship")
+        'HostLanguage', on_delete=models.CASCADE,
+        related_name="language_host_relationship")
     panels = [SnippetChooserPanel('host_languages')]
 
 
