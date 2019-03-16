@@ -1,6 +1,9 @@
 Google Compute Engine
 =====================
 
+## GCE console
+https://console.cloud.google.com/compute/instances?project=findingmyanmar
+
 ## Install gcloud (the SDK)
 ```
 cd Downloads/google-cloud-sdk/
