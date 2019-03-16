@@ -5,9 +5,12 @@ Fabric Deployement (WIP)
 From the your own workstation or laptop push your changes and branch to Github.
 Then run:
 ```
-source ../environments/doolay_dev/bin/activate # on Mac mini to activate the virtual env 
+# from thinkpad
 cd deploy_tools
 fab deploy:host=staging.doolay.com
+
+# Do this first from Mac mini
+source ../environments/doolay_dev/bin/activate # on Mac mini to activate the virtual env 
 ```
 
 ### Restart gunicorn
