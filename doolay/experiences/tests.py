@@ -71,7 +71,7 @@ class ExperienceModelTest(WagtailPageTests, ExpPageFactoryMixin):
 
 class ExperiencePageViewTests(WagtailPageTests, ExpPageFactoryMixin):
 
-    fixtures = ['unittest_data.json'] # load fixtures needed to mock create an experience page
+    fixtures = ['test.json'] # load fixtures needed to mock create an experience page
 
     def setUp(self):
         self.client = Client()
@@ -81,7 +81,7 @@ class ExperiencePageViewTests(WagtailPageTests, ExpPageFactoryMixin):
         self.assertTrue(exp_page.template.endswith('experience_page.html'))
 
     def test_can_navigate_to_page(self):
-        exp_page = self.make_experience_page()
+        exp_page = ExperiencePage.objects.first()
         site = exp_page.get_site()
         page_url = exp_page.relative_url(site)
         response = self.client.get(page_url)
