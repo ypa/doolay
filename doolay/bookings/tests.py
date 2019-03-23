@@ -16,7 +16,7 @@ from model_mommy.recipe import Recipe, foreign_key
 
 
 class BookingModelTest(TestCase):
-    fixtures = ['unittest_data.json']
+    fixtures = ['test.json']
 
     def setUp(self):
         self.exp = ExperiencePage.objects.first()
@@ -38,7 +38,7 @@ class BookingModelTest(TestCase):
 
 
 class BookingSlotRequestCreateViewTest(TestCase):
-    fixtures = ['unittest_data.json']
+    fixtures = ['test.json']
 
     def setUp(self):
         self.exp = ExperiencePage.objects.first()

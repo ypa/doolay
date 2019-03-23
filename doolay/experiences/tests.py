@@ -49,7 +49,7 @@ class ExpPageFactoryMixin(object):
 
 class ExperienceModelTest(WagtailPageTests, ExpPageFactoryMixin):
 
-    fixtures = ['unittest_data.json']
+    fixtures = ['test.json']
 
     def test_can_create_exp_page_under_exp_index_page(self):
         self.assertCanCreateAt(ExperienceIndexPage, ExperiencePage)
