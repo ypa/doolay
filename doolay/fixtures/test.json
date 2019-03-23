@@ -1,0 +1,551 @@
+[
+{
+    "model": "hosts.hostlanguage",
+    "pk": 1,
+    "fields": {
+        "title": "English"
+    }
+},
+{
+    "model": "hosts.hostlanguage",
+    "pk": 2,
+    "fields": {
+        "title": "Burmese"
+    }
+},
+{
+    "model": "hosts.hostlanguage",
+    "pk": 3,
+    "fields": {
+        "title": "Chinese"
+    }
+},
+{
+    "model": "hosts.hostlanguagerelationship",
+    "pk": 1,
+    "fields": {
+        "host_page": 10,
+        "host_languages": 1
+    }
+},
+{
+    "model": "wagtailcore.collection",
+    "pk": 1,
+    "fields": {
+        "path": "0001",
+        "depth": 1,
+        "numchild": 0,
+        "name": "Root"
+    }
+},
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Moderators",
+        "permissions": [
+            [
+                "access_admin",
+                "wagtailadmin",
+                "admin"
+            ],
+            [
+                "add_document",
+                "wagtaildocs",
+                "document"
+            ],
+            [
+                "change_document",
+                "wagtaildocs",
+                "document"
+            ],
+            [
+                "delete_document",
+                "wagtaildocs",
+                "document"
+            ],
+            [
+                "add_image",
+                "wagtailimages",
+                "image"
+            ],
+            [
+                "change_image",
+                "wagtailimages",
+                "image"
+            ],
+            [
+                "delete_image",
+                "wagtailimages",
+                "image"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Editors",
+        "permissions": [
+            [
+                "access_admin",
+                "wagtailadmin",
+                "admin"
+            ],
+            [
+                "add_document",
+                "wagtaildocs",
+                "document"
+            ],
+            [
+                "change_document",
+                "wagtaildocs",
+                "document"
+            ],
+            [
+                "delete_document",
+                "wagtaildocs",
+                "document"
+            ],
+            [
+                "add_image",
+                "wagtailimages",
+                "image"
+            ],
+            [
+                "change_image",
+                "wagtailimages",
+                "image"
+            ],
+            [
+                "delete_image",
+                "wagtailimages",
+                "image"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$100000$xLuaH8FbuTDG$J9HDBpwlAV/YYcEqIHAk5sGn5wf9WMRplCilZmKmVJI=",
+        "last_login": "2019-03-17T02:14:04.254Z",
+        "is_superuser": true,
+        "username": "testuser",
+        "first_name": "",
+        "last_name": "",
+        "email": "yan.pye.aung@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-03-17T02:13:37.251Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 1,
+    "fields": {
+        "path": "0002",
+        "depth": 1,
+        "numchild": 1,
+        "title": "Root",
+        "draft_title": "Root",
+        "slug": "root",
+        "content_type": [
+            "wagtailcore",
+            "page"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/",
+        "owner": null,
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": null,
+        "last_published_at": null,
+        "latest_revision_created_at": null,
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 4,
+    "fields": {
+        "path": "00020001",
+        "depth": 2,
+        "numchild": 4,
+        "title": "Home",
+        "draft_title": "Home",
+        "slug": "home",
+        "content_type": [
+            "home",
+            "homepage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:46:28.792Z",
+        "last_published_at": "2019-03-17T02:46:28.792Z",
+        "latest_revision_created_at": "2019-03-17T02:46:28.759Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 5,
+    "fields": {
+        "path": "000100010001",
+        "depth": 3,
+        "numchild": 1,
+        "title": "Places",
+        "draft_title": "Places",
+        "slug": "places",
+        "content_type": [
+            "places",
+            "placeindexpage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/places/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:48:11.057Z",
+        "last_published_at": "2019-03-17T02:48:11.057Z",
+        "latest_revision_created_at": "2019-03-17T02:48:11.009Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 6,
+    "fields": {
+        "path": "000100010002",
+        "depth": 3,
+        "numchild": 1,
+        "title": "Hosts",
+        "draft_title": "Hosts",
+        "slug": "hosts",
+        "content_type": [
+            "hosts",
+            "hostindexpage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/hosts/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:48:24.743Z",
+        "last_published_at": "2019-03-17T02:48:24.743Z",
+        "latest_revision_created_at": "2019-03-17T02:48:24.699Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 7,
+    "fields": {
+        "path": "000100010003",
+        "depth": 3,
+        "numchild": 1,
+        "title": "Experiences",
+        "draft_title": "Experiences",
+        "slug": "experiences",
+        "content_type": [
+            "experiences",
+            "experienceindexpage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/experiences/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:48:40.309Z",
+        "last_published_at": "2019-03-17T02:48:40.309Z",
+        "latest_revision_created_at": "2019-03-17T02:48:40.273Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 8,
+    "fields": {
+        "path": "000100010004",
+        "depth": 3,
+        "numchild": 1,
+        "title": "Blog",
+        "draft_title": "Blog",
+        "slug": "blogs",
+        "content_type": [
+            "blog",
+            "blogindexpage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/blogs/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:48:53.214Z",
+        "last_published_at": "2019-03-17T02:49:49.957Z",
+        "latest_revision_created_at": "2019-03-17T02:49:49.916Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 9,
+    "fields": {
+        "path": "0001000100010001",
+        "depth": 4,
+        "numchild": 0,
+        "title": "Yangon",
+        "draft_title": "Yangon",
+        "slug": "yangon",
+        "content_type": [
+            "places",
+            "placepage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/places/yangon/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:51:12.671Z",
+        "last_published_at": "2019-03-17T02:51:12.671Z",
+        "latest_revision_created_at": "2019-03-17T02:51:12.637Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 10,
+    "fields": {
+        "path": "0001000100020001",
+        "depth": 4,
+        "numchild": 0,
+        "title": "Su Su Wai",
+        "draft_title": "Su Su Wai",
+        "slug": "su-su-wai",
+        "content_type": [
+            "hosts",
+            "hostpage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/hosts/su-su-wai/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:52:41.635Z",
+        "last_published_at": "2019-03-17T02:52:41.635Z",
+        "latest_revision_created_at": "2019-03-17T02:52:41.598Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 11,
+    "fields": {
+        "path": "0001000100030001",
+        "depth": 4,
+        "numchild": 0,
+        "title": "Sightseeing Tour",
+        "draft_title": "Sightseeing Tour",
+        "slug": "sightseeing-tour",
+        "content_type": [
+            "experiences",
+            "experiencepage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/experiences/sightseeing-tour/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:53:49.202Z",
+        "last_published_at": "2019-03-17T02:53:49.202Z",
+        "latest_revision_created_at": "2019-03-17T02:53:49.155Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 12,
+    "fields": {
+        "path": "0001000100040001",
+        "depth": 4,
+        "numchild": 0,
+        "title": "Blog page one",
+        "draft_title": "Blog page one",
+        "slug": "blog-page-one",
+        "content_type": [
+            "blog",
+            "blogpage"
+        ],
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/home/blogs/blog-page-one/",
+        "owner": [
+            "testuser"
+        ],
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "first_published_at": "2019-03-17T02:55:10.719Z",
+        "last_published_at": "2019-03-17T02:55:10.719Z",
+        "latest_revision_created_at": "2019-03-17T02:55:10.670Z",
+        "live_revision": null
+    }
+},
+{
+    "model": "blog.blogindexpage",
+    "pk": 8,
+    "fields": {}
+},
+{
+    "model": "blog.blogpage",
+    "pk": 12,
+    "fields": {
+        "image": null,
+        "date": "2019-03-22",
+        "intro": "About Yangon Trains",
+        "body": "[{\"type\": \"paragraph\", \"value\": \"<p>Yangon trains are very interesting.</p>\", \"id\": \"acdef681-8cf4-4e6d-8d2f-32c4decaf657\"}]"
+    }
+},
+{
+    "model": "experiences.experienceindexpage",
+    "pk": 7,
+    "fields": {
+        "image": null,
+        "introduction": ""
+    }
+},
+{
+    "model": "experiences.experiencepage",
+    "pk": 11,
+    "fields": {
+        "image": null,
+        "host": 10,
+        "place": 9,
+        "duration": "05:00:00",
+        "body": "[{\"type\": \"paragraph\", \"value\": \"<p>Amazing sight seeing experience.</p>\", \"id\": \"932a2c97-02ac-4f64-ac61-1d6c282dd1de\"}]"
+    }
+},
+{
+    "model": "hosts.hostindexpage",
+    "pk": 6,
+    "fields": {
+        "image": null,
+        "introduction": ""
+    }
+},
+{
+    "model": "hosts.hostpage",
+    "pk": 10,
+    "fields": {
+        "image": null,
+        "email_address": "yan.pye.aung@gmail.com",
+        "body": "[{\"type\": \"paragraph\", \"value\": \"<p>My name is Su Su Wai.</p>\", \"id\": \"31f8fa29-1d77-48a4-8835-0239e0595618\"}]"
+    }
+},
+{
+    "model": "places.placeindexpage",
+    "pk": 5,
+    "fields": {
+        "image": null,
+        "introduction": ""
+    }
+},
+{
+    "model": "places.placepage",
+    "pk": 9,
+    "fields": {
+        "image": null,
+        "body": "[{\"type\": \"paragraph\", \"value\": \"<p>Test</p>\", \"id\": \"f2f635bd-836d-4b17-aa80-519022c673d4\"}]"
+    }
+},
+{
+    "model": "home.homepage",
+    "pk": 4,
+    "fields": {
+        "organisation_name": "Doolay",
+        "strapline": "The Road goes ever on and on, out from the door where it began.",
+        "featured_page_1": null,
+        "featured_page_2": null,
+        "featured_page_3": null,
+        "copyright_notice": null
+    }
+}
+]
