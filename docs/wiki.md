@@ -38,6 +38,11 @@ And then recreating it from the backup file.
 python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/initial_data.json
 ```
 
+For unittest base test data (excluding unnessary tables)
+``` 
+python manage.py dumpdata --natural-foreign --natural-primary  -e contenttypes -e auth.Permission --indent=4 --exclude sessions --exclude admin -e auth -e wagtailcore.groupcollectionpermission -e wagtailcore.grouppagepermission -e wagtailcore.pagerevision -e bookings.booking --format=json > doolay/fixtures/test.json
+```
+
 
 ## Launching GCE VM
 ```
