@@ -87,4 +87,22 @@ class ExperiencePageViewTests(WagtailPageTests, ExpPageFactoryMixin):
         response = self.client.get(page_url)
         self.assertEqual(response.status_code, 200)
 
+    def test_can_navigate_to_home(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
 
+    def test_can_navigate_to_places(self):
+        response = self.client.get('/places/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_can_navigate_to_experiences(self):
+        response = self.client.get('/experiences/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_can_navigate_to_home(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_can_navigate_to_hosts(self):
+        response = self.client.get('/hosts/')
+        self.assertEqual(response.status_code, 200)
