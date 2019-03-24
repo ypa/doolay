@@ -40,8 +40,7 @@ python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclu
 
 For unittest base test data (excluding unnessary tables)
 ``` 
-python manage.py dumpdata --natural-foreign --natural-primary  -e contenttypes -e auth.Permission --indent=4 --exclude sessions --exclude admin -e wagtailcore.groupcollectionpermission -e wagtailcore.grouppagepermission -e wagtailcore.pagerevision -e bookings.booking --format=json > doolay/fixture
-s/test.json
+python manage.py dumpdata --natural-foreign --natural-primary  -e contenttypes -e auth.Permission --indent=4 --exclude sessions --exclude admin -e wagtailcore.groupcollectionpermission -e wagtailcore.grouppagepermission -e wagtailcore.pagerevision -e bookings.booking --format=json > doolay/fixtures/test.json
 ```
 Then open the file and manually set the `live_revision` fields to `null`.
 
