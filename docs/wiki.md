@@ -84,13 +84,13 @@ createdb doolay
 ./manage.py createsuperuser
 ```
 1. Start the server and login to `/admin` with user created in the previous step.
-2. Click on `Pages` on the left nav -> Click on the little home icon on top next to the Pages. It should take you to the Root admin page. Welcome to your new Wagtail site! is listed as only one child page on that Root admin.
-3. Add a child page under Root by clicking on the button on top of the page.
+2. Click on `Pages` on the left nav -> Click on the little home icon on top next to the Pages. It should take you to the **Root** admin page. Welcome to your new Wagtail site! is listed as only one child page on that **Root** admin.
+3. Add a child page under **Root** by clicking on the button on top of the page.
 4. It should take to "New Home page", fill in info: Title -> `Home`, Who You Are -> `Doolay`, Organization Strap Line -> `The Road goes...`. Before you save/publish click on `Promote` tab and update `Slug:` field as `homepage`. Click Publish.
-   Back on Root, you should see Home page listed above the "Welcome.." page now.
+   Back on **Root**, you should see Home page listed above the "Welcome.." page now.
 5. Delete the "Welcome to your new Wagtail site!" page, confirm the deletion.
-6. Click on "Configure a site now." on Root, Click `+ ADD A SITE` button on to right.
-7. Fill Hostname -> localhost, Port -> 80, Root page -> Choose A Root page -> Home, Check `Is Default site`. Save. At this point you might want to visit the site root URL `/`, for example `http://localhost:8000/` and see the live Home page.
+6. Click on "Configure a site now." link on **Root**, Click `+ ADD A SITE` button on the top right.
+7. Fill Hostname -> `localhost`, Port -> `80`, Root page -> Choose A Root page -> `Home`, Check `Is Default site`. Save. At this point you might want to visit the site root URL `/`, for example `http://localhost:8000/` and see the live Home page.
 8. Back on admin add `Languages` via `Snippets` on the left nav.
 9. Add Index pages. From Left Nav click `Pages` -> `Home`. Clicking on `Child Child Page` and add index pages with these titles: `Blog`, `Places`, `Hosts`, `Places`. Make sure you publish them.
 10. Add each of the child pages for the index pages created in this order: a place page -> a host page ->  an experience page -> a blog page. Publish them.
