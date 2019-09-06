@@ -103,7 +103,8 @@ Visit the URLs: `/experiences/`, `/hosts/`, `/places/` and other individual page
 ```
 $ vagrant up dev
 $ vagrant ssh dev
-$ ./manage.py test
+[doolay vagrant]$ pip install -r requirements/dev.txt  # installing model_mommy etc
+[doolay vagrant]$ ./manage.py test
 ```
 
 ### Gotchas
