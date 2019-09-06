@@ -98,6 +98,14 @@ createdb doolay
 Visit the URLs: `/experiences/`, `/hosts/`, `/places/` and other individual pages. Those pages should be live now.
 
 
+### Running Unittests
+
+```
+$ vagrant up dev
+$ vagrant ssh dev
+$ ./manage.py test
+```
+
 ### Gotchas
 
 #### Unittest caching site root paths
