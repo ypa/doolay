@@ -15,6 +15,7 @@ class BookingSlotRequestSerializer(serializers.ModelSerializer):
         return super(__class__, self).validate(data)
 
     def get_entire_day_date_time_range_from_datetime(self, dt):
+        # TODO: move this out into utils
         start_window = dt.replace(hour=0, minute=0, second=0, microsecond=0)
         end_window = dt.replace(hour=23, minute=59, second=59, microsecond=0)
         return (start_window, end_window)
