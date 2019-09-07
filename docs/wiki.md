@@ -39,7 +39,7 @@ python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclu
 ```
 
 For unittest base test data (excluding unnessary tables)
-``` 
+```
 python manage.py dumpdata --natural-foreign --natural-primary  -e contenttypes -e auth.Permission --indent=4 --exclude sessions --exclude admin -e wagtailcore.groupcollectionpermission -e wagtailcore.grouppagepermission -e wagtailcore.pagerevision -e bookings.booking --format=json > doolay/fixtures/test.json
 ```
 Then open the file and manually set the `live_revision` fields to `null`.
@@ -64,11 +64,11 @@ Admin Url: http://demo.doolay.com/admin
 
 ### Logs
 
-- App log: 
+- App log:
 ```
 [doolay vagrant]$ less ~/sites/staging.doolay.com/error.log
 ```
-- Gunicorn startup log: 
+- Gunicorn startup log:
 ```
 [doolay vagrant]$ less ~/sites/staging.doolay.com/gunicorn-error.log
 ```
@@ -104,7 +104,9 @@ Visit the URLs: `/experiences/`, `/hosts/`, `/places/` and other individual page
 $ vagrant up dev
 $ vagrant ssh dev
 [doolay vagrant]$ pip install -r requirements/dev.txt  # installing model_mommy etc
-[doolay vagrant]$ ./manage.py test
+[doolay vagrant]$ ./manage.py test  # running the whole suite
+# To run individual test
+[doolay vagrant]$ ./manage.py test doolay.bookings.tests.BookingSlotRequestCreateViewTest.test_slot_request_raises_validation_error_if_not_available
 ```
 
 ### Gotchas
