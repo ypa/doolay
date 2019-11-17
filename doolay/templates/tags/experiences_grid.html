@@ -4,39 +4,37 @@
 Hence, it is refactored as a template tag to be shared across both. -->
 
 <div class="container">
-    <div class="columns">
+  <div class="columns">
 
-        {% for experience in experiences %}
-        <div class="column col-4">
-    
-            <div class="card">
-                {% image experience.image fill-400x168-c100 as photo %}
-		    <div class="card-image">
+  {% for experience in experiences %}
+  <div class="column col-4">
 
-		        <a href="{{ experience.url }}">
-                            <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
-			</a>
-                    </div>
-        	{# end image #}
+    <div class="card">
+      {% image experience.image fill-400x168-c100 as photo %}
 
+      <div class="card-image">
+        <a href="{{ experience.url }}">
+          <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-responsive" />
+        </a>
+      </div> {# end card-image #}
 
-                <div class="card-footer">
-                    <h4 class="card-title"><a href="{{ experience.url }}">{{ experience.title }}</a></h4>
-		{% image experience.host.image fill-75x75-c100 as host_photo %}
-		<a href="{{ experience.host.url }}">
-		    <figure class="avatar avatar-xl">
-                    <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" />
-		    </figure>
-	        </a>by <a href="{{ experience.host.url }}">{{ experience.host.title }}</a>
-                </div>
+      <div class="card-footer">
+        <h4 class="card-title">
+          <a href="{{ experience.url }}">{{ experience.title }}</a>
+        </h4>
 
+        {% image experience.host.image fill-75x75-c100 as host_photo %}
+        <a href="{{ experience.host.url }}">
+          <figure class="avatar avatar-xl">
+            <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" />
+          </figure>
+        </a>by <a href="{{ experience.host.url }}">{{ experience.host.title }}</a>
+      </div> {# end card-footer #}
 
+    </div> {# end card #}
 
-            </div>
-	    {# end card #}
+  </div> {# end column #}
+  {% endfor %}
 
-        </div>
-        {% endfor %}
-
-    </div>
+  </div>
 </div>
