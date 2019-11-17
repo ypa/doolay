@@ -2,7 +2,7 @@
 
 ## Indexing
 Run the following to update the search indexes:
-```
+```sh
 dj update_index
 ```
 Run the command every time a model is updated.
@@ -10,7 +10,7 @@ Maybe create a cron to run everyday.
 
 
 ## Running Code Formatter using yapf
-```
+```sh
 $ pwd # root of the project
 /Users/ypa/work/doolay/doolay
 $ yapf -r ./doolay/ -e "*migrations*" -vv | grep -i reformatting # Dry run: find out what files to be formated
@@ -21,32 +21,32 @@ $ yapf -r ./doolay/ -e "*migrations*" -vv -i # format the files in place
 ## Backing up
 ### Using pg_dump
 Run the following from the VM to get the pgdump
-```
+```sh
 [doolay vagrant]$ pg_dump doolay > doolay.sql
 ```
 
 ### Dropping database (careful!)
 And then recreating it from the backup file.
-```
+```sh
 [doolay vagrant]$ dropdb doolay
 [doolay vagrant]$ createdb doolay
 [doolay vagrant]$ psql doolay < doolay.sql
 ```
 
 ### Using django dumpdata to fixtures
-```
+```sh
 python manage.py dumpdata --natural-foreign --natural-primary --indent=4 --exclude sessions --exclude admin --format=json > doolay/fixtures/initial_data.json
 ```
 
 For unittest base test data (excluding unnessary tables)
-```
+```sh
 python manage.py dumpdata --natural-foreign --natural-primary  -e contenttypes -e auth.Permission --indent=4 --exclude sessions --exclude admin -e wagtailcore.groupcollectionpermission -e wagtailcore.grouppagepermission -e wagtailcore.pagerevision -e bookings.booking --format=json > doolay/fixtures/test.json
 ```
 Then open the file and manually set the `live_revision` fields to `null`.
 
 
 ## Launching GCE VM
-```
+```sh
 vagrant up gce --provider=google # This could take a long long time (to establish connection with google). It might be better to do it on Mac Mini.
 ```
 
@@ -65,11 +65,11 @@ Admin Url: http://demo.doolay.com/admin
 ### Logs
 
 - App log:
-```
+```sh
 [doolay vagrant]$ less ~/sites/staging.doolay.com/error.log
 ```
 - Gunicorn startup log:
-```
+```sh
 [doolay vagrant]$ less ~/sites/staging.doolay.com/gunicorn-error.log
 ```
 
@@ -78,7 +78,7 @@ Admin Url: http://demo.doolay.com/admin
 This minimum site setup could be used for extracting fixtures for the unittests. See the above on how to run `manage.py dumpdata` whithout unnecessary tables.
 
 0. Creating DB from scratch
-```
+```sh
 createdb doolay
 ./manage.py migrate
 ./manage.py createsuperuser
@@ -100,7 +100,7 @@ Visit the URLs: `/experiences/`, `/hosts/`, `/places/` and other individual page
 
 ### Running Unittests
 
-```
+```sh
 $ vagrant up dev
 $ vagrant ssh dev
 [doolay vagrant]$ pip install -r requirements/dev.txt  # installing model_mommy etc
@@ -114,7 +114,7 @@ $ vagrant ssh dev
 #### Unittest caching site root paths
 
 Sometimes after running unittests and then when you start up the dev server with `djrun` you might run into the broken pages with at:
-```
+```sh
 ...
 'NoneType' object has no attribute 'startswith'
 ...
@@ -122,13 +122,13 @@ Exception Location:	/vagrant/doolay/home/templatetags/navigation_tags.py in top_
 ```
 
 That is because site root paths are getting cached in Redis. Some of my debugging outputs from `pdb`:
-```
+```sh
 <function RedisCache.get at 0x7ff0f17ee840>
 (Pdb) p method(self, 'wagtail_site_root_paths')
 [(1, '/home/', 'http://localhost'), (2, '/home/', 'http://localhost:8081')]
 ```
 
 You could resolve it by flushing the Redis cache:
-```
+```sh
 [doolay vagrant]$ redis-cli flushall
 ```
