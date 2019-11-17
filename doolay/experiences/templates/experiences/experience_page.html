@@ -5,56 +5,60 @@
 
 {% block content %}
 <content>
-    <div class="lead_image">
-        {% image page.image width-2000 as photo %}
-            <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-fit-cover img-responsive" />
+
+  <div class="lead_image">
+      {% image page.image width-2000 as photo %}
+      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" class="img-fit-cover img-responsive" />
+  </div>
+
+  <h1 class="over_image">{{ page.title }}</h1>
+
+  {% if page.duration %}
+  <div class="duration"><i class="icon icon-time"></i> {{page.duration|duration}} </div>
+  {% endif %}
+
+  <main role="main">
+    {{ page.body }}
+  </main>
+
+  <div class="card">
+
+    <div class="card-header text-center">
+
+      <div class="example-tile-icon">
+        {% image page.host.image fill-100x100-c100 as host_photo %}
+        <a href="{{ page.host.url }}">
+          <figure class="avatar avatar-lg">
+            <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" />
+          </figure>
+        </a>
+      </div>
+
+      <div class="card-title h5 mt-10">
+        <a href="{{ page.host.url }}" class="tile-tile">{{ page.host.title }}</a>
+      </div>
+
+      <div class="card-subtitle text-gray">Available dates</div>
+      <div class="toast toast-success" style="display: none;">
+        Your booking request was submitted. We will contact you shortly via E-mail.
+      </div>
+
+    </div> {# end card-header #}
+
+    <div class="card-body">
+      {% booking_calendar %}
     </div>
 
-    <h1 class="over_image">{{ page.title }}</h1>
-    {% if page.duration %}
-        <div class="duration"><i class="icon icon-time"></i> {{page.duration|duration}} </div>
-    {% endif %}
-
-
-    <main role="main">
-    	{{ page.body }}
-    </main>
-
-
-
-    <div class="card">
-        <div class="card-header text-center">
-            <div class="example-tile-icon">
-                {% image page.host.image fill-100x100-c100 as host_photo %}
-                <a href="{{ page.host.url }}">
-                    <figure class="avatar avatar-lg">
-                        <img src="{{ host_photo.url }}" width="{{ host_photo.width }}" height="{{ host_photo.height }}" alt="{{ host_photo.alt }}" title="{{ host.title }}" /></a>
-                </figure>
-            </div>
-            <div class="card-title h5 mt-10">
-                <a href="{{ page.host.url }}" class="tile-tile">{{ page.host.title }}</a>
-            </div>
-            <div class="card-subtitle text-gray">Available dates</div>
-            <div class="toast toast-success" style="display: none;">
-              Your booking request was submitted. We will contact you shortly via E-mail.
-            </div>
-        </div> {# end card-header #}
-        <div class="card-body">
-
-            {% booking_calendar %}
-
-        </div> {# end card-body #}
-        <div class="card-footer text-center">
-            <div class="tile-action">
-                <a class="btn btn-primary" href="#booking-modal" id="booking-request">Request booking for select date</a>
-            </div>
-
-            {% booking_modal %}
-
-        </div>
+    <div class="card-footer text-center">
+      <div class="tile-action">
+        <a class="btn btn-primary" href="#booking-modal" id="booking-request">Request booking for select date</a>
+      </div>
+      {% booking_modal %}
     </div>
-    {# end card #}
 
+  </div>
+  {# end card #}
 
 </content>
+
 {% endblock %}
