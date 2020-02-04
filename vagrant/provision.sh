@@ -88,6 +88,7 @@ cat << EOF >> /home/vagrant/.bashrc
 export PYTHONPATH=$PROJECT_DIR
 export DJANGO_SETTINGS_MODULE=$PROJECT_NAME.settings.dev
 
+alias ll="ls -l"
 alias dj="django-admin.py"
 alias djrun="dj runserver 0.0.0.0:8000"
 
