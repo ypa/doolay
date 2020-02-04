@@ -8,6 +8,9 @@ VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
 PYTHON=$VIRTUALENV_DIR/bin/python
 PIP=$VIRTUALENV_DIR/bin/pip
 
+# Update repos
+apt-get update
+
 # Install nginx
 apt-get install -y nginx
 systemctl enable nginx
