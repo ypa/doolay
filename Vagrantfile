@@ -77,7 +77,7 @@ Vagrant.configure(2) do |config|
     # boxes at https://atlas.hashicorp.com/search.
     # dev.vm.box = "vzmm/doolay"
     # dev.vm.box_version = "0.0.1"
-    dev.vm.box = "torchbox/wagtail-stretch64"
+    dev.vm.box = "wagtail/buster64"
     dev.vm.box_version = "1.0.0"
   end
 
