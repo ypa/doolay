@@ -96,14 +96,14 @@ Vagrant.configure(2) do |config|
       google.google_json_key_location = File.join(File.expand_path("..", File.dirname(__FILE__)),
                                                   "private-key.json")
   
-      google.name = "demo-doolay-stretch64-v1"
+      google.name = "demo-doolay-buster-v1"
   
       google.zone = "europe-west3-b"
   
   
       google.machine_type = "f1-micro"
   
-      google.image = "doolay-stretch-v1"
+      google.image = "doolay-buster-v1"
   
       override.ssh.username = "vagrant"
       override.ssh.private_key_path = "~/.ssh/id_rsa"
