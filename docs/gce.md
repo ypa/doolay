@@ -31,6 +31,8 @@ Check the `Vagrantfile` and check the `install/install.sh` files and make sure t
 Remember we' will be building a Vagrant base image that we could deploy our `doolay` app to with Vagrant.
 Take a look at Wagtail repo:https://github.com/wagtail/vagrant-wagtail-base for reference. They tend to have different git branch for building different debian base images. On Thinkpad the wagtail's vagrant base repo was already cloned at `~/work/vagrant-wagtail-base/`. Just need to fetch the latest.
 
+### Create the VM
+
 From thinkpad as vagrant user:
 ```sh
 sudo su vagrant
