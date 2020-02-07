@@ -110,3 +110,17 @@ Bake the image so that you can now use it as a base image from doolay repo:
 4. Name the image such as `doolay-buster-v1` (this will be used from doolay's Vagrantfile).
 5. Select source disk from the stopped VM, eg., `doolay-buster`.
 6. (Optional) you can now delete the stopped base VM instance because are now ready to launch the real doolay VM instance from the base image!
+
+
+### Use the base image from doolay
+
+Back in doolay repo update the `Vagrantfile` `google.image` with the above image. Also update the `google.name` to something unique.
+
+After that you can launch the VM and provision it for doolay:
+
+As `ypa` user:
+
+```
+[ypa@anna doolay]$ vagrant up gce --provider=google
+```
+
