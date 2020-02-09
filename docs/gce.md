@@ -137,4 +137,4 @@ If ssh doesn't come up and stuck do the following.
 9. Exit out of the VM.
 10. Run vagrant provision command `[ypa@anna doolay]$ vagrant provision gce`. That should install python third party libs such as Django, Wagtail, etc in virtual env and other necessary packages needed run doolay.
 
-Follow instructions on deployment notes for setting up nginx and gunicorn.
+Follow instructions on provision notes inside doolay/deploy_tools dir for setting up nginx and gunicorn.
