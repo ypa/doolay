@@ -123,4 +123,18 @@ As `ypa` user:
 ```
 [ypa@anna doolay]$ vagrant up gce --provider=google
 ```
+If ssh doesn't come up and stuck do the following.
 
+#### Add ssh keys to the dolay's VM
+1. Stop the VM instance on google web console.
+2. Click on the VM instance.
+3. Click Edit on top of the page
+4. Add ssh keys on page: Copy both `~.ssh/id_rsa.pub` files of `ypa` and `vagrant` users on thinkpad.
+5. Start the instance again.
+6. From thinkpad as `ypa` user ssh into the instance public IP address.
+7. Once on the instance su to vagrant: `su vagrant`
+8. Manually copy the ssh keys in step 4. to VM's vagrant users `~.ssh/authorized_keys`.
+9. Exit out of the VM.
+10. Run vagrant provision command `[ypa@anna doolay]$ vagrant provision gce`. That should install python third party libs such as Django, Wagtail, etc in virtual env and other necessary packages needed run doolay.
+
+Follow instructions on deployment notes for setting up nginx and gunicorn.
