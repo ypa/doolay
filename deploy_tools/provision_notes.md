@@ -8,6 +8,8 @@ Once VM is up and running via vagrant up command, we need to bootstrap nginx con
 
 ```
 vagrant ssh
+# or manually ssh
+ssh vagrant@<VM.instance.IP.address>
 ```
 2. Once you're on VM install nginx conf files.
 ```

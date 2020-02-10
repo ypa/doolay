@@ -130,6 +130,7 @@ If ssh doesn't come up and stuck do the following.
 2. Click on the VM instance.
 3. Click Edit on top of the page
 4. Add ssh keys on page: Copy both `~.ssh/id_rsa.pub` files of `ypa` and `vagrant` users on thinkpad.
+5. While you're at it enable HTTP and HTTPS traffics. Check those check boxes.
 5. Start the instance again.
 6. From thinkpad as `ypa` user ssh into the instance public IP address.
 7. Once on the instance su to vagrant: `su vagrant`
