@@ -172,20 +172,6 @@ COMPRESS_PRECOMPILERS = [
     ('text/x-scss', 'django_libsass.SassCompiler'),
 ]
 
-# Use Redis as the cache backend for extra performance
-
-# configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
-CACHES = {'default': django_cache_url.config()}
-
-# Use Elasticsearch as the search backend for extra performance and better search results
-
-WAGTAILSEARCH_BACKENDS = {
-    'default': {
-        'BACKEND': 'wagtail.search.backends.elasticsearch5',
-        'INDEX': 'doolay',
-    },
-}
-
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "doolay"

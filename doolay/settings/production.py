@@ -1,5 +1,6 @@
 import os
 import dj_database_url
+import django_cache_url
 
 from .base import *
 
@@ -36,6 +37,16 @@ for key, value in os.environ.items():
 # Basic configuration
 
 APP_NAME = env.get('APP_NAME', 'doolay')
+
+
+# Use Elasticsearch as the search backend for extra performance and better search results
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.search.backends.elasticsearch5',
+        'INDEX': 'doolay',
+    },
+}
 
 if 'SECRET_KEY' in env:
     SECRET_KEY = env['SECRET_KEY']
@@ -92,32 +103,35 @@ else:
 # Redis
 # Redis place can either be passed through with REDIS_HOST or REDIS_SOCKET
 
-if 'REDIS_URL' in env:
-    REDIS_LOCATION = env['REDIS_URL']
-    BROKER_URL = env['REDIS_URL']
+# configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
+CACHES = {'default': django_cache_url.config()}
 
-elif 'REDIS_HOST' in env:
-    REDIS_LOCATION = env['REDIS_HOST']
-    BROKER_URL = 'redis://%s' % env['REDIS_HOST']
-
-elif 'REDIS_SOCKET' in env:
-    REDIS_LOCATION = 'unix://%s' % env['REDIS_SOCKET']
-    BROKER_URL = 'redis+socket://%s' % env['REDIS_SOCKET']
-
-else:
-    REDIS_LOCATION = None
-
-if REDIS_LOCATION is not None:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django_redis.cache.RedisCache',
-            'LOCATION': REDIS_LOCATION,
-            'KEY_PREFIX': APP_NAME,
-            'OPTIONS': {
-                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            }
-        }
-    }
+# if 'REDIS_URL' in env:
+#     REDIS_LOCATION = env['REDIS_URL']
+#     BROKER_URL = env['REDIS_URL']
+# 
+# elif 'REDIS_HOST' in env:
+#     REDIS_LOCATION = env['REDIS_HOST']
+#     BROKER_URL = 'redis://%s' % env['REDIS_HOST']
+# 
+# elif 'REDIS_SOCKET' in env:
+#     REDIS_LOCATION = 'unix://%s' % env['REDIS_SOCKET']
+#     BROKER_URL = 'redis+socket://%s' % env['REDIS_SOCKET']
+# 
+# else:
+#     REDIS_LOCATION = None
+# 
+# if REDIS_LOCATION is not None:
+#     CACHES = {
+#         'default': {
+#             'BACKEND': 'django_redis.cache.RedisCache',
+#             'LOCATION': REDIS_LOCATION,
+#             'KEY_PREFIX': APP_NAME,
+#             'OPTIONS': {
+#                 'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#             }
+#         }
+#     }
 
 # Logging
 
