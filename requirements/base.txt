@@ -1,13 +1,20 @@
-Django>=2.0,<2.1
-psycopg2==2.7.3
+uwsgi>=2.0.17,<2.1
+Django>=3.0,<3.1
+# Django>=2.0,<2.1
+wagtail>=2.9,<2.10
+# wagtail>=2.0,<2.1
+django-dotenv==1.4.1
+
+
+psycopg2>=2.7,<3.0
 elasticsearch>=5.0.0,<6.0.0
 redis==2.10.6
 django-redis==4.3.0
-wagtail>=2.0,<2.1
+django_cache_url==2.0.0
 django-libsass==0.6
 libsass==0.8.3
 Pillow>=4.0,<5.0
-whitenoise==2.0.4
+whitenoise>=5.0,<5.1
 
 # bookings and events
 django-eventtools>=0.9
