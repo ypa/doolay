@@ -174,16 +174,8 @@ COMPRESS_PRECOMPILERS = [
 
 # Use Redis as the cache backend for extra performance
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': '127.0.0.1:6379',
-        'KEY_PREFIX': 'doolay',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
+# configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
+CACHES = {'default': django_cache_url.config()}
 
 # Use Elasticsearch as the search backend for extra performance and better search results
 
