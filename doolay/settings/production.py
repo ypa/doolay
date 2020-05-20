@@ -43,10 +43,31 @@ APP_NAME = env.get('APP_NAME', 'doolay')
 
 WAGTAILSEARCH_BACKENDS = {
     'default': {
-        'BACKEND': 'wagtail.search.backends.elasticsearch5',
+        'BACKEND': 'wagtail.search.backends.elasticsearch2',
         'INDEX': 'doolay',
     },
 }
+
+# Configure Elasticsearch, if present in os.environ
+ELASTICSEARCH_ENDPOINT = os.getenv('ELASTICSEARCH_ENDPOINT', '')
+
+if ELASTICSEARCH_ENDPOINT:
+    from elasticsearch import RequestsHttpConnection
+    WAGTAILSEARCH_BACKENDS = {
+        'default': {
+            'BACKEND': 'wagtail.search.backends.elasticsearch2',
+            'HOSTS': [{
+                'host': ELASTICSEARCH_ENDPOINT,
+                'port': int(os.getenv('ELASTICSEARCH_PORT', '9200')),
+                'use_ssl': os.getenv('ELASTICSEARCH_USE_SSL', 'off') == 'on',
+                'verify_certs': os.getenv('ELASTICSEARCH_VERIFY_CERTS', 'off') == 'on',
+            }],
+            'OPTIONS': {
+                'connection_class': RequestsHttpConnection,
+            },
+        }
+    }
+
 
 if 'SECRET_KEY' in env:
     SECRET_KEY = env['SECRET_KEY']
