@@ -154,6 +154,31 @@ CACHES = {'default': django_cache_url.config()}
 #         }
 #     }
 
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_AUTO_CREATE_BUCKET = True
+
+    INSTALLED_APPS.append('storages')
+    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+if 'GS_BUCKET_NAME' in os.environ:
+    GS_BUCKET_NAME = os.getenv('GS_BUCKET_NAME')
+    GS_PROJECT_ID = os.getenv('GS_PROJECT_ID')
+    GS_DEFAULT_ACL = 'publicRead'
+    GS_AUTO_CREATE_BUCKET = True
+
+    INSTALLED_APPS.append('storages')
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    
 # Logging
 
 LOGGING = {
