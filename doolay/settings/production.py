@@ -8,7 +8,7 @@ from .base import *
 # Instead, use environment variables or create a local.py file on the server.
 
 # Disable debug mode
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG', 'off') == 'on'
 TEMPLATES[0]['OPTIONS']['debug'] = False
 
 ALLOWED_HOSTS = [
