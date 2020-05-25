@@ -11,8 +11,8 @@ elasticsearch==2.4.1
 redis==2.10.6
 django-redis==4.3.0
 django_cache_url==2.0.0
-django-libsass==0.6
-libsass==0.8.3
+django-libsass==0.8
+libsass==0.20.0
 Pillow>=4.0,<5.0
 whitenoise>=5.0,<5.1
 
