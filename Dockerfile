@@ -42,7 +42,7 @@ ADD . /code/
 EXPOSE 8000
 
 # Add custom environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=doolay.settings.production DJANGO_DEBUG=off
+ENV DJANGO_SETTINGS_MODULE=doolay.settings.production DJANGO_DEBUG=on
 
 # Tell uWSGI where to find your wsgi file:
 ENV UWSGI_WSGI_FILE=doolay/wsgi.py
