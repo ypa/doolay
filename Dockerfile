@@ -61,6 +61,8 @@ RUN DATABASE_URL=postgres://none REDIS_URL=none /venv/bin/python manage.py colle
 
 # make sure static files are writable by uWSGI process
 RUN mkdir -p /code/doolay/media/images && chown -R 1000:2000 /code/doolay/media
+RUN chown -R 1000:2000 /code/media
+RUN chown -R 1000:2000 /code/static
 
 # mark the destination for images as a volume
 VOLUME ["/code/doolay/media/images/"]
