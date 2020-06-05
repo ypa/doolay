@@ -42,6 +42,9 @@ apt install -y openjdk-8-jre-headless ca-certificates-java
 apt-get install -y fabric
 
 
+# Install pip3
+apt-get install -y python3-pip
+
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
 pip3 install virtualenv
 
