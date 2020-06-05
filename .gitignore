@@ -35,3 +35,6 @@ doolay/fixtures/images/*
 # Sublime Text files
 *.sublime-project
 *.sublime-workspace
+
+# django env
+.env
