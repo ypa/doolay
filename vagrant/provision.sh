@@ -15,7 +15,7 @@ apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-
 apt-get install -y redis-server
 
 # PostgreSQL
-echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 cat /vagrant/vagrant/ACCC4CF8.asc | apt-key add
 apt-get update -y
 apt-get install -y postgresql-11 postgresql-client-11 postgresql-contrib-11 libpq-dev
