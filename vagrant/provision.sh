@@ -6,7 +6,7 @@
 apt-get update -y
 
 # Useful tools
-apt-get install -y vim git curl gettext build-essential
+apt-get install -y rsync vim git curl gettext build-essential
 
 # Dependencies for PIL
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
