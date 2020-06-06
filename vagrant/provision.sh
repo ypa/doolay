@@ -94,6 +94,9 @@ VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
 PYTHON=$VIRTUALENV_DIR/bin/python
 PIP=$VIRTUALENV_DIR/bin/pip
 
+# Update repos
+apt-get update
+
 # Install nginx
 apt-get install -y nginx
 systemctl enable nginx
@@ -176,6 +179,7 @@ cat << EOF >> /home/vagrant/.bashrc
 export PYTHONPATH=$PROJECT_DIR
 export DJANGO_SETTINGS_MODULE=$PROJECT_NAME.settings.dev
 
+alias ll="ls -l"
 alias dj="django-admin.py"
 alias djrun="dj runserver 0.0.0.0:8000"
 
