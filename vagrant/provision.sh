@@ -167,7 +167,7 @@ su - vagrant -c "cd /home/vagrant/sites/staging.doolay.com/source/ && \
 # Run custom developed command for cleaning up image renditions
 su - vagrant -c "cd /home/vagrant/sites/staging.doolay.com/source/ && \
 	export SECRET_KEY='mk2##cx8nq7r%ir_h$d8%(u_!5-nv4py4o6med8y%ux90*+)g2' && \
-	$PYTHON manage.py cleanup_wagtailimage_renditions"
+	$PYTHON manage.py cleanup_wagtailimage_renditions --settings doolay.settings.production"
 
 # Restart gunicorn and nginx
 sudo systemctl start gunicorn-doolay-staging
