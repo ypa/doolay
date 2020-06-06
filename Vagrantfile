@@ -77,7 +77,7 @@ Vagrant.configure(2) do |config|
     # boxes at https://atlas.hashicorp.com/search.
     # dev.vm.box = "vzmm/doolay"
     # dev.vm.box_version = "0.0.1"
-    dev.vm.box = "debian/stretch64"
+    dev.vm.box = "ubuntu/bionic64"
   end
 
   # GCE 
