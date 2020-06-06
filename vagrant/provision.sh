@@ -15,10 +15,10 @@ apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-
 apt-get install -y redis-server
 
 # PostgreSQL
-echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 cat /vagrant/vagrant/ACCC4CF8.asc | apt-key add
 apt-get update -y
-apt-get install -y postgresql-9.6 postgresql-client-9.6 postgresql-contrib-9.6 libpq-dev
+apt-get install -y postgresql-11 postgresql-client-11 postgresql-contrib-11 libpq-dev
 
 # Java for Elasticsearch
 apt install -y openjdk-8-jre-headless ca-certificates-java
@@ -38,12 +38,11 @@ apt install -y openjdk-8-jre-headless ca-certificates-java
 # apt-get remove -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
 
 
-# Fabric (doesn't support Python 3 so installing into system's Python 2)
-apt-get install -y fabric
-
-
 # Install pip3
 apt-get install -y python3-pip
+
+# Install poetry and Fabric
+pip3 install poetry Fabric
 
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
 pip3 install virtualenv
