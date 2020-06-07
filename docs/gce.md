@@ -88,18 +88,18 @@ Once you're on the VM instance manully install these packages so that you can ru
      - name: Install useful tools
        apt:
    ```
-5. Create `/vagrant` directory and copy code there
+5. Provision the base VM with ansible playbook as original sudo user
    ```sh
    exit # out of vagrant and be root
    whoami # root
-   mkdir /vagrant
-   rsync -ap /tmp/doolay/ /vagrant/
-   ```
-6. Provision the base VM with ansible playbook as original sudo user
-   ```sh
    exit
    whoami # yan_pye_aung_gmail_com
    ansible-playbook /tmp/doolay/ansible/playbook.yml
+   ```
+6. Sync `/vagrant` directory and copy code there
+   ```sh
+   sudo su # back to root
+   rsync -ap /tmp/doolay/ /vagrant/
    ```
 7. Provision/bootstrap the app by running shell provisioner
    ```sh
