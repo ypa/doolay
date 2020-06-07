@@ -1,6 +1,18 @@
 ---
 - hosts: all
   tasks:
+    - name: Ensure vagrant user is there (for running with local connection on GCE VM)
+      user:
+        name: vagrant
+      become: yes
+
+    - name: Ensure vagrant directory is present (for running with local connection on GCE VM)
+      file:
+        path: /vagrant
+        state: directory
+        owner: vagrant
+      become: yes
+
     - name: Install useful tools
       apt:
         pkg:
