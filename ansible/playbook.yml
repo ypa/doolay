@@ -1,0 +1,172 @@
+---
+- hosts: all
+  tasks:
+    - name: Install useful tools
+      apt:
+        pkg:
+          - tree
+          - psmisc
+          - rsync
+          - vim
+          - git
+          - curl
+          - gettext
+          - build-essential
+        state: latest
+        update_cache: yes
+      become: yes
+      tags:
+        - packages
+
+    - name: Install dependencies for PIL
+      apt:
+        pkg:
+          - libjpeg-dev
+          - libtiff-dev
+          - zlib1g-dev
+          - libfreetype6-dev
+          - liblcms2-dev
+        state: present
+        update_cache: yes
+      become: yes
+      tags:
+        - packages
+
+    - name: Install Redis server
+      apt:
+        pkg:
+          - redis-server
+        state: present
+        update_cache: yes
+      become: yes
+      tags:
+        - redis
+
+    - name: Add apt key for Postgres apt repository
+      apt_key:
+        url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+        state: present
+      become: yes
+      tags:
+        - postgres
+
+    - name: Add Postgres apt repository for debian buster
+      apt_repository:
+        repo: deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main
+        state: present
+      become: yes
+      tags:
+        - postgres
+
+    - name: Install Postgres DB and clients
+      apt:
+        pkg:
+          - postgresql-11
+          - postgresql-client-11
+          - postgresql-contrib-11
+          - libpq-dev
+        state: present
+        update_cache: yes
+      become: yes
+      tags:
+        - postgres
+
+    - name: Install Python pip3
+      apt:
+        pkg: python3-pip
+        state: present
+        update_cache: yes
+        autoremove: yes
+      become: yes
+      tags:
+        - python
+
+    - name: Install Python package tools with pip3
+      command: /usr/bin/pip3 install setuptools wheel virtualenv poetry
+      become: yes
+      tags:
+        - python
+
+    - name: Install OpenJDK and necessary packages for Elasticsearch
+      apt:
+        pkg:
+          - openjdk-11-jre-headless
+          - ca-certificates-java
+          - apt-transport-https
+        state: present
+        update_cache: yes
+      become: yes
+      tags:
+        - elasticsearch
+
+    - name: Add apt key for Elasticsearch apt repository
+      apt_key:
+        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        state: present
+      become: yes
+      tags:
+        - elasticsearch
+
+    - name: Add Elasticsearch apt repository
+      apt_repository:
+        repo: deb https://artifacts.elastic.co/packages/5.x/apt stable main
+        state: present
+      become: yes
+      tags:
+        - elasticsearch
+
+    - name: Install Elasticsearch
+      apt:
+        name: elasticsearch=5.6.8
+        state: present
+        update_cache: yes
+      become: yes
+      tags:
+        - elasticsearch
+
+    - name: Configure Elasticsearch JVM heap size from 2g to 512m
+      command: sed -i 's/^\(-Xm[sx]\)2g$/\1512m/g' /etc/elasticsearch/jvm.options
+      become: yes
+      tags:
+        - elasticsearch
+
+    - name: Ensure Elasticsearch is running
+      systemd:
+        name: elasticsearch
+        enabled: yes
+        state: started
+      become: yes
+      tags:
+        - elasticsearch
+
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
+      become: yes
+      tags:
+        - cleanup
+
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+      become: yes
+      tags:
+        - cleanup
+
+    - name: Install nginx
+      apt:
+        pkg:
+          - nginx
+        state: present
+        update_cache: yes
+      become: yes
+      tags:
+        - nginx
+
+    - name: Ensure Nginx is enabled
+      systemd:
+        name: nginx
+        enabled: yes
+      become: yes
+      tags:
+        - nginx

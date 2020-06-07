@@ -1,11 +1,11 @@
 Django>=2.0,<2.1
-psycopg2==2.7.3
+psycopg2>=2.8.4
 elasticsearch>=5.0.0,<6.0.0
 redis==2.10.6
 django-redis==4.3.0
 wagtail>=2.0,<2.1
-django-libsass==0.6
-libsass==0.8.3
+django-libsass>=0.7
+# libsass==0.8.3
 Pillow>=4.0,<5.0
 whitenoise==2.0.4
 

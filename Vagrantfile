@@ -1,15 +1,21 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = 2
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-Vagrant.configure(2) do |config|
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = "debian/buster64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -59,6 +65,14 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
+
+  #
+  # Run Ansible from the Vagrant Host
+  #
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "ansible/playbook.yml"
+  end
+
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
@@ -66,49 +80,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  config.vm.provision :shell, :path => "vagrant/provision.sh", :args => "doolay"
+  config.vm.provision :shell, :path => "scripts/provision.sh", :args => "doolay"
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
-
-  # Dev VirtualBox
-  config.vm.define :dev, primary: true do |dev|
-    # Every Vagrant development environment requires a box. You can search for
-    # boxes at https://atlas.hashicorp.com/search.
-    # dev.vm.box = "vzmm/doolay"
-    # dev.vm.box_version = "0.0.1"
-    dev.vm.box = "torchbox/wagtail-stretch64"
-    dev.vm.box_version = "1.0.0"
-  end
-
-  # GCE 
-  config.vm.define :gce, autostart: false do |gce_vm|
-
-    gce_vm.vm.provider :google do |google, override|
-  
-      override.vm.box = "gce"
-      config.vm.box_version = nil
-  
-      google.google_project_id = "findingmyanmar"
-      google.google_client_email = "doolay@findingmyanmar.iam.gserviceaccount.com"
-  
-      # Look for the Google private-key.json in the directory above.
-      google.google_json_key_location = File.join(File.expand_path("..", File.dirname(__FILE__)),
-                                                  "private-key.json")
-  
-      google.name = "demo-doolay-stretch64-v1"
-  
-      google.zone = "europe-west3-b"
-  
-  
-      google.machine_type = "f1-micro"
-  
-      google.image = "doolay-stretch-v1"
-  
-      override.ssh.username = "vagrant"
-      override.ssh.private_key_path = "~/.ssh/id_rsa"
-      #override.ssh.private_key_path = "~/.ssh/google_compute_engine"
-    end
-  end
 
 end
