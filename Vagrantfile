@@ -85,43 +85,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
 
-  # Dev VirtualBox
-  config.vm.define :dev, primary: true do |dev|
-    # Every Vagrant development environment requires a box. You can search for
-    # boxes at https://atlas.hashicorp.com/search.
-    # dev.vm.box = "vzmm/doolay"
-    # dev.vm.box_version = "0.0.1"
-    dev.vm.box = "debian/buster64"
-  end
-
-  # GCE 
-  config.vm.define :gce, autostart: false do |gce_vm|
-
-    gce_vm.vm.provider :google do |google, override|
-  
-      override.vm.box = "gce"
-      config.vm.box_version = nil
-  
-      google.google_project_id = "findingmyanmar"
-      google.google_client_email = "doolay@findingmyanmar.iam.gserviceaccount.com"
-  
-      # Look for the Google private-key.json in the directory above.
-      google.google_json_key_location = File.join(File.expand_path("..", File.dirname(__FILE__)),
-                                                  "private-key.json")
-  
-      google.name = "demo-doolay-stretch64-v1"
-  
-      google.zone = "europe-west3-b"
-  
-  
-      google.machine_type = "f1-micro"
-  
-      google.image = "doolay-stretch-v1"
-  
-      override.ssh.username = "vagrant"
-      override.ssh.private_key_path = "~/.ssh/id_rsa"
-      #override.ssh.private_key_path = "~/.ssh/google_compute_engine"
-    end
-  end
-
 end
