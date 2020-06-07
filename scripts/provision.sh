@@ -8,7 +8,7 @@ VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
 PYTHON=$VIRTUALENV_DIR/bin/python
 PIP=$VIRTUALENV_DIR/bin/pip
 
-echo "Zeroing free space to improve compression..."
+echo "Zeroing free space to improve compression, this will take a few minutes..."
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
 
@@ -63,17 +63,17 @@ su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py makemigrations && \
 #                  $PYTHON $PROJECT_DIR/manage.py update_index"
 
 # Configure nginx
-su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
-  $PROJECT_DIR/deploy_tools/nginx.template.conf | sudo tee \
+sed 's/SITENAME/staging.doolay.com/g' \
+  $PROJECT_DIR/deploy_tools/nginx.template.conf | tee \
   /etc/nginx/sites-available/staging.doolay.com && \
-        sudo ln -s /etc/nginx/sites-available/staging.doolay.com \
-        /etc/nginx/sites-enabled/staging.doolay.com"
+        ln -s /etc/nginx/sites-available/staging.doolay.com \
+        /etc/nginx/sites-enabled/staging.doolay.com
 
 # Gunicorn systemd script
-su - vagrant -c "sed 's/SITENAME/staging.doolay.com/g' \
-     $PROJECT_DIR/deploy_tools/gunicorn-doolay-SITENAME.service.template  | sudo tee \
+sed 's/SITENAME/staging.doolay.com/g' \
+     $PROJECT_DIR/deploy_tools/gunicorn-doolay-SITENAME.service.template  | tee \
      /etc/systemd/system/gunicorn-doolay-staging.service && \
-     sudo systemctl enable gunicorn-doolay-staging"
+     systemctl enable gunicorn-doolay-staging
 
 # Code deployment
 su - vagrant -c "mkdir -p /home/vagrant/sites/staging.doolay.com/source && \

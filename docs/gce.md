@@ -1,10 +1,11 @@
-Google Compute Engine
-=====================
+# Google Compute Engine
 
 ## GCE console
+
 https://console.cloud.google.com/compute/instances?project=findingmyanmar
 
 ## Install gcloud (the SDK)
+
 ```sh
 cd Downloads/google-cloud-sdk/
 ./install.sh
@@ -16,63 +17,96 @@ gcloud compute project-info add-metadata --metadata-from-file sshKeys=/tmp/id_rs
 gcloud compute images list
 ```
 
-## Create VM instance and image
+## Creating and Provisioning the Compute Engine VM Instance
 
-These are the steps for creating GCE VM instances and images.
-Use vagrant google plugin to spin up Google compute engine instance
+### Create VM instance from Google Cloud console
 
-From thinkpad as vagrant user:
-```sh
-sudo su vagrant
-```
+1. Login to google cloud console from url: https://console.cloud.google.com/
 
-First add gce compatible vagrant box:
-```sh
-vagrant box add gce https://github.com/mitchellh/vagrant-google/raw/master/google.box
-```
+- Username: yan.pye.aung@gmail.com
+- Pwd:
 
-Create the VM:
-```sh
-# First sync up dir with repo
-rsync -a /home/ypa/work/vagrant_doolay_gce_base/ ~/vagrant_boxes/dev/
-cd ~/vagrant_boxes/dev/
-vagrant up --provider=google # This could take a long long time (to establish connection with google)
-```
+2. Click on Compute Engine.
+3. Create Instance.
+4. Enter name of the instance for example: `doolay-demo-buster64`.
+5. Select Region `europe-west3 (Frankfurt)` and Zone `europe-west3-b`. The reason is more Europeans visit Myanmar and we want them to have a snappy connection to our site.
+6. Select Boot disk: `Debian GNU/Linux 10 (buster)`.
+7. Under Firewall Check `Allow HTTP traffic` and `Allow HTTPS traffic`.
+8. Click Create. It'll take a few minutes for the instance to start up and you'll see the green check mark.
 
-If you see the rsyc failing it is because the base debian (jessie) image doesn't come with rsync installed.
+**Note**: Keep Machine type `n1-standard-1 (1 vCPU, 3.75GB memory)` during provisioning then change it to something else like `f1-micro` later.
 
-Do the manual provision steps on the box by ssh'ing into it:
-1. Install rsync
-```sh
-vagrant ssh
-sudo apt-get install rsync
-```
-2. Create a vagrant user.
-3. Add your ~/.ssh/id_rsa.pub keys to vagrant user's ~/.ssh/authorized_keys on the VM.
-4. (optional) update vagrant user's ~/.bashrc aliases.
-5. (optional) Add vagrant user's ~/.vimrc file.
-6. 
+### Provision the VM instance
 
-Exit out of VM and provision the box from vagrant. Back on your local:
-```sh
-vagrant provision --provision-with=shell
-```
-Once GCE VM is provisioned create an image from the VM instance.
-https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images
+#### Connecting the instance
 
+Once the VM instance is created you can ssh into it directly from the browser or from gcloud SDK command (if you set it up with ssh keys in above steps).
 
-## Connecting to demo/staging instance
+1. From the browser logged in to Google Cloud console click on SSH dropdown. Then click gcloud command line.
+   You'll see a command like, for example: `gcloud beta compute ssh --zone "europe-west3-b" "doolay-demo-buster64" --project "findingmyanmar"`
+2. Copy the command and paste it in your terminal where you had previously setup your ssh public keys.
+   You might have to re-auth with OAuth again: `gcloud auth login` if asked. Do that.
 
-```sh
-ssh vagrant@staging.doolay.com
-```
+### Provisioning the instance
 
-Or using gcloud command line client.
+Once you're on the VM instance manully install these packages so that you can run provisioner scripts to bootstrap the app.
 
-```sh
-gcloud compute --project "findingmyanmar" ssh --zone "asia-southeast1-a" "demo-doolay-jessie-v3"
-# then su to vagrant user
-whoami
-sudo su vagrant
-whoami
- ```
+1. Install base software packages as root user.
+   ```sh
+   cd /tmp/
+   sudo su
+   apt update
+   apt install -y git rsync python3-pip
+   pip3 install ansible
+   ```
+2. Add `vagrant` user
+   ```sh
+   adduser vagrant
+   # when prompted for psswrd use: V...
+   ```
+3. As vagrant user setup ssh keys and add it to your github account
+   ```sh
+   su vagrant
+   whoami
+   # Follow the generating ssh key and adding it instructions on Github at: https://help.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+   ```
+4. Clone doolay repository into /tmp as vagrant user
+   ```sh
+   whoami # should show vagrant
+   pwd # should show /tmp
+   git clone git@github.com:ypa/doolay.git
+   ls ./doolay # should show doolay repository contents
+   # update ansible playbook to run locally
+   # TODO: update this so that it can be run without editing on the GCE VM.
+   cd ./doolay
+   vim ./ansible/playbook.yml
+   git diff
+   -- hosts: all
+   +- hosts: 127.0.0.1
+   +  connection: local
+   tasks:
+     - name: Install useful tools
+       apt:
+   ```
+5. Create `/vagrant` directory and copy code there
+   ```sh
+   exit # out of vagrant and be root
+   whoami # root
+   mkdir /vagrant
+   rsync -ap /tmp/doolay/ /vagrant/
+   ```
+6. Provision the base VM with ansible playbook as original sudo user
+   ```sh
+   exit
+   whoami # yan_pye_aung_gmail_com
+   ansible-playbook /tmp/doolay/ansible/playbook.yml
+   ```
+7. Provision/bootstrap the app by running shell provisioner
+   ```sh
+   whoami # yan_pye_aung_gmail_com
+   cd /tmp/doolay/scripts/
+   sudo ./provision.sh doolay
+   ```
+8. The site should come online after the provision, and test it from your local by entering VM's public IP to your /etc/hosts dev.doolay.com.
+9. If the site looks good, shut down the VM and update the instance's machine type back to `f1-micro (1 vCPU, 0.6 GB memory)` (**Important**) to save cost, then start it up again.
+10. Test it again with the new IP by updating /etc/hosts dev.doolay.com on your local.
