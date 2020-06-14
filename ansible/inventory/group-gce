@@ -1,5 +1,6 @@
 [gce]
 gce_dev
+gce_demo
 
 [gce:vars]
 ansible_user=yan_pye_aung_gmail_com

@@ -2,3 +2,5 @@ all:
   hosts:
     gce_dev:
       ansible_host: 35.236.60.16
+    gce_demo:
+      ansible_host: ip.change.me
