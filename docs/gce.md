@@ -17,6 +17,26 @@ gcloud compute project-info add-metadata --metadata-from-file sshKeys=/tmp/id_rs
 gcloud compute images list
 ```
 
+## Create IAM service account (first time only)
+
+```sh
+gcloud iam service-accounts create doolay-ypa \
+    --description="Yan P Aung" \
+    --display-name="ypa"
+
+## should see something like
+# Created service account [doolay-ypa].
+```
+
+Add your public ssh key so that you can directly ssh to the instance from your terminal and also run ansible playbook.
+Step 5 on this [page](https://cloud.google.com/compute/docs/instances/managing-instance-access).
+
+```sh
+gcloud compute os-login ssh-keys add \
+    --key-file ~/.ssh/id_rsa.pub \
+    --ttl 30d    # 30 days
+```
+
 ## Creating and Provisioning the Compute Engine VM Instance
 
 ### Create VM instance from Google Cloud console
@@ -31,8 +51,9 @@ gcloud compute images list
 4. Enter name of the instance for example: `doolay-demo-buster64`.
 5. Select Region `europe-west3 (Frankfurt)` and Zone `europe-west3-b`. The reason is more Europeans visit Myanmar and we want them to have a snappy connection to our site.
 6. Select Boot disk: `Debian GNU/Linux 10 (buster)`.
-7. Under Firewall Check `Allow HTTP traffic` and `Allow HTTPS traffic`.
-8. Click Create. It'll take a few minutes for the instance to start up and you'll see the green check mark.
+7. Under Identity and API access, select Service Account `ypa` created in above step.
+8. Under Firewall Check `Allow HTTP traffic` and `Allow HTTPS traffic`.
+9. Click Create. It'll take a few minutes for the instance to start up and you'll see the green check mark.
 
 **Note**: Keep Machine type `n1-standard-1 (1 vCPU, 3.75GB memory)` during provisioning then change it to something else like `f1-micro` later.
 
@@ -46,6 +67,10 @@ Once the VM instance is created you can ssh into it directly from the browser or
    You'll see a command like, for example: `gcloud beta compute ssh --zone "europe-west3-b" "doolay-demo-buster64" --project "findingmyanmar"`
 2. Copy the command and paste it in your terminal where you had previously setup your ssh public keys.
    You might have to re-auth with OAuth again: `gcloud auth login` if asked. Do that.
+3. SSH directly from your terminal since you've added ssh key in one of the above steps at the top.
+   ```sh
+   ssh yan_pye_aung_gmail_com@<public_ip_address>
+   ```
 
 ### Provisioning the instance
 
