@@ -1,0 +1,4 @@
+all:
+  hosts:
+    gce_dev:
+      ansible_host: 35.236.60.16

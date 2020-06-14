@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: vagrant
   tasks:
     - name: Ensure vagrant user is there (for running with local connection on GCE VM)
       user:

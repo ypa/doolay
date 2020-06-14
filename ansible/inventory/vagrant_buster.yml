@@ -1,0 +1,5 @@
+all:
+  hosts:
+    vagrant_buster:
+      ansible_host: 192.168.55.22
+      ansible_private_key_file: .vagrant/machines/default/virtualbox/private_key
