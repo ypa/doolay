@@ -4,18 +4,12 @@
 
 https://console.cloud.google.com/compute/instances?project=findingmyanmar
 
-## Install gcloud (the SDK)
+## Install GCloud SDK (one time only)
 
-```sh
-cd Downloads/google-cloud-sdk/
-./install.sh
-gcloud init
-echo -n 'ypa:' > /tmp/id_rsa.pub
-cat ~/.ssh/id_rsa.pub >> /tmp/id_rsa.pub
-less /tmp/id_rsa.pub
-gcloud compute project-info add-metadata --metadata-from-file sshKeys=/tmp/id_rsa.pub
-gcloud compute images list
-```
+This is to be installed on your local workstation as a one time setup so that you can run gcloud commands to connect/setup/manage your VMs and other in GCE project.
+
+Refer documentations on:
+https://cloud.google.com/sdk/docs/quickstarts
 
 ## Create IAM service account (first time only)
 
@@ -29,7 +23,7 @@ gcloud iam service-accounts create doolay-ypa \
 ```
 
 Add your public ssh key so that you can directly ssh to the instance from your terminal and also run ansible playbook.
-Step 5 on this [page](https://cloud.google.com/compute/docs/instances/managing-instance-access).
+Refer to this [page](https://cloud.google.com/compute/docs/instances/managing-instance-access) for more info on (optional) how to add SSH keys to accounts. This is so that you can directly ssh into the VM instances or running the playbook etc using your local PC's ssh keys.
 
 ```sh
 gcloud compute os-login ssh-keys add \
