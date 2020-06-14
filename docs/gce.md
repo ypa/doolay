@@ -55,9 +55,9 @@ gcloud compute os-login ssh-keys add \
 
 Once VM is up and running mark down the public IP address.
 
-1. Update the `ansible/inventroy/gce.yml` file for `gce_demo` entry's `ansible_host` filed.
+1. Update the `ansible/inventroy/gce.yml` file for `gce_demo` entry's `ansible_host` field with the public IP address of the VM.
 
-2. Update the `ansible/playbook.yml` file `hosts` field at the top to `gce_demo`, so that when we run the playbook it'll provision the instance.
+2. Update the `ansible/playbook.yml` file `hosts` field at the top to `gce_demo`, so that it'll point to only the VM instance when we run the playbook and it'll only provision the instance.
    You can test run a command by running ansible ad-hock command `ansible gce_demo -a "ls -la"`.
 
 3. From your local terminal run the ansible playbook.
@@ -66,36 +66,36 @@ Once VM is up and running mark down the public IP address.
    ansible-playbook ansible/playbook.yml
    ```
 
-   After the provision is done (took a few minutes), visit the root url of public IP (make sure to put trailing '/' in the url), you should see Nginx default page.
+   After the provision is done (took a few minutes), visit the root url of public IP (make sure to put trailing '/' in the url, eg. `http://34.107.108.139/`), you should see Nginx default page that says **Welcome to Niginx!**.
 
 4. Once ansible-playbook provisioning is done, connect to VM instance (See below ways to connect to instance) and provision the VM with shell script for the rest.
-5. As vagrant user setup ssh keys and add it to your github account
+5. Once connected to VM instance, as vagrant user setup ssh keys and add it to your github account.
    ```sh
    sudo su vagrant
    whoami # should show vagrant
    # Follow the generating ssh key and adding it instructions on Github at: https://help.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
    ```
-6. Clone doolay repository into /tmp as vagrant user
+6. Clone doolay repository into `/tmp` as vagrant user
    ```sh
    whoami # should show vagrant
    cd /tmp
    pwd # should show /tmp
    git clone git@github.com:ypa/doolay.git
-   ls ./doolay # should show doolay repository contents
-   # update ansible playbook to run locally
-   # TODO: update this so that it can be run without editing on the GCE VM.
    cd ./doolay
+   ls # should show doolay repository contents
    git status # should be on master
    ```
 7. Sync `/vagrant` directory and copy code there
    ```sh
    rsync -ap /tmp/doolay/ /vagrant/
+   ls /vagrant/ # show project content
+   exit
    ```
 8. Provision/bootstrap the app by running shell provisioner
    ```sh
    sudo su # be root
    whoami # root
-   cd /tmp/doolay/scripts/
+   cd /vagrant/scripts/
    ./provision.sh doolay
    ```
 9. The site should come online after the provision, and test it from your local by entering VM's public IP to your /etc/hosts demo.doolay.com.
