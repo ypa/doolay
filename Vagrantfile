@@ -25,12 +25,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8000" will access port 8000 on the guest machine.
-  config.vm.network "forwarded_port", guest: 8000, host: 8000, auto_correct: true
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
   config.vm.network "forwarded_port", guest: 80, host: 8080, id: "nginx"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "192.168.55.22"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -69,9 +69,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   # Run Ansible from the Vagrant Host
   #
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "ansible/playbook.yml"
-  end
+  # config.vm.provision "ansible" do |ansible|
+  #   ansible.playbook = "ansible/playbook.yml"
+  # end
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
@@ -80,7 +80,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  config.vm.provision :shell, :path => "scripts/provision.sh", :args => "doolay"
+  # config.vm.provision :shell, :path => "scripts/provision.sh", :args => "doolay"
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true

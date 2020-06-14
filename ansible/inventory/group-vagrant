@@ -1,0 +1,7 @@
+[vagrant]
+vagrant_buster
+
+[vagrant:vars]
+ansible_user=vagrant
+ansible_port=22
+ansible_private_key_file=.vagrant/machines/default/virtualbox/private_key
