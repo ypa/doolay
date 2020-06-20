@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_NAME=$1
+PROJECT_NAME=doolay
 
 PROJECT_DIR=/vagrant
 VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME

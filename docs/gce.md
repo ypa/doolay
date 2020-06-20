@@ -96,7 +96,7 @@ Once VM is up and running mark down the public IP address.
    sudo su # be root
    whoami # root
    cd /vagrant/scripts/
-   ./provision.sh doolay
+   ./provision.sh
    ```
 9. The site should come online after the provision, and test it from your local by entering VM's public IP to your /etc/hosts demo.doolay.com.
 10. If the site looks good, shut down the VM and update the instance's machine type back to `f1-micro (1 vCPU, 0.6 GB memory)` (**Important**) to save cost, then start it up again.
