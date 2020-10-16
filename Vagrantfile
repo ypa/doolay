@@ -80,7 +80,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  # config.vm.provision :shell, :path => "scripts/provision.sh", :args => "doolay"
+  # config.vm.provision :shell, :path => "scripts/provision.sh"
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
